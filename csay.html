@@ -14,29 +14,28 @@
             background: url("http://tc.cferhdb.cn/i/2022/09/06/6316dea7cf887.png") repeat-y;
         }
         .body-box{
-            min-width: 768px;
+            min-width: 320px;
             max-width: 960px;
-            width: 100%;
+            width: auto;
             margin: auto;
-            padding-bottom: 50px;
+            padding: 0 0 50px;
             background: url("http://tc.cferhdb.cn/i/2022/09/06/6316dea7cf887.png") repeat-y;
         }
         .header{
-            width: 100%;
-            height: 400px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316dc9911cba.png") no-repeat 0 0;
-            background-size: cover;
+            min-width: 320px;
+            max-width: 960px;
         }
         .key{
             border: 4px solid #a05b35;
-            width: 560px;
-            height: 52px;
+            min-width: 320px;
+            max-width: 560px;
+            height: 40px;
             margin: 20px auto;
-            line-height: 40px;
+            line-height: 30px;
             color: #ffc693;
-            font-size: 20px;
+            font-size: 18px;
             box-sizing: border-box;
-            padding: 0 44px;
+            padding: 0 36px;
             border-radius: 30px;
             text-align: center;
         }
@@ -45,57 +44,51 @@
             text-align: center;
         }
         .key-add > div{
-            width: 200px;
-            height: 55px;
+            width: 150px;
+            height: 40px;
             display: inline-block;
             box-sizing: border-box;
-            padding: 0 30px;
+            padding: 0;
             cursor: pointer;
-            margin: 0 20px;
-        }
-        .key-add-1{
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png") no-repeat 0 0;
-            background-size: cover;
-        }
-        .key-add-10{
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png") no-repeat 0 0;
-            background-size: cover;
         }
         .pond{
-            width: 700px;
-            height: 450px;
+            min-width: 320px;
+            max-width: 700px;
             margin: 20px auto;
-            background: url("https://game.gtimg.cn/images/actdaoju/act/a20220810makewish/pc_lottery.png") no-repeat 0 0 ;
-            background-size: cover;
-            position: relative;
+            padding: 0 20px;
         }
         .lottery{
-            position: absolute;
-            top: 366px;
-            left: 169px;
+            margin-top: 30px;
+            text-align: center;
         }
         .lottery > div{
-            width: 225px;
-            height: 55px;
-            /*border: 2px solid yellow;*/
-            margin: 0 5px;
+            width: 150px;
+            height: 40px;
+            margin: 0 3px;
             display: inline-block;
-            /*background: #ffc693;*/
-            /*opacity: 0.4;*/
             cursor: pointer;
         }
         .probability{
-            width: 700px;
-            height: 650px;
+            min-width: 320px;
+            max-width: 700px;
             margin: 50px auto;
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316ec3bcaa34.png") no-repeat 0 0 ;
-            background-size: cover;
-            /*border: 2px solid yellow;*/
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 700px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
         }
     </style>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        var key_num = 0;
+
+        $(function (){
+            alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
+        })
+        var key_num = 110;
         const probability = [
             [1,10,'传说暗裔 无序列号版'],
             [11,30, '鹰'],
@@ -115,25 +108,79 @@
             [9981,10000, '暗裔币X100'],
         ];
 
+        function addKey(num) {
+            key_num = $(".key-num").text();
+            key_num = Number(key_num) + Number(num);
+            $(".key-num").text(key_num);
+            alert("恭喜你获得 "+num+" 把钥匙");
+        }
+
+        function take(num) {
+            if(key_num < num) return alert("钥匙不足");
+            let prizeList = '';
+            for(i=0;i<num;i++){
+                var prod = Math.ceil(Math.random()*10000);
+                console.log(prod);
+                var prize = '';
+                for (j = 0; j < probability.length; j++) {
+                    var a = probability[j][0];
+                    var b = probability[j][1];
+                    if (prod >= a && prod <= b) {
+                        prize = probability[j][2];
+                        console.log(prize);
+                    }
+                }
+                prizeList += prize+"\n";
+            }
+            key_num = Number(key_num) - Number(num);
+            $(".key-num").text(key_num);
+            alert(prizeList);
+
+            console.log(prizeList);
+        }
+
+
+        function resultAlert(resultMsg){
+
+        }
 
     </script>
+
 </head>
 <body>
     <div class="body-box">
-        <div class="header"></div>
+        <div class="header">
+            <img src="http://tc.cferhdb.cn/i/2022/09/06/63170d3d8ecad.png" width="100%" height="100%">
+        </div>
         <div class="draw">
-            <div class="key">当前剩余钥匙：<span style="color: #f0f8ff">999</span></div>
+            <div class="key">当前剩余钥匙：<span class="key-num" style="color: #f0f8ff">110</span></div>
             <div class="key-add">
-                <div class="key-add-1"></div><div class="key-add-10"></div>
-            </div>
-            <div class="pond">
-                <div class="lottery">
-                    <div class="lottery-1"></div><div class="lottery-10"></div>
+                <div class="key-add-1" onclick="addKey(1)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-10" onclick="addKey(10)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
                 </div>
             </div>
-            <div class="probability">
-
+            <div class="pond">
+                <img src="http://tc.cferhdb.cn/i/2022/09/06/631702d85ae6e.png" width="100%" height="100%">
             </div>
+            <div class="lottery">
+                <div class="lottery-1" onclick="take(1)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
+                </div>
+                <div class="lottery-10" onclick="take(10)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+            <img src="http://tc.cferhdb.cn/i/2022/09/06/6316ec3bcaa34.png" width="100%" height="100%">
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p>本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p>联系邮箱：cferxbs@qq.com</p>
         </div>
     </div>
 </body>
