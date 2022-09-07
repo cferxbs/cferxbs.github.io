@@ -137,8 +137,9 @@
         var index = 0;
 
         $(function (){
-            // alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
+            alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
             $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
         })
         const probability = [
             [1,10,'传说暗裔 无序列号版'],
@@ -217,6 +218,7 @@
             }
             keyNum = Number(keyNum) - Number(num);
             $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
             alert(prizeList);
         }
 
@@ -249,14 +251,16 @@
             <img src="http://tc.cferhdb.cn/i/2022/09/06/6317128568556.png" width="100%" height="100%">
         </div>
         <div class="draw">
-            <div class="key">当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"></span>
+            <div class="key">
+                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+                拥有暗裔币：<span class="score-count" style="color: #f0f8ff"> </span>
 <!--                <a class="record" href="javascript:void (0);">中奖记录</a>-->
             </div>
             <div class="key-add">
                 <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
                 </div>
-                <div class="key-add-10" onclick="addKey(10)" title="增加11个钥匙">
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
                 </div>
             </div>
