@@ -39,6 +39,9 @@
             border-radius: 30px;
             text-align: center;
         }
+        .record{
+            margin-left: 20px;
+        }
         .key-add{
             width: 100%;
             text-align: center;
@@ -68,6 +71,48 @@
             display: inline-block;
             cursor: pointer;
         }
+        .temp-store{
+            text-align: center;
+            min-width: 320px;
+            max-width: 700px;
+            margin: 50px auto 0;
+            height: 200px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fbda10034.png") no-repeat;
+            background-size: cover;
+        }
+        .temp-store > div{
+            display: inline-block;
+            /*border: 1px solid yellow;*/
+            vertical-align: top;
+        }
+        .ts-title{
+            text-align: center;
+            color: #ffc693;
+            font-size: 38px;
+            line-height: 1.1;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .ts-img{
+            width: 200px;
+            height: 135px;
+             /*border: 2px solid yellow;*/
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fe939e150.png") no-repeat;
+            background-size: cover;
+
+        }
+        .ts-view-img{
+            width: 150px;
+            height: 40px;
+            margin-top: 20px;
+            cursor: pointer
+        }
+        .ts-intro{
+            color: #fcbb8f;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 9px 0 0 10px;
+        }
         .probability{
             min-width: 320px;
             max-width: 700px;
@@ -85,10 +130,16 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
 
+        var keyNum = 110;
+        var scoreCount = 0;
+        var boxCount = 0;
+        var tempStore = new Map;
+        var index = 0;
+
         $(function (){
-            alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
+            // alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
+            $(".key-num").text(keyNum);
         })
-        var key_num = 110;
         const probability = [
             [1,10,'传说暗裔 无序列号版'],
             [11,30, '鹰'],
@@ -107,45 +158,90 @@
             [9821,9980, '暗裔币X50'],
             [9981,10000, '暗裔币X100'],
         ];
+        var destroyMap = new Map();
+        destroyMap.set('传说暗裔 无序列号版',48);
+        destroyMap.set('鹰',24);
+        destroyMap.set('王者星神',14);
+        destroyMap.set('觉醒版超新星-悦享',12);
+        destroyMap.set('Scar Light-白虎',12);
+        destroyMap.set('炫金火麒麟',7);
+        destroyMap.set('M4A1-黑骑士',5);
+        destroyMap.set('A背包套装-手雷包',4);
+        destroyMap.set('超能力少女兑换券',4);
+        destroyMap.set('王者星神原始光效',1);
+
+        var scoreMap = new Map();
+        scoreMap.set('暗裔币X5',5);
+        scoreMap.set('暗裔币X10',10);
+        scoreMap.set('暗裔币X20',20);
+        scoreMap.set('暗裔币X50',50);
+        scoreMap.set('暗裔币X100',100);
+
+
+
+
 
         function addKey(num) {
-            key_num = $(".key-num").text();
-            key_num = Number(key_num) + Number(num);
-            $(".key-num").text(key_num);
+            keyNum = $(".key-num").text();
+            keyNum = Number(keyNum) + Number(num);
+            $(".key-num").text(keyNum);
             alert("恭喜你获得 "+num+" 把钥匙");
         }
 
         function take(num) {
-            if(key_num < num) return alert("钥匙不足");
+            if(keyNum < num) return alert("钥匙不足");
             let prizeList = '';
             for(i=0;i<num;i++){
                 var prod = Math.ceil(Math.random()*10000);
-                console.log(prod);
+
                 var prize = '';
                 for (j = 0; j < probability.length; j++) {
                     var a = probability[j][0];
                     var b = probability[j][1];
                     if (prod >= a && prod <= b) {
                         prize = probability[j][2];
-                        console.log(prize);
+                        if(destroyMap.has(prize)){
+                            var tempProp = {
+                                name: prize,
+                                status: 0
+                            };
+                            tempStore.set(index++,tempProp);
+                        }else if(scoreMap.has(prize)){
+                            scoreCount += scoreMap.get(prize);
+                        }else{
+                            boxCount++;
+                        }
                     }
                 }
                 prizeList += prize+"\n";
             }
-            key_num = Number(key_num) - Number(num);
-            $(".key-num").text(key_num);
+            keyNum = Number(keyNum) - Number(num);
+            $(".key-num").text(keyNum);
             alert(prizeList);
-
-            console.log(prizeList);
         }
 
+        function viewTempStore() {
+            var content = getTempStoreHtml();
+            openDialog('暂存箱',content);
+        }
 
-        function resultAlert(resultMsg){
-
+        function getTempStoreHtml() {
+            var content = "<ul class='temp-prop-list'>";
+            for(let key of tempStore.keys()){
+                let tempProp = tempStore.get(key);
+                var itemProp = '';
+                if(tempProp.status === 0){
+                    itemProp = '<li><span style="float: left">'+tempProp.name+'</span><a href="javascript:void (0);" style="float: right" onclick="decompose('+key+')">分解</a></li>';
+                }else{
+                    itemProp = '<li><span style="float: left">'+tempProp.name+'</span><span style="float: right">已分解</span></li>';
+                }
+                content += itemProp;
+            }
+            content += "</ul>";
+            return content;
         }
 
     </script>
-
 </head>
 <body>
     <div class="body-box">
@@ -153,12 +249,14 @@
             <img src="http://tc.cferhdb.cn/i/2022/09/06/6317128568556.png" width="100%" height="100%">
         </div>
         <div class="draw">
-            <div class="key">当前剩余钥匙：<span class="key-num" style="color: #f0f8ff">110</span></div>
+            <div class="key">当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"></span>
+<!--                <a class="record" href="javascript:void (0);">中奖记录</a>-->
+            </div>
             <div class="key-add">
-                <div class="key-add-1" onclick="addKey(1)">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
                 </div>
-                <div class="key-add-10" onclick="addKey(10)">
+                <div class="key-add-10" onclick="addKey(110)" title="增加11个钥匙">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
                 </div>
             </div>
@@ -166,11 +264,24 @@
                 <img src="http://tc.cferhdb.cn/i/2022/09/06/631702d85ae6e.png" width="100%" height="100%">
             </div>
             <div class="lottery">
-                <div class="lottery-1" onclick="take(1)">
+                <div class="lottery-1" onclick="take(1)" title="进行一次抽奖">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
                 </div>
-                <div class="lottery-10" onclick="take(10)">
+                <div class="lottery-10" onclick="take(100)" title="进行一次十连抽">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <div class="ts-img">
+            </div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/07/63180039f1fd4.png" width="100%" height="100%">
+                </div>
+                <div class="ts-intro">
+                    1.分解道具获得钥匙
                 </div>
             </div>
         </div>
@@ -181,6 +292,104 @@
             <p style="font-size: 25px">声明：</p>
             <p>本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
             <p>联系邮箱：cferxbs@qq.com</p>
+        </div>
+    </div>
+
+    <style>
+        #dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/63181514bfc33.png") repeat;
+        }
+        @media screen and (max-width: 768px){
+            #dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #dialog-content{
+                height: 500px;
+            }
+        }
+        #dialog-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffc693;
+        }
+        #dialog-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffc693;
+        }
+        #dialog-close{
+            width: 40px;
+            height: 40px;
+            color: #ffc693;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #dialog-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/63181514bfc33.png") repeat;
+            color: #ffc693;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+    </style>
+    <script>
+        function openDialog(title,content) {
+            if(title) $("#dialog-hint").text(title);
+            $("#dialog-content").html(content);
+            $("#dialog").show();
+        }
+        function closeDialog() {
+            $("#dialog").hide();
+        }
+        function decompose(index) {
+            let tempProp = tempStore.get(index);
+            if(tempProp.status === 1) return alert("不能重复分解");
+            let num = destroyMap.get(tempProp.name);
+            keyNum += num;
+            $(".key-num").text(keyNum);
+            tempProp.status = 1;
+            var content = getTempStoreHtml();
+            $("#dialog-content").html(content);
+        }
+    </script>
+    <div id="dialog">
+        <div style="width: 100%;height: 40px">
+            <div id="dialog-header">
+                <div id="dialog-hint">提示</div>
+                <div id="dialog-close" onclick="closeDialog()">&#10006;</div>
+            </div>
+            <div id="dialog-content">
+            </div>
         </div>
     </div>
 </body>
