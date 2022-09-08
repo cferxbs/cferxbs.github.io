@@ -237,9 +237,9 @@
                 let tempProp = tempStore.get(key);
                 var itemProp = '';
                 if(tempProp.status === 0){
-                    itemProp = '<li><span style="float: left">'+tempProp.name+'</span><a href="javascript:void (0);" style="float: right;width: 50px;text-align: right;" onclick="decompose('+key+')">分解</a><span style="float: right;width: 50px;">'+tempProp.keyNum+'</span></li>';
+                    itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
                 }else{
-                    itemProp = '<li><span style="float: left">'+tempProp.name+'</span><span style="float: right;width: 50px;text-align: right;">已分解</span><span style="float: right;width: 50px;">'+tempProp.keyNum+'</span></li>';
+                    itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
                 }
                 content += itemProp;
             }
@@ -304,7 +304,7 @@
     </div>
 
     <style>
-        #dialog{
+        #temp-save{
             position: fixed;
             top: 50%;
             left: 50%;
@@ -315,14 +315,14 @@
             z-index: 9999;
         }
         @media screen and (max-width: 768px){
-            #dialog{
+            #temp-save{
                 top:30%;
                 left: 30px;
                 right: 30px;
                 width: auto;
                 margin:0;
             }
-            #dialog-content{
+            #temp-save-content{
                 height: 500px;
             }
         }
@@ -337,19 +337,19 @@
             z-index: 9998;
             display: none;
         }
-        #dialog-header{
+        #temp-save-header{
             width: 100%;
             height: 40px;
             border-bottom: 1px solid #ffc693;
         }
-        #dialog-hint{
+        #temp-save-hint{
             float: left;
             font-size: 16px;
             margin-left: 10px;
             line-height: 40px;
             color: #ffc693;
         }
-        #dialog-close{
+        #temp-save-close{
             width: 40px;
             height: 40px;
             color: #ffc693;
@@ -359,7 +359,7 @@
             text-align: center;
             cursor: pointer;
         }
-        #dialog-content{
+        #temp-save-content{
             width: 100%;
             height: 300px;
             box-sizing: border-box;
@@ -381,16 +381,30 @@
         .temp-prop-list > li > a{
             margin: 5px 0;
         }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
     </style>
     <script>
         function openDialog(title,content) {
-            if(title) $("#dialog-hint").text(title);
-            $("#dialog-content").html(content);
-            $("#dialog").show();
+            if(title) $("#temp-save-hint").text(title);
+            $("#temp-save-content").html(content);
+            $("#temp-save").show();
             $("#shade").show();
         }
         function closeDialog() {
-            $("#dialog").hide();
+            $("#temp-save").hide();
             $("#shade").hide();
         }
         function decompose(index) {
@@ -401,17 +415,18 @@
             $(".key-num").text(keyNum);
             tempProp.status = 1;
             var content = getTempStoreHtml();
-            $("#dialog-content").html(content);
+            $("#temp-save-content").html(content);
         }
     </script>
     <div id="shade"></div>
-    <div id="dialog">
+
+    <div id="temp-save">
         <div style="width: 100%;height: 40px">
-            <div id="dialog-header">
-                <div id="dialog-hint">提示</div>
-                <div id="dialog-close" onclick="closeDialog()">&#10006;</div>
+            <div id="temp-save-header">
+                <div id="temp-save-hint">提示</div>
+                <div id="temp-save-close" onclick="closeDialog()">&#10006;</div>
             </div>
-            <div id="dialog-content">
+            <div id="temp-save-content">
             </div>
         </div>
     </div>
