@@ -182,14 +182,12 @@
         scoreMap.set('暗裔币X100',100);
 
 
-
-
-
         function addKey(num) {
             keyNum = $(".key-num").text();
             keyNum = Number(keyNum) + Number(num);
             $(".key-num").text(keyNum);
-            alert("恭喜你获得 "+num+" 把钥匙");
+            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
+            openDialog("系统消息",content);
         }
 
         function draw(num) {
@@ -218,14 +216,18 @@
                         }
                     }
                 }
-                prizeList += "<li>"+prize+"</li>";
+                prizeList += "<li class='prize-item'>"+prize+"</li>";
             }
             keyNum = Number(keyNum) - Number(num);
             $(".key-num").text(keyNum);
             $(".score-count").text(scoreCount);
             // alert(prizeList);
             console.log(prizeList);
-            openPrize10Dialog(prizeList)
+            if(num === 1){
+                openPrize1Dialog(prizeList)
+            }else{
+                openPrize10Dialog(prizeList)
+            }
         }
 
         function viewTempStore() {
@@ -412,20 +414,43 @@
             display: none;
             z-index: 9999;
         }
-        .prize10-hint{
+
+        #prize1-dialog{
+            width: 320px;
+            height: 244px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/6319615ba39fd.png") no-repeat;
+            background-size: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        .prize-hint{
             font-size: 14px;
             color: #ffffff;
             width: 100%;
             text-align: center;
             padding-top: 55px;
         }
-        .prize10-list{
+        #prize10-list{
             width: 100%;
             height: 270px;
             list-style: none;
             margin-top: 10px;
         }
-        .prize10-list > li{
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
             width: 100%;
             height: 27px;
             color: #ffffff;
@@ -440,7 +465,7 @@
             width: 100%;
             margin-top: 6px;
         }
-        #prize10-dialog-close{
+        .prize-dialog-close{
             width: 25px;
             height: 25px;
             position: absolute;
@@ -448,6 +473,50 @@
             right: -20px;
             background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
             background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
         }
     </style>
     <script>
@@ -473,7 +542,7 @@
         }
 
         function openPrize10Dialog(prize10List) {
-            $(".prize10-list").html(prize10List);
+            $("#prize10-list").html(prize10List);
             $("#prize10-dialog").show();
             $("#shade").show();
         }
@@ -483,14 +552,47 @@
             $("#shade").hide();
         }
 
+        function openPrize1Dialog(prize) {
+            $("#prize1-list").html(prize);
+            $("#prize1-dialog").show();
+            $("#shade").show();
+        }
 
+        function closePrize1Dialog() {
+            $("#prize1-dialog").hide();
+            $("#shade").hide();
+        }
+
+        function closeDialog() {
+            $("#dialog").hide();
+            $("#shade").hide();
+        }
+
+        function openDialog(title,content) {
+            if(title) $("#dialog-title").text(title);
+            $("#dialog-content").html(content);
+            $("#dialog").show();
+            $("#shade").show();
+        }
     </script>
     <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
     <div id="prize10-dialog">
-        <div id="prize10-dialog-close" onclick="closePrize10Dialog()"></div>
-        <div class="prize10-hint">抽奖过程中请勿刷新页面或中断，请以实际礼包记录为准。</div>
-        <ul class="prize10-list">
-        </ul>
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面或中断，请以实际礼包记录为准。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。谢谢您的理解与支持.由于数据量不大，奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准。
+        </div>
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面或中断，请以实际礼包记录为准。</div>
+        <ul id="prize1-list"></ul>
         <div class="warm-prompt">
             温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。谢谢您的理解与支持.由于数据量不大，奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准。
         </div>
