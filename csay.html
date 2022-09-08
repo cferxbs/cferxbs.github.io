@@ -140,7 +140,7 @@
         var index = 0;
 
         $(function (){
-            alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
+            // alert("声明：\n 本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n联系邮箱：cferxbs@qq.com");
             $(".key-num").text(keyNum);
             $(".score-count").text(scoreCount);
         })
@@ -192,7 +192,7 @@
             alert("恭喜你获得 "+num+" 把钥匙");
         }
 
-        function take(num) {
+        function draw(num) {
             if(keyNum < num) return alert("钥匙不足");
             let prizeList = '';
             for(i=0;i<num;i++){
@@ -218,17 +218,19 @@
                         }
                     }
                 }
-                prizeList += prize+"\n";
+                prizeList += "<li>"+prize+"</li>";
             }
             keyNum = Number(keyNum) - Number(num);
             $(".key-num").text(keyNum);
             $(".score-count").text(scoreCount);
-            alert(prizeList);
+            // alert(prizeList);
+            console.log(prizeList);
+            openPrize10Dialog(prizeList)
         }
 
         function viewTempStore() {
             var content = getTempStoreHtml();
-            openDialog('暂存箱',content);
+            openTempSave('暂存箱',content);
         }
 
         function getTempStoreHtml() {
@@ -272,10 +274,10 @@
                 <img src="http://tc.cferhdb.cn/i/2022/09/06/631702d85ae6e.png" width="100%" height="100%">
             </div>
             <div class="lottery">
-                <div class="lottery-1" onclick="take(1)" title="进行一次抽奖">
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
                 </div>
-                <div class="lottery-10" onclick="take(10)" title="进行一次十连抽">
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
                     <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
                 </div>
             </div>
@@ -304,7 +306,7 @@
     </div>
 
     <style>
-        #temp-save{
+        #temp-save-dialog{
             position: fixed;
             top: 50%;
             left: 50%;
@@ -315,7 +317,7 @@
             z-index: 9999;
         }
         @media screen and (max-width: 768px){
-            #temp-save{
+            #temp-save-dialog{
                 top:30%;
                 left: 30px;
                 right: 30px;
@@ -395,16 +397,68 @@
             text-align: right;
             margin-right: 10px;
         }
+        #prize10-dialog{
+            width: 320px;
+            height: 450px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/631956354e983.png") no-repeat;
+            background-size: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize10-hint{
+            font-size: 14px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+            padding-top: 55px;
+        }
+        .prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 10px;
+        }
+        .prize10-list > li{
+            width: 100%;
+            height: 27px;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195a5f5be1b.png") no-repeat;
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin-top: 6px;
+        }
+        #prize10-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
+            background-size: cover;
+        }
     </style>
     <script>
-        function openDialog(title,content) {
+        function openTempSave(title,content) {
             if(title) $("#temp-save-hint").text(title);
             $("#temp-save-content").html(content);
-            $("#temp-save").show();
+            $("#temp-save-dialog").show();
             $("#shade").show();
         }
-        function closeDialog() {
-            $("#temp-save").hide();
+        function closeTempSave() {
+            $("#temp-save-dialog").hide();
             $("#shade").hide();
         }
         function decompose(index) {
@@ -417,14 +471,35 @@
             var content = getTempStoreHtml();
             $("#temp-save-content").html(content);
         }
+
+        function openPrize10Dialog(prize10List) {
+            $(".prize10-list").html(prize10List);
+            $("#prize10-dialog").show();
+            $("#shade").show();
+        }
+
+        function closePrize10Dialog() {
+            $("#prize10-dialog").hide();
+            $("#shade").hide();
+        }
+
+
     </script>
     <div id="shade"></div>
-
-    <div id="temp-save">
+    <div id="prize10-dialog">
+        <div id="prize10-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize10-hint">抽奖过程中请勿刷新页面或中断，请以实际礼包记录为准。</div>
+        <ul class="prize10-list">
+        </ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。谢谢您的理解与支持.由于数据量不大，奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准。
+        </div>
+    </div>
+    <div id="temp-save-dialog">
         <div style="width: 100%;height: 40px">
             <div id="temp-save-header">
                 <div id="temp-save-hint">提示</div>
-                <div id="temp-save-close" onclick="closeDialog()">&#10006;</div>
+                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
             </div>
             <div id="temp-save-content">
             </div>
