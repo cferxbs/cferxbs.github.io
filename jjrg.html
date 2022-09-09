@@ -401,7 +401,10 @@
             display: none;
         }
 
-
+        .card-list{
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
         .card-list-title{
             width: 300px;
             height: 60px;
@@ -421,7 +424,7 @@
             text-align: center;
         }
         .exchange > li{
-            width: 24%;
+            width: 23%;
             position: relative;
             /*border: 1px solid yellow;*/
             display: inline-block;
@@ -447,6 +450,43 @@
             .card-num-box > p{
                 margin-top: 10px;
             }
+        }
+        .team-title{
+            width: 345px;
+            height: 60px;
+            /*border: 1px solid yellow;*/
+            margin: 30px auto 10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631b461f9ac83.png") no-repeat;
+            background-size: cover;
+        }
+        .team-prop{
+            min-width: 320px;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+        .team-open{
+            width: 320px;
+            height: 244px;
+            margin: 20px auto;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631af55a1cd89.png") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .team-open-title{
+            font-size: 25px;
+            color: rgb(219,198,246);
+            font-weight: bold;
+            text-align: center;
+            padding-top: 15px;
+        }
+        .team-open-img{
+            width: 300px;
+            position: absolute;
+            bottom: 5px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -541,6 +581,19 @@
             </ul>
         </div>
     </div>
+    <div class="team">
+        <div class="team-title"></div>
+        <div class="team-prop">
+            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b46d62930b.png" width="100%" height="100%">
+        </div>
+        <div class="team-open">
+            <div class="team-open-title">消耗5张锋芒卡自动开团</div>
+            <div style="color: #ffc693;text-align: center;margin-top: 50px">当前拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span></div>
+            <div class="team-open-img" onclick="drawTeamProp()">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b49fd6696a.png" width="100%">
+            </div>
+        </div>
+    </div>
     <div class="probability">
         <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae8d27d239.png" width="50%" height="50%">
     </div>
@@ -595,9 +648,9 @@
     var index = 0;
 
     $(function (){
-        alert("声明：\n " +
-            "本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
-            "联系邮箱：cferxbs@qq.com");
+        // alert("声明：\n " +
+        //     "本页面仅做为模拟概率使用，无任何盈利和消费，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+        //     "联系邮箱：cferxbs@qq.com");
         $(".key-num").text(keyNum);
         $(".score-count").text(scoreCount);
         showCardNum();
@@ -635,6 +688,13 @@
     destroyMap.set('烟雾弹-竞技荣光',1);
     destroyMap.set('闪光弹-经济荣光',1);
     destroyMap.set('普通角色通用扩展栏位X1',1);
+    destroyMap.set('幻神-周瑜皮肤',12);
+    destroyMap.set('火麒麟-盘古皮肤兑换券X1',10);
+    destroyMap.set('黑骑士-伏羲皮肤兑换券X1',10);
+    destroyMap.set('COP-旗袍兑换券X1',4);
+    destroyMap.set('悦动玩偶（不可交易）',4);
+    destroyMap.set('王者之心金色光效兑换券X1',4);
+    destroyMap.set('王者之势紫色光效（不可交易）',1);
 
     var scoreMap = new Map();
     scoreMap.set('竞字卡',100);
@@ -647,6 +707,41 @@
     cardNumMap.set('技字卡',0);
     cardNumMap.set('荣字卡',0);
     cardNumMap.set('光字卡',0);
+
+    var teamProb = [
+        [1,1660,'高爆手雷-竞技荣光'],
+        [1661,3320,'烟雾弹-竞技荣光'],
+        [3321,4980,'闪光弹-竞技荣光'],
+        [4981,6640,'竞技荣光礼盒X1'],
+        [6641,8300,'随机盲盒X1'],
+        [8301,10000, '王者之石X10'],
+    ];
+
+    var jjrgBox = [
+        [1,30, 'M200-竞技荣光'],
+        [31,70, '柯尔特-竞技荣光'],
+        [71,1070, '擎天-竞技荣光'],
+        [1071,1320, '裁决-雪莉杨'],
+        [1321,1720, '英雄级通用角色扩展栏位X1'],
+        [1721,2220, '稀有角色通用扩展栏位X1'],
+        [2221,2720, '高级角色通用扩展栏位X1'],
+        [2721,5000, '高爆手雷-竞技荣光'],
+        [5001,7500, '烟雾弹-竞技荣光'],
+        [7501,10000, '闪光弹-经济荣光'],
+    ];
+
+    var blindBox = [
+        [1,60, '幻神-周瑜皮肤'],
+        [61,90, '电竞教官云悠悠'],
+        [91,130, '柯尔特-竞技荣光'],
+        [131,1130, '擎天-竞技荣光'],
+        [1131,1180, '火麒麟-盘古皮肤兑换券X1'],
+        [1181,1230, '黑骑士-伏羲皮肤兑换券X1'],
+        [1231,2230, 'COP-旗袍兑换券X1'],
+        [2231,3230, '悦动玩偶（不可交易）'],
+        [3231,4230, '王者之心金色光效兑换券X1'],
+        [4231,10000, '王者之势紫色光效（不可交易）'],
+    ];
 
     function addKey(num) {
         openLoad();
@@ -761,6 +856,56 @@
         return content;
     }
 
+
+    function drawTeamProp() {
+        openLoad();
+        setTimeout(function () {
+            closeLoad();
+            if(scoreCount < 5){
+                return openDialog('系统提示','<p style="text-align: center;margin-top: 20px">锋芒卡不足5张</p>')
+            }
+            let prod = Math.ceil(Math.random()*10000);
+            let prop = '王者之石X10';
+            for (i = 0; i < teamProb.length; i++) {
+                let a = teamProb[i][0];
+                let b = teamProb[i][1];
+                if (prod >= a && prod <= b) {
+                    prop = teamProb[i][2];
+                    if(prop == '竞技荣光礼盒X1'){
+                        prod = Math.ceil(Math.random()*10000);
+                        for (j = 0; j < jjrgBox.length; j++) {
+                            a = jjrgBox[j][0];
+                            b = jjrgBox[j][1];
+                            if (prod >= a && prod <= b) {
+                                prop = jjrgBox[j][2];
+                            }
+                        }
+                    }else if(prop == '随机盲盒X1'){
+                        prod = Math.ceil(Math.random()*10000);
+                        for (j = 0; j < blindBox.length; j++) {
+                            a = blindBox[j][0];
+                            b = blindBox[j][1];
+                            if (prod >= a && prod <= b) {
+                                prop = blindBox[j][2];
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            if('王者之石X10' !== prop){
+                var tempProp = {
+                    name: prop,
+                    status: 0,
+                    keyNum: destroyMap.get(prop)
+                };
+            }
+            tempStore.set(index++,tempProp);
+            scoreCount = scoreCount-5;
+            $(".score-count").text(scoreCount);
+            openDialog('系统提示','<p style="text-align: center;margin-top: 20px">恭喜你获得 '+prop+' </p>')
+        },200);
+    }
 
     function openShade(){
         $("#shade").show();
