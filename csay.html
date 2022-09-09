@@ -196,47 +196,53 @@
 
         function draw(num) {
             if(keyNum < num) return alert("钥匙不足");
-            let prizeList = '';
-            for(i=0;i<num;i++){
-                var prod = Math.ceil(Math.random()*10000);
+            openLoad();
+            setTimeout(function (){
+                let prizeList = '';
+                for(i=0;i<num;i++){
+                    var prod = Math.ceil(Math.random()*10000);
 
-                var prize = '';
-                for (j = 0; j < probability.length; j++) {
-                    var a = probability[j][0];
-                    var b = probability[j][1];
-                    if (prod >= a && prod <= b) {
-                        prize = probability[j][2];
-                        if(destroyMap.has(prize)){
-                            var tempProp = {
-                                name: prize,
-                                status: 0,
-                                keyNum: destroyMap.get(prize)
-                            };
-                            tempStore.set(index++,tempProp);
-                        }else if(scoreMap.has(prize)){
-                            scoreCount += scoreMap.get(prize);
-                        }else{
-                            boxCount++;
+                    var prize = '';
+                    for (j = 0; j < probability.length; j++) {
+                        var a = probability[j][0];
+                        var b = probability[j][1];
+                        if (prod >= a && prod <= b) {
+                            prize = probability[j][2];
+                            if(destroyMap.has(prize)){
+                                var tempProp = {
+                                    name: prize,
+                                    status: 0,
+                                    keyNum: destroyMap.get(prize)
+                                };
+                                tempStore.set(index++,tempProp);
+                            }else if(scoreMap.has(prize)){
+                                scoreCount += scoreMap.get(prize);
+                            }else{
+                                boxCount++;
+                            }
                         }
                     }
+                    prizeList += "<li class='prize-item'>"+prize+"</li>";
                 }
-                prizeList += "<li class='prize-item'>"+prize+"</li>";
-            }
-            keyNum = Number(keyNum) - Number(num);
-            $(".key-num").text(keyNum);
-            $(".score-count").text(scoreCount);
-            // alert(prizeList);
-            // console.log(prizeList);
-            if(num === 1){
-                openPrize1Dialog(prizeList)
-            }else{
-                openPrize10Dialog(prizeList)
-            }
+                keyNum = Number(keyNum) - Number(num);
+                $(".key-num").text(keyNum);
+                $(".score-count").text(scoreCount);
+                closeLoad();
+                if(num === 1){
+                    openPrize1Dialog(prizeList)
+                }else{
+                    openPrize10Dialog(prizeList)
+                }
+            }, 500);
         }
 
         function viewTempStore() {
-            var content = getTempStoreHtml();
-            openTempSave('暂存箱',content);
+            openLoad();
+            setTimeout(function (){
+                var content = getTempStoreHtml();
+                closeLoad();
+                openTempSave('暂存箱',content);
+            },500);
         }
 
         function getTempStoreHtml() {
@@ -523,6 +529,20 @@
             cursor: pointer;
             text-align: center;
         }
+
+        #loading{
+            width: 20px;
+            height: 20px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631ad1e8b164c.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
     </style>
     <script>
         function openShade(){
@@ -590,6 +610,15 @@
             $("#dialog").show();
             openShade()
         }
+
+        function openLoad(){
+            openShade();
+            $("#loading").show();
+        }
+        function closeLoad() {
+            $("#loading").hide();
+            closeShade();
+        }
     </script>
     <div id="shade"></div>
     <div id="dialog">
@@ -623,6 +652,7 @@
             </div>
         </div>
     </div>
+    <div id="loading"></div>
 </body>
 
 </html>
