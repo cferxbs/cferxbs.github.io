@@ -185,18 +185,23 @@
         scoreMap.set('暗裔币X50',50);
         scoreMap.set('暗裔币X100',100);
 
-
         function addKey(num) {
-            keyNum = $(".key-num").text();
-            keyNum = Number(keyNum) + Number(num);
-            $(".key-num").text(keyNum);
-            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
-            openDialog("系统消息",content);
+            openLoad();
+            setTimeout(function (){
+                keyNum = $(".key-num").text();
+                keyNum = Number(keyNum) + Number(num);
+                $(".key-num").text(keyNum);
+                let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
+                closeLoad();
+                openDialog("系统消息",content);
+            },200);
         }
 
         function draw(num) {
             if(keyNum < num) return alert("钥匙不足");
             openLoad();
+            let delayTime = 100;
+            if(keyNum > 1) delayTime = 300
             setTimeout(function (){
                 let prizeList = '';
                 for(i=0;i<num;i++){
@@ -233,7 +238,7 @@
                 }else{
                     openPrize10Dialog(prizeList)
                 }
-            }, 500);
+            }, delayTime);
         }
 
         function viewTempStore() {
