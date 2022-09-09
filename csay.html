@@ -525,16 +525,27 @@
         }
     </style>
     <script>
+        function openShade(){
+            $("#shade").show();
+            $("body").css("overflow","hidden");
+        }
+        function closeShade(){
+            $("#shade").hide();
+            $("body").css("overflow","auto");
+        }
+
         function openTempSave(title,content) {
             if(title) $("#temp-save-hint").text(title);
             $("#temp-save-content").html(content);
             $("#temp-save-dialog").show();
-            $("#shade").show();
+            openShade()
         }
+
         function closeTempSave() {
             $("#temp-save-dialog").hide();
-            $("#shade").hide();
+            closeShade()
         }
+
         function decompose(index) {
             let tempProp = tempStore.get(index);
             if(tempProp.status === 1) return alert("不能重复分解");
@@ -549,35 +560,35 @@
         function openPrize10Dialog(prize10List) {
             $("#prize10-list").html(prize10List);
             $("#prize10-dialog").show();
-            $("#shade").show();
+            openShade();
         }
 
         function closePrize10Dialog() {
             $("#prize10-dialog").hide();
-            $("#shade").hide();
+            closeShade();
         }
 
         function openPrize1Dialog(prize) {
             $("#prize1-list").html(prize);
             $("#prize1-dialog").show();
-            $("#shade").show();
+            openShade()
         }
 
         function closePrize1Dialog() {
             $("#prize1-dialog").hide();
-            $("#shade").hide();
+            closeShade()
         }
 
         function closeDialog() {
             $("#dialog").hide();
-            $("#shade").hide();
+            closeShade()
         }
 
         function openDialog(title,content) {
             if(title) $("#dialog-title").text(title);
             $("#dialog-content").html(content);
             $("#dialog").show();
-            $("#shade").show();
+            openShade()
         }
     </script>
     <div id="shade"></div>
