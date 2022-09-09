@@ -642,7 +642,7 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     var keyNum = 110;
-    var scoreCount = 0;
+    var scoreCount = 11110;
     var stoneBoxCount = 0;
     var tempStore = new Map;
     var index = 0;
@@ -686,7 +686,7 @@
     destroyMap.set('稀有角色通用扩展栏位X1 高级角色通用扩展栏位X1 二选一',4);
     destroyMap.set('高爆手雷-竞技荣光',2);
     destroyMap.set('烟雾弹-竞技荣光',1);
-    destroyMap.set('闪光弹-经济荣光',1);
+    destroyMap.set('闪光弹-竞技荣光',1);
     destroyMap.set('普通角色通用扩展栏位X1',1);
     destroyMap.set('幻神-周瑜皮肤',12);
     destroyMap.set('火麒麟-盘古皮肤兑换券X1',10);
@@ -798,7 +798,6 @@
                 }
                 prizeList += "<li class='prize-item'>"+prize+"</li>";
             }
-            console.log(cardNumMap)
             keyNum = Number(keyNum) - Number(num);
             $(".key-num").text(keyNum);
             $(".score-count").text(scoreCount);
@@ -908,8 +907,9 @@
                     status: 0,
                     keyNum: destroyMap.get(prop)
                 };
+                tempStore.set(index++,tempProp);
             }
-            tempStore.set(index++,tempProp);
+
             scoreCount = scoreCount-5;
             $(".score-count").text(scoreCount);
             openDialog('系统提示','<p style="text-align: center;margin-top: 20px">恭喜你获得 '+prop+' </p>')
