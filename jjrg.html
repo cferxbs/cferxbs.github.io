@@ -511,7 +511,7 @@
         <div class="pond">
             <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
             <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
-            <div class="open-gift-box">
+            <div class="open-gift-box" onclick="drawStoneBox()">
                 <div class="open-gift-box-img"></div>
             </div>
         </div>
@@ -643,7 +643,7 @@
 <script>
     var keyNum = 110;
     var scoreCount = 0;
-    var boxCount = 0;
+    var stoneBoxCount = 0;
     var tempStore = new Map;
     var index = 0;
 
@@ -717,6 +717,15 @@
         [8301,10000, '王者之石X10'],
     ];
 
+    var stoneBox = [
+        [1,40, '王者之石X30'],
+        [41,100, '王者之石X20'],
+        [101,1000, '王者之石X10'],
+        [1001,4000, '王者之石X5'],
+        [4001,1000, '王者之石X1'],
+    ];
+
+
     var jjrgBox = [
         [1,30, 'M200-竞技荣光'],
         [31,70, '柯尔特-竞技荣光'],
@@ -781,7 +790,7 @@
                             let carNum = cardNumMap.get(prize);
                             cardNumMap.set(prize,++carNum);
                         }else if(prize === "王者之石礼盒X1"){
-                            boxCount++;
+                            stoneBoxCount++;
                         }else{
                             scoreCount++;
                         }
@@ -805,7 +814,7 @@
     }
 
     function showGiftBoxNum() {
-        $(".gift-box-num").text(boxCount);
+        $(".gift-box-num").text(stoneBoxCount);
     }
     function showCardNum() {
         $(".card-num-jin").text(cardNumMap.get("竞字卡"))
@@ -905,6 +914,27 @@
             $(".score-count").text(scoreCount);
             openDialog('系统提示','<p style="text-align: center;margin-top: 20px">恭喜你获得 '+prop+' </p>')
         },200);
+    }
+    
+    function drawStoneBox() {
+        openLoad();
+        setTimeout(function () {
+            closeLoad();
+            if(stoneBoxCount <= 0) return openDialog('系统提示','<p style="margin-top: 20px;text-align: center">王者之石宝箱不足</p>')
+            let prod = Math.ceil(Math.random()*10000);
+            let prop = '王者之石X1';
+            for (i = 0; i < stoneBox.length; i++) {
+                let a = stoneBox[i][0];
+                let b = stoneBox[i][1];
+                if (prod >= a && prod <= b) {
+                    prop = stoneBox[i][2];
+                    break;
+                }
+            }
+            stoneBoxCount = --stoneBoxCount;
+            showGiftBoxNum();
+            openDialog('系统提示','<p style="margin-top: 20px;text-align: center">恭喜你获得 '+prop+'</p>')
+        },200)
     }
 
     function openShade(){
