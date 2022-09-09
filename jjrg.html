@@ -400,6 +400,54 @@
             z-index: 9998;
             display: none;
         }
+
+
+        .card-list-title{
+            width: 300px;
+            height: 60px;
+            /*border: 1px solid yellow;*/
+            margin: auto;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631b0448ce83d.png") no-repeat;
+            background-size: cover;
+        }
+
+        .card-list-img{
+            min-width: 320px;
+        }
+        .exchange{
+            width: 100%;
+            margin-top: 20px;
+            list-style: none;
+            text-align: center;
+        }
+        .exchange > li{
+            width: 24%;
+            position: relative;
+            /*border: 1px solid yellow;*/
+            display: inline-block;
+        }
+        .card-num-box{
+            width: 50%;
+            height: 80%;
+            position: absolute;
+            bottom: 5px;
+            right: 2px;
+            font-size: 6px;
+            color: #ffffff;
+        }
+        .card-exchange{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        @media screen and (min-width: 768px) {
+            .card-num-box > p{
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -410,7 +458,7 @@
     <div class="draw">
         <div class="key">
             当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-            拥有“锋芒“卡：<span class="score-count" style="color: #f0f8ff"> </span>
+            拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span>
         </div>
         <div class="key-add">
             <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
@@ -422,9 +470,8 @@
         </div>
         <div class="pond">
             <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
-            <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">99</span></p>
+            <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
             <div class="open-gift-box">
-
                 <div class="open-gift-box-img"></div>
             </div>
         </div>
@@ -448,6 +495,50 @@
             <div class="ts-intro">
                 1.分解道具获得钥匙
             </div>
+        </div>
+    </div>
+    <div class="card-list">
+        <div class="card-list-title"></div>
+        <div class="card-list-img">
+            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b05405d905.png" width="100%" height="100%">
+            <ul class="exchange">
+                <li>
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0a7789e2d.png" width="100%" height="100%">
+                    <div class="card-num-box">
+                        <p>拥有: <span class="card-num-jin">0</span></p>
+                        <div class="card-exchange" onclick="convertCard('竞字卡')">
+                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" >
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aa5de834.png" width="100%" height="100%">
+                    <div class="card-num-box">
+                        <p>拥有: <span class="card-num-ji">0</span></p>
+                        <div class="card-exchange" onclick="convertCard('技字卡')">
+                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aaf84c7f.png" width="100%" height="100%">
+                    <div class="card-num-box">
+                        <p>拥有: <span class="card-num-rong">0</span></p>
+                        <div class="card-exchange" onclick="convertCard('荣字卡')">
+                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0ab14a032.png" width="100%" height="100%">
+                    <div class="card-num-box">
+                        <p>拥有: <span class="card-num-guang">0</span></p>
+                        <div class="card-exchange" onclick="convertCard('光字卡')">
+                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="probability">
@@ -509,6 +600,7 @@
             "联系邮箱：cferxbs@qq.com");
         $(".key-num").text(keyNum);
         $(".score-count").text(scoreCount);
+        showCardNum();
     })
     const probability = [
         [1,30,'电竞教官-云悠悠'],
@@ -524,11 +616,11 @@
         [751,900, '闪光弹-经济荣光'],
         [901,1000, '普通角色通用扩展栏位X1'],
         [1001,2480, '王者之石礼盒X1'],
-        [2481,2500, '”竞“字卡'],
-        [2501,2600, '”技“字卡'],
-        [2601,3000, '”荣“字卡'],
-        [3001,6000, '”光“字卡'],
-        [6001,10000, '”锋芒“卡'],
+        [2481,2500, '竞字卡'],
+        [2501,2600, '技字卡'],
+        [2601,3000, '荣字卡'],
+        [3001,6000, '光字卡'],
+        [6001,10000, '锋芒卡'],
     ];
     var destroyMap = new Map();
     destroyMap.set('电竞教官-云悠悠',12);
@@ -545,16 +637,16 @@
     destroyMap.set('普通角色通用扩展栏位X1',1);
 
     var scoreMap = new Map();
-    scoreMap.set('”竞“字卡',100);
-    scoreMap.set('”技“字卡',20);
-    scoreMap.set('”荣“字卡',5);
-    scoreMap.set('”光“字卡',2);
+    scoreMap.set('竞字卡',100);
+    scoreMap.set('技字卡',20);
+    scoreMap.set('荣字卡',5);
+    scoreMap.set('光字卡',2);
 
     var cardNumMap = new Map();
-    cardNumMap.set('”竞“字卡',0);
-    cardNumMap.set('”技“字卡',0);
-    cardNumMap.set('”荣“字卡',0);
-    cardNumMap.set('”光“字卡',0);
+    cardNumMap.set('竞字卡',0);
+    cardNumMap.set('技字卡',0);
+    cardNumMap.set('荣字卡',0);
+    cardNumMap.set('光字卡',0);
 
     function addKey(num) {
         openLoad();
@@ -612,7 +704,38 @@
             }else{
                 openPrize10Dialog(prizeList)
             }
+            showCardNum();
+            showGiftBoxNum();
         }, delayTime);
+    }
+
+    function showGiftBoxNum() {
+        $(".gift-box-num").text(boxCount);
+    }
+    function showCardNum() {
+        $(".card-num-jin").text(cardNumMap.get("竞字卡"))
+        $(".card-num-ji").text(cardNumMap.get("技字卡"))
+        $(".card-num-rong").text(cardNumMap.get("荣字卡"))
+        $(".card-num-guang").text(cardNumMap.get("光字卡"))
+    }
+    
+    function convertCard(cardName) {
+        openLoad()
+        setTimeout(function () {
+            closeLoad();
+            let cardNum = cardNumMap.get(cardName);
+            if(cardNum <= 0) {
+                return openDialog("系统提示","<p style='text-align: center;margin-top: 20px'>卡片不足</p>");
+            }
+            let cardScore = scoreMap.get(cardName);
+            let num = cardNum*cardScore;
+            scoreCount += num;
+            openDialog("系统提示","<p style='text-align: center;margin-top: 20px'>您成功兑换 "+cardNum+" 张"+cardName+" 获得 "+num+" 张锋芒卡</p>");
+            $(".score-count").text(scoreCount);
+            cardNumMap.set(cardName,0);
+            showCardNum();
+
+        },200);
     }
 
     function viewTempStore() {
