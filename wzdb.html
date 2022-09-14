@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>王者夺宝模拟抽奖</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+        }
+        .header{
+            margin-top: 50px;
+            min-width: 320px;
+            max-width: 960px;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            height: 40px;
+            margin: 20px auto;
+            line-height: 30px;
+            color: #ffc693;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key-num{
+            margin-right: 20px;
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 150px;
+            height: 35px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .row{
+            margin: 0 auto;
+        }
+        .col{
+            display: inline-block;
+            width: 18%;
+            height: auto;
+            position: relative;
+        }
+        .col-shade{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            opacity: 0.5;
+            text-align: center;
+            color: #ffffff;
+            font-size: 12px;
+        }
+        .col-shade > span{
+            width: 40px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery-1{
+            width: 150px;
+            height: 60px;
+            margin: 0 auto;
+            cursor: pointer;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/6321464b90c8b.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .lottery-key{
+            padding-top: 30px;
+            width: 100px;
+            height: 20px;
+            color: #ffffff;
+            font-size: 6px;
+            margin: 0 auto;
+        }
+        .lottery-key > span{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .lottery-key-img{
+            width: 20px;
+            height: 20px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/632147681ffa8.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .temp-store{
+            text-align: center;
+            box-sizing: border-box;
+            min-width: 320px;
+            max-width: 500px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .temp-store > div{
+            margin: 10px auto;
+        }
+        .ts-title{
+            text-align: center;
+            color: rgb(248,231,231);
+            font-size: 28px;
+            line-height: 1.1;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .ts-img{
+            width: 200px;
+            height: 155px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/13/63202341951ca.png") no-repeat;
+            background-size: cover;
+
+        }
+        .ts-view-img{
+            width: 100px;
+            height: 40px;
+            margin: 20px auto 0;
+            padding-bottom: 20px;
+            cursor: pointer
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 50px auto;
+            padding: 0 20px;
+            color: #ffff;
+            text-align: center;
+        }
+        .prob-title{
+            font-size: 25px;
+            margin: 10px auto;
+        }
+        .prob-init{
+            font-size: 12px;
+            margin: 10px auto;
+        }
+        .probability > div{
+            margin: 5px;
+            height: 25px;
+            line-height: 25px;
+        }
+        .probability > div > span:nth-child(1){
+            margin-right: 20px;
+            text-align: right;
+            display: inline-block;
+        }
+        .probability > div > span:nth-child(2){
+            margin-left: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        #temp-save-dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
+            background-size: 100% 100%;
+            z-index: 9999;
+        }
+        @media screen and (max-width: 768px){
+            #temp-save-dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #temp-save-content{
+                height: 500px;
+            }
+        }
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #temp-save-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffc693;
+        }
+        #temp-save-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffc693;
+        }
+        #temp-save-close{
+            width: 40px;
+            height: 40px;
+            color: #ffc693;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #temp-save-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
+            background-size: 100% 100%;
+            color: #ffc693;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            height: 450px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            /*background: url("http://tc.cferhdb.cn/i/2022/09/08/631956354e983.png") no-repeat;*/
+            background: url("http://tc.cferhdb.cn/i/2022/09/13/63201f48d5c30.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            height: 244px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            /*background: url("http://tc.cferhdb.cn/i/2022/09/08/63195a5f5be1b.png") no-repeat;*/
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631ad1e8b164c.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+    <div class="body-box">
+        <div class="header">
+            <img src="http://tc.cferhdb.cn/i/2022/09/14/63213d90ad41c.png" width="100%" height="100%">
+        </div>
+        <div class="draw">
+            <div class="key">
+                拥有蓝宝石：<span class="key-num" style="color: #f0f8ff"> </span>
+            </div>
+            <div class="key-add">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个蓝宝石">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63213e5322109.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个蓝宝石">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63213e6d21412.png" width="100%" height="100%">
+                </div>
+            </div>
+            <div class="pond">
+                <div class="row">
+                    <div class="col prop-1">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63213fa9da603.png" width="100%" height="100%">
+                    </div>
+                    <div class="col  prop-2">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321421e0d0f2.png" width="100%" height="100%">
+                    </div>
+                    <div class="col  prop-3">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321423055550.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-4">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214467977d2.png" width="100%" height="100%">
+                    </div>
+                    <div class="col  prop-5">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214477ae81c.png" width="100%" height="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col prop-14">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d76591e.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col  prop-6">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214478e83e4.png" width="100%" height="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col prop-13">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d597bfc.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-7">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321447a0ce2d.png" width="100%" height="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col prop-8">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d42b5a5.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-9">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d30dd58.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-10">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144b356bfd.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-11">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144b19b7f8.png" width="100%" height="100%">
+                    </div>
+                    <div class="col prop-12">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144afdfef6.png" width="100%" height="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="lottery">
+                <div class="lottery-1" onclick="draw()" title="进行一次抽奖">
+                    <div class="lottery-key">
+                        <span class="lottery-key-num">1</span>
+                        <span class="lottery-key-img"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <p style="width: 80%;margin: auto; text-align: center;color: #ffffff;font-size: 14px;">抽奖获得的可分解道具存放在 【暂存箱】中，可用来分解成蓝宝石</p>
+            <div class="ts-img">
+            </div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/13/632025fcb12c0.png" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+            <div class="prob-title">概率表</div>
+            <div class="prob-init">本模拟器概率非官方概率，中奖结果请勿参考，仅供娱乐。</div>
+            <div><span>王者之诀</span><span>0.2%</span></div>
+            <div><span>王者-春</span><span>0.3%</span></div>
+            <div><span>王者之灵</span><span>0.5%</span></div>
+            <div><span>王者零-华冠丽服</span><span>0.5%</span></div>
+            <div><span>Barrett-朱雀</span><span>0.5%</span></div>
+            <div><span>炫金骑士</span><span>0.5%</span></div>
+            <div><span>黑龙吞噬者</span><span>0.8%</span></div>
+            <div><span>泰迪娃娃</span><span>1.3%</span></div>
+            <div><span>FR-F2-炫彩</span><span>2.7%</span></div>
+            <div><span>手雷-炫彩</span><span>2.7%</span></div>
+            <div><span>王者之石1个</span><span>10%</span></div>
+            <div><span>觉醒宝石5个</span><span>20%</span></div>
+            <div><span>属性变更卷5个</span><span>30%</span></div>
+            <div><span>交易专用钥匙5个</span><span>30%</span></div>
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p>联系邮箱：cferxbs@qq.com</p>
+        </div>
+    </div>
+    <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
+    <div id="prize10-dialog">
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <div class="prize-title">中奖信息</div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize1-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="temp-save-dialog">
+        <div style="width: 100%;height: 40px">
+            <div id="temp-save-header">
+                <div id="temp-save-hint">提示</div>
+                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+            </div>
+            <div id="temp-save-content">
+            </div>
+        </div>
+    </div>
+    <div id="loading"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    var keyNum = 1;
+    var tempStore = new Map;
+    var index = 0;
+    var drawNum = 1;
+    var random = 10000;
+
+    $(function (){
+        alert("声明：\n " +
+            "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+            "联系邮箱：cferxbs@qq.com");
+        $(".key-num").text(keyNum);
+        $(".lottery-key-num").text(drawNumMap.get(drawNum));
+        initProb();
+    })
+
+    const probMap = new Map();
+    probMap.set('王者之诀',0.2);
+    probMap.set('王者-春',0.3);
+    probMap.set('王者之灵',0.5);
+    probMap.set('王者零-华冠丽服',0.5);
+    probMap.set('Barrett-朱雀',0.5);
+    probMap.set('炫金骑士',0.5);
+    probMap.set('黑龙吞噬者',0.8);
+    probMap.set('泰迪娃娃',1.3);
+    probMap.set('FR-F2-炫彩',2.7);
+    probMap.set('手雷-炫彩',2.7);
+    probMap.set('王者之石1个',10);
+    probMap.set('觉醒宝石5个',20);
+    probMap.set('属性变更卷5个',30);
+    probMap.set('交易专用钥匙5个',30);
+
+    const probClassMap = new Map();
+    probClassMap.set('王者之诀','prop-1');
+    probClassMap.set('王者-春','prop-2');
+    probClassMap.set('王者之灵','prop-3');
+    probClassMap.set('王者零-华冠丽服','prop-4');
+    probClassMap.set('Barrett-朱雀','prop-5');
+    probClassMap.set('炫金骑士','prop-6');
+    probClassMap.set('黑龙吞噬者','prop-7');
+    probClassMap.set('泰迪娃娃','prop-12');
+    probClassMap.set('FR-F2-炫彩','prop-11');
+    probClassMap.set('手雷-炫彩','prop-10');
+    probClassMap.set('王者之石1个','prop-9');
+    probClassMap.set('觉醒宝石5个','prop-8');
+    probClassMap.set('属性变更卷5个','prop-13');
+    probClassMap.set('交易专用钥匙5个','prop-14');
+
+    
+    function initProb() {
+        var probNum = 0;
+        let length = 0;
+        probability = [];
+        for(let prop of probMap.keys()){
+            let prob = probMap.get(prop);
+            let num = Number(prob)*100;
+            var item = new Array();
+            item[0] = probNum;
+            item[1] = Number(probNum)+Number(num);
+            item[2] = prop;
+            probability[length++] = item;
+            probNum += Number(num);
+        }
+        console.log(probability)
+    }
+
+
+    var probability = [];
+
+    var destroyMap = new Map();
+    destroyMap.set('王者之诀',18);
+    destroyMap.set('王者-春',12);
+    destroyMap.set('王者之灵',10);
+    destroyMap.set('王者零-华冠丽服',8);
+    destroyMap.set('Barrett-朱雀',7);
+    destroyMap.set('炫金骑士',6);
+    destroyMap.set('黑龙吞噬者',5);
+    destroyMap.set('泰迪娃娃',4);
+    destroyMap.set('FR-F2-炫彩',2);
+    destroyMap.set('手雷-炫彩',2);
+
+    var scoreMap = new Map();
+    scoreMap.set('1积分',5);
+    scoreMap.set('5积分',5);
+    scoreMap.set('5积分',10);
+    scoreMap.set('20积分',20);
+    scoreMap.set('50积分',50);
+    scoreMap.set('100积分',100);
+
+    var drawNumMap = new Map();
+    drawNumMap.set(1,1);
+    drawNumMap.set(2,1);
+    drawNumMap.set(3,2);
+    drawNumMap.set(4,3);
+    drawNumMap.set(5,6);
+    drawNumMap.set(6,9);
+    drawNumMap.set(7,13);
+    drawNumMap.set(8,21);
+    drawNumMap.set(9,34);
+    drawNumMap.set(10,44);
+    drawNumMap.set(11,56);
+    drawNumMap.set(12,66);
+    drawNumMap.set(13,99);
+    drawNumMap.set(14,233);
+
+    function addKey(num) {
+        openLoad();
+        setTimeout(function (){
+            keyNum = $(".key-num").text();
+            keyNum = Number(keyNum) + Number(num);
+            $(".key-num").text(keyNum);
+            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 个蓝宝石</p>";
+            closeLoad();
+            openDialog("系统消息",content);
+        },200);
+    }
+
+    function draw() {
+        if(!drawNumMap.has(drawNum)) return alert("已经抽完啦，刷新页面重置")
+        let needKeyNum = drawNumMap.get(drawNum);
+        if(keyNum < needKeyNum) return alert("蓝宝石不足");
+        openLoad();
+        let delayTime = 200;
+        setTimeout(function (){
+            console.log(random)
+            var prod = Math.ceil(Math.random()*random);
+            var prize = '';
+            for (j = 0; j < probability.length; j++) {
+                var a = probability[j][0];
+                var b = probability[j][1];
+                if (prod > a && prod <= b) {
+                    random = random-(b-a);
+                    prize = probability[j][2];
+                    if(destroyMap.has(prize)){
+                        var tempProp = {
+                            name: prize,
+                            status: 0,
+                            keyNum: destroyMap.get(prize)
+                        };
+                        tempStore.set(index++,tempProp);
+                    }
+                }
+            }
+            keyNum = Number(keyNum) - Number(needKeyNum);
+            $(".key-num").text(keyNum);
+            closeLoad();
+            openPrize1Dialog("<li class='prize-item'>"+prize+"</li>");
+            probMap.delete(prize)
+            initProb();
+            drawNum++;
+            $(".lottery-key-num").text(drawNumMap.get(drawNum));
+
+            let propClass = probClassMap.get(prize);
+            $("."+propClass+"").append('<div class="col-shade"><span>已中奖</span></div>');
+        }, delayTime);
+    }
+
+    function viewTempStore() {
+        setTimeout(function (){
+            var content = getTempStoreHtml();
+            openTempSave('暂存箱',content);
+        },100);
+    }
+
+    function getTempStoreHtml() {
+        var content = "<ul class='temp-prop-list'>";
+        for(let key of tempStore.keys()){
+            let tempProp = tempStore.get(key);
+            var itemProp = '';
+            if(tempProp.status === 0){
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }else{
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }
+            content += itemProp;
+        }
+        content += "</ul>";
+        return content;
+    }
+
+
+    function openShade(){
+        $("#shade").show();
+        $("body").css("overflow","hidden");
+    }
+    function closeShade(){
+        $("#shade").hide();
+        $("body").css("overflow","auto");
+    }
+
+    function openTempSave(title,content) {
+        if(title) $("#temp-save-hint").text(title);
+        $("#temp-save-content").html(content);
+        $("#temp-save-dialog").show();
+        openShade()
+    }
+
+    function closeTempSave() {
+        $("#temp-save-dialog").hide();
+        closeShade()
+    }
+
+    function decompose(index) {
+        let tempProp = tempStore.get(index);
+        if(tempProp.status === 1) return alert("不能重复分解");
+        let num = destroyMap.get(tempProp.name);
+        keyNum += num;
+        $(".key-num").text(keyNum);
+        tempProp.status = 1;
+        var content = getTempStoreHtml();
+        $("#temp-save-content").html(content);
+    }
+
+    function openPrize10Dialog(prize10List) {
+        $("#prize10-list").html(prize10List);
+        $("#prize10-dialog").show();
+        openShade();
+    }
+
+    function closePrize10Dialog() {
+        $("#prize10-dialog").hide();
+        closeShade();
+    }
+
+    function openPrize1Dialog(prize) {
+        $("#prize1-list").html(prize);
+        $("#prize1-dialog").show();
+        openShade()
+    }
+
+    function closePrize1Dialog() {
+        $("#prize1-dialog").hide();
+        closeShade()
+    }
+
+    function closeDialog() {
+        $("#dialog").hide();
+        closeShade()
+    }
+
+    function openDialog(title,content) {
+        if(title) $("#dialog-title").text(title);
+        $("#dialog-content").html(content);
+        $("#dialog").show();
+        openShade()
+    }
+
+    function openLoad(){
+        openShade();
+        $("#loading").show();
+    }
+    function closeLoad() {
+        $("#loading").hide();
+        closeShade();
+    }
+
+
+</script>
+</html>
