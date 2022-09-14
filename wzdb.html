@@ -22,11 +22,12 @@
             padding: 0 0 50px;
         }
         .header{
-            margin-top: 50px;
             min-width: 320px;
             max-width: 960px;
+            margin-top: 50px;
         }
         .key{
+            /*border: 4px solid #a05b35;*/
             min-width: 320px;
             max-width: 560px;
             height: 40px;
@@ -35,10 +36,15 @@
             color: #ffc693;
             font-size: 16px;
             box-sizing: border-box;
+            /*border-radius: 30px;*/
             text-align: center;
         }
         .key-num{
             margin-right: 20px;
+        }
+        .score-count{
+        }
+        .record{
         }
         .key-add{
             width: 100%;
@@ -56,7 +62,7 @@
             min-width: 320px;
             max-width: 960px;
             margin: 20px auto;
-            /*padding: 0 20px;*/
+            padding: 0 10px;
             text-align: center;
         }
         .row{
@@ -64,96 +70,60 @@
         }
         .col{
             display: inline-block;
-            width: 18%;
+            width: 24%;
             height: auto;
             position: relative;
-        }
-        .col-shade{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #333;
-            opacity: 0.5;
-            text-align: center;
-            color: #ffffff;
-            font-size: 12px;
-        }
-        .col-shade > span{
-            width: 40px;
-            height: 20px;
-            line-height: 20px;
-            position: absolute;
-            top:50%;
-            left: 50%;
-            margin-top: -10px;
-            margin-left: -20px;
         }
         .lottery{
             margin-top: 30px;
             text-align: center;
         }
-        .lottery-1{
+        .lottery > div{
             width: 150px;
-            height: 60px;
-            margin: 0 auto;
-            cursor: pointer;
-            background: url("http://tc.cferhdb.cn/i/2022/09/14/6321464b90c8b.png") no-repeat;
-            background-size: 100% 100%;
-        }
-        .lottery-key{
-            padding-top: 30px;
-            width: 100px;
-            height: 20px;
-            color: #ffffff;
-            font-size: 12px;
-            margin: 0 auto;
-        }
-        .lottery-key > span{
+            height: 40px;
+            margin: 0 3px;
             display: inline-block;
-            vertical-align: middle;
-        }
-        .lottery-key-img{
-            width: 20px;
-            height: 20px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/14/632147681ffa8.png") no-repeat;
-            background-size: 100% 100%;
+            cursor: pointer;
         }
         .temp-store{
             text-align: center;
-            box-sizing: border-box;
             min-width: 320px;
-            max-width: 500px;
+            max-width: 960px;
             margin: 50px auto 0;
-            padding-top: 30px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") no-repeat;
-            background-size: 100% 100%;
+            height: 200px;
         }
         .temp-store > div{
-            margin: 10px auto;
+            display: inline-block;
+            /*border: 1px solid yellow;*/
+            vertical-align: top;
         }
         .ts-title{
             text-align: center;
-            color: rgb(248,231,231);
-            font-size: 28px;
+            color: #ffc693;
+            font-size: 38px;
             line-height: 1.1;
             font-weight: bold;
             padding-top: 20px;
         }
         .ts-img{
             width: 200px;
-            height: 155px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/13/63202341951ca.png") no-repeat;
+            height: 135px;
+             /*border: 2px solid yellow;*/
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fe939e150.png") no-repeat;
             background-size: cover;
 
         }
         .ts-view-img{
-            width: 100px;
+            width: 150px;
             height: 40px;
-            margin: 20px auto 0;
-            padding-bottom: 20px;
+            margin-top: 20px;
             cursor: pointer
+        }
+        .ts-intro{
+            color: #fcbb8f;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 9px 0 0 10px;
         }
         .probability{
             min-width: 320px;
@@ -290,24 +260,20 @@
         }
         #prize10-dialog{
             width: 320px;
-            height: 450px;
             position: fixed;
             top: 50%;
             left: 50%;
-            margin-top: -225px;
+            margin-top: -145px;
             margin-left: -160px;
-            /*background: url("http://tc.cferhdb.cn/i/2022/09/08/631956354e983.png") no-repeat;*/
-            background: url("http://tc.cferhdb.cn/i/2022/09/13/63201f48d5c30.png") no-repeat;
+            background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
-            padding: 0 15px;
             display: none;
             z-index: 9999;
         }
 
         #prize1-dialog{
             width: 320px;
-            height: 244px;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -316,43 +282,33 @@
             background: url("http://tc.cferhdb.cn/i/2022/09/14/63213c4ad2f17.png") repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
-            padding: 0 15px;
             display: none;
             z-index: 9999;
         }
-        .prize-title{
-            color: #ffffff;
-            font-size: 25px;
-            font-weight: bold;
+        .prize-dialog-head{
+            height: 40px;
+            line-height: 40px;
             text-align: center;
-            margin: 15px 0;
-        }
-        .prize-hint{
-            font-size: 12px;
-            color: #ffffff;
-            width: 100%;
-            text-align: center;
+            color: #ffa500;
+            background:url("http://tc.cferhdb.cn/i/2022/09/14/6321940121dcf.png");
+            background-size: 100% 100%;
         }
         #prize10-list{
             width: 100%;
-            height: 270px;
             list-style: none;
             margin-top: 8px;
         }
         #prize1-list{
             width: 100%;
-            height: 27px;
             list-style: none;
             margin: 20px 0;
+            text-align: center;
         }
         .prize-item{
-            width: 100%;
-            height: 27px;
+            width: 25%;
             color: #ffffff;
             font-size: 12px;
-            line-height: 27px;
-            text-align: center;
-            /*background: url("http://tc.cferhdb.cn/i/2022/09/08/63195a5f5be1b.png") no-repeat;*/
+            display: inline-block;
         }
         .warm-prompt{
             font-size: 12px;
@@ -362,15 +318,10 @@
             text-align: center;
         }
         .prize-dialog-close{
-            width: 25px;
-            height: 25px;
-            position: absolute;
-            top: -15px;
-            right: -20px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
-            background-size: cover;
+            width: 125px;
+            height: 35px;
+            margin: 10px auto;
         }
-
         #dialog{
             width: 280px;
             height: 140px;
@@ -439,123 +390,94 @@
         </div>
         <div class="draw">
             <div class="key">
-                拥有蓝宝石：<span class="key-num" style="color: #f0f8ff"> </span>
+                当前剩余红宝石：<span class="key-num" style="color: #f0f8ff"> </span>
+                拥有积分：<span class="score-count" style="color: #f0f8ff"> </span>
             </div>
             <div class="key-add">
-                <div class="key-add-1" onclick="addKey(1)" title="增加1个蓝宝石">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63213e5322109.png" width="100%" height="100%">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个红宝石">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63218be439ca3.png" width="100%" height="100%">
                 </div>
-                <div class="key-add-10" onclick="addKey(11)" title="增加11个蓝宝石">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63213e6d21412.png" width="100%" height="100%">
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个红宝石">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63218be95e929.png" width="100%" height="100%">
                 </div>
             </div>
             <div class="pond">
                 <div class="row">
-                    <div class="col prop-1">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63213fa9da603.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218a84e099c.png" width="100%" height="100%">
                     </div>
-                    <div class="col  prop-2">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321421e0d0f2.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218a920d016.png" width="100%" height="100%">
                     </div>
-                    <div class="col  prop-3">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321423055550.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218a9c61033.png" width="100%" height="100%">
                     </div>
-                    <div class="col prop-4">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214467977d2.png" width="100%" height="100%">
-                    </div>
-                    <div class="col  prop-5">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214477ae81c.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218aa73e8f7.png" width="100%" height="100%">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col prop-14">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d76591e.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218abe978ee.png" width="100%" height="100%">
                     </div>
                     <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218abdece03.png" width="100%" height="100%">
                     </div>
                     <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218abd79ac4.png" width="100%" height="100%">
                     </div>
                     <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
-                    </div>
-                    <div class="col  prop-6">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63214478e83e4.png" width="100%" height="100%">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218abc9af44.png" width="100%" height="100%">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col prop-13">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d597bfc.png" width="100%" height="100%">
+                    <div class="col">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218adf09834.png" width="100%" height="100%">
                     </div>
                     <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
-                    </div>
-                    <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
-                    </div>
-                    <div class="col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632141d19527f.png" width="100%" height="100%">
-                    </div>
-                    <div class="col prop-7">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/6321447a0ce2d.png" width="100%" height="100%">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col prop-8">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d42b5a5.png" width="100%" height="100%">
-                    </div>
-                    <div class="col prop-9">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144d30dd58.png" width="100%" height="100%">
-                    </div>
-                    <div class="col prop-10">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144b356bfd.png" width="100%" height="100%">
-                    </div>
-                    <div class="col prop-11">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144b19b7f8.png" width="100%" height="100%">
-                    </div>
-                    <div class="col prop-12">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/14/632144afdfef6.png" width="100%" height="100%">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png" width="100%" height="100%">
                     </div>
                 </div>
             </div>
             <div class="lottery">
-                <div class="lottery-1" onclick="draw()" title="进行一次抽奖">
-                    <div class="lottery-key">
-                        <span class="lottery-key-num">1</span>
-                        <span class="lottery-key-img"></span>
-                    </div>
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63218c1f004da.png" width="100%" height="100%">
+                </div>
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/14/63218c1fc2a2e.png" width="100%" height="100%">
                 </div>
             </div>
         </div>
         <div class="temp-store">
             <h3 class="ts-title">暂存箱</h3>
-            <p style="width: 80%;margin: auto; text-align: center;color: #ffffff;font-size: 14px;">抽奖获得的可分解道具存放在 【暂存箱】中，可用来分解成蓝宝石</p>
             <div class="ts-img">
             </div>
             <div class="ts-view">
                 <div class="ts-view-img" onclick="viewTempStore()">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/13/632025fcb12c0.png" width="100%" height="100%">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/07/63180039f1fd4.png" width="100%" height="100%">
+                </div>
+                <div class="ts-intro">
+                    1.分解道具获得积分
                 </div>
             </div>
         </div>
         <div class="probability">
             <div class="prob-title">概率表</div>
             <div class="prob-init">本模拟器概率非官方概率，中奖结果请勿参考，仅供娱乐。</div>
-            <div><span>王者之诀</span><span>0.2%</span></div>
-            <div><span>王者-春</span><span>0.3%</span></div>
-            <div><span>王者之灵</span><span>0.5%</span></div>
-            <div><span>王者零-华冠丽服</span><span>0.5%</span></div>
-            <div><span>Barrett-朱雀</span><span>0.5%</span></div>
-            <div><span>炫金骑士</span><span>0.5%</span></div>
-            <div><span>黑龙吞噬者</span><span>0.8%</span></div>
-            <div><span>泰迪娃娃</span><span>1.3%</span></div>
-            <div><span>FR-F2-炫彩</span><span>2.7%</span></div>
-            <div><span>手雷-炫彩</span><span>2.7%</span></div>
-            <div><span>王者之石1个</span><span>10%</span></div>
-            <div><span>觉醒宝石5个</span><span>20%</span></div>
-            <div><span>属性变更卷5个</span><span>30%</span></div>
-            <div><span>交易专用钥匙5个</span><span>30%</span></div>
+            <div><span>王者火魄</span><span>0.20%</span></div>
+            <div><span>王者-瞳-闭月羞花</span><span>0.30%</span></div>
+            <div><span>王者之刺</span><span>0.40%</span></div>
+            <div><span>雷神小红</span><span>0.50%</span></div>
+            <div><span>黑骑士-地狱火</span><span>0.50%</span></div>
+            <div><span>AK47—黑鲨</span><span>0.50%</span></div>
+            <div><span>深渊终结者玩偶</span><span>1.00%</span></div>
+            <div><span>Scarlight-炫彩</span><span>3.00%</span></div>
+            <div><span>鹰抓-炫彩</span><span>5.00%</span></div>
+            <div><span>觉醒宝石</span><span>17.72%</span></div>
+            <div><span>步枪弹夹</span><span>17.72%</span></div>
+            <div><span>挑战弹夹</span><span>17.72%</span></div>
+            <div><span>闪光护目镜</span><span>17.72%</span></div>
+            <div><span>烟雾保护头盔</span><span>17.72%</span></div>
         </div>
         <div class="disclaimer">
             <p style="font-size: 25px">声明：</p>
@@ -570,20 +492,17 @@
         <div id="dialog-btn" onclick="closeDialog()">确认</div>
     </div>
     <div id="prize10-dialog">
-        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <div class="prize-dialog-head">中奖信息</div>
         <ul id="prize10-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()">
+            <img src="http://tc.cferhdb.cn/i/2022/09/14/632195bb4984b.png" width="100%" height="100%">
         </div>
     </div>
     <div id="prize1-dialog">
-        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-        <div class="prize-title">中奖信息</div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <div class="prize-dialog-head">中奖信息</div>
         <ul id="prize1-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()">
+            <img src="http://tc.cferhdb.cn/i/2022/09/14/632195bb4984b.png" width="100%" height="100%">
         </div>
     </div>
     <div id="temp-save-dialog">
@@ -600,109 +519,74 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-    var keyNum = 1;
+    var keyNum = 110;
+    var scoreCount = 0;
+    var boxCount = 0;
     var tempStore = new Map;
     var index = 0;
-    var drawNum = 1;
-    var random = 10000;
 
     $(function (){
         alert("声明：\n " +
             "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
             "联系邮箱：cferxbs@qq.com");
         $(".key-num").text(keyNum);
-        $(".lottery-key-num").text(drawNumMap.get(drawNum));
-        initProb();
+        $(".score-count").text(scoreCount);
     })
-
-    const probMap = new Map();
-    probMap.set('王者之诀',0.2);
-    probMap.set('王者-春',0.3);
-    probMap.set('王者之灵',0.5);
-    probMap.set('王者零-华冠丽服',0.5);
-    probMap.set('Barrett-朱雀',0.5);
-    probMap.set('炫金骑士',0.5);
-    probMap.set('黑龙吞噬者',0.8);
-    probMap.set('泰迪娃娃',1.3);
-    probMap.set('FR-F2-炫彩',2.7);
-    probMap.set('手雷-炫彩',2.7);
-    probMap.set('王者之石1个',10);
-    probMap.set('觉醒宝石5个',20);
-    probMap.set('属性变更卷5个',30);
-    probMap.set('交易专用钥匙5个',30);
-
-    const probClassMap = new Map();
-    probClassMap.set('王者之诀','prop-1');
-    probClassMap.set('王者-春','prop-2');
-    probClassMap.set('王者之灵','prop-3');
-    probClassMap.set('王者零-华冠丽服','prop-4');
-    probClassMap.set('Barrett-朱雀','prop-5');
-    probClassMap.set('炫金骑士','prop-6');
-    probClassMap.set('黑龙吞噬者','prop-7');
-    probClassMap.set('泰迪娃娃','prop-12');
-    probClassMap.set('FR-F2-炫彩','prop-11');
-    probClassMap.set('手雷-炫彩','prop-10');
-    probClassMap.set('王者之石1个','prop-9');
-    probClassMap.set('觉醒宝石5个','prop-8');
-    probClassMap.set('属性变更卷5个','prop-13');
-    probClassMap.set('交易专用钥匙5个','prop-14');
-
-    
-    function initProb() {
-        var probNum = 0;
-        let length = 0;
-        probability = [];
-        for(let prop of probMap.keys()){
-            let prob = probMap.get(prop);
-            let num = Number(prob)*100;
-            var item = new Array();
-            item[0] = probNum;
-            item[1] = Number(probNum)+Number(num);
-            item[2] = prop;
-            probability[length++] = item;
-            probNum += Number(num);
-        }
-        console.log(probability)
-    }
-
-
-    var probability = [];
-
+    const probability = [
+        [1,20,'王者火魄'],
+        [21,50, '王者-瞳-闭月羞花'],
+        [51,90, '王者之刺'],
+        [91,140, '雷神小红'],
+        [141,190, '黑骑士-地狱火'],
+        [191,240, 'AK47—黑鲨'],
+        [241,340, '深渊终结者玩偶'],
+        [341,640, 'Scarlight-炫彩'],
+        [641,1140, '鹰抓-炫彩'],
+        [1141,2912, '觉醒宝石'],
+        [2913,4684, '步枪弹夹'],
+        [4685,6456, '挑战弹夹'],
+        [6457,8228, '闪光护目镜'],
+        [8229,10000, '烟雾保护头盔'],
+    ];
     var destroyMap = new Map();
-    destroyMap.set('王者之诀',18);
-    destroyMap.set('王者-春',12);
-    destroyMap.set('王者之灵',10);
-    destroyMap.set('王者零-华冠丽服',8);
-    destroyMap.set('Barrett-朱雀',7);
-    destroyMap.set('炫金骑士',6);
-    destroyMap.set('黑龙吞噬者',5);
-    destroyMap.set('泰迪娃娃',4);
-    destroyMap.set('FR-F2-炫彩',2);
-    destroyMap.set('手雷-炫彩',2);
+    destroyMap.set('王者火魄',60);
+    destroyMap.set('王者-瞳-闭月羞花',50);
+    destroyMap.set('王者之刺',40);
+    destroyMap.set('雷神小红',30);
+    destroyMap.set('黑骑士-地狱火',30);
+    destroyMap.set('AK47—黑鲨',30);
+    destroyMap.set('深渊终结者玩偶',15);
+    destroyMap.set('Scarlight-炫彩',5);
+    destroyMap.set('鹰抓-炫彩',3);
+    destroyMap.set('觉醒宝石',1);
+    destroyMap.set('步枪弹夹',1);
+    destroyMap.set('挑战弹夹',1);
+    destroyMap.set('闪光护目镜',1);
+    destroyMap.set('烟雾保护头盔',1);
+
+
+    var propImgMap = new Map();
+    propImgMap.set('王者火魄','http://tc.cferhdb.cn/i/2022/09/14/63218a84e099c.png');
+    propImgMap.set('王者-瞳-闭月羞花','http://tc.cferhdb.cn/i/2022/09/14/63218a920d016.png');
+    propImgMap.set('王者之刺',"http://tc.cferhdb.cn/i/2022/09/14/63218a9c61033.png");
+    propImgMap.set('雷神小红',"http://tc.cferhdb.cn/i/2022/09/14/63218aa73e8f7.png");
+    propImgMap.set('黑骑士-地狱火',"http://tc.cferhdb.cn/i/2022/09/14/63218abc9af44.png");
+    propImgMap.set('AK47—黑鲨',"http://tc.cferhdb.cn/i/2022/09/14/63218abd79ac4.png");
+    propImgMap.set('深渊终结者玩偶',"http://tc.cferhdb.cn/i/2022/09/14/63218abdece03.png");
+    propImgMap.set('Scarlight-炫彩',"http://tc.cferhdb.cn/i/2022/09/14/63218abe978ee.png");
+    propImgMap.set('鹰抓-炫彩',"http://tc.cferhdb.cn/i/2022/09/14/63218adf09834.png");
+    propImgMap.set('觉醒宝石',"http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png");
+    propImgMap.set('步枪弹夹',"http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png");
+    propImgMap.set('挑战弹夹',"http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png");
+    propImgMap.set('闪光护目镜',"http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png");
+    propImgMap.set('烟雾保护头盔',"http://tc.cferhdb.cn/i/2022/09/14/63218adf99093.png");
 
     var scoreMap = new Map();
-    scoreMap.set('1积分',5);
-    scoreMap.set('5积分',5);
-    scoreMap.set('5积分',10);
-    scoreMap.set('20积分',20);
-    scoreMap.set('50积分',50);
-    scoreMap.set('100积分',100);
-
-    var drawNumMap = new Map();
-    drawNumMap.set(1,1);
-    drawNumMap.set(2,1);
-    drawNumMap.set(3,2);
-    drawNumMap.set(4,3);
-    drawNumMap.set(5,6);
-    drawNumMap.set(6,9);
-    drawNumMap.set(7,13);
-    drawNumMap.set(8,21);
-    drawNumMap.set(9,34);
-    drawNumMap.set(10,44);
-    drawNumMap.set(11,56);
-    drawNumMap.set(12,66);
-    drawNumMap.set(13,99);
-    drawNumMap.set(14,233);
+    scoreMap.set('积分X5',5);
+    scoreMap.set('积分X10',10);
+    scoreMap.set('积分X20',20);
+    scoreMap.set('积分X50',50);
+    scoreMap.set('积分X100',100);
 
     function addKey(num) {
         openLoad();
@@ -710,29 +594,27 @@
             keyNum = $(".key-num").text();
             keyNum = Number(keyNum) + Number(num);
             $(".key-num").text(keyNum);
-            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 个蓝宝石</p>";
+            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 个红宝石</p>";
             closeLoad();
             openDialog("系统消息",content);
         },200);
     }
 
-    function draw() {
-        if(!drawNumMap.has(drawNum)) return alert("已经抽完啦，刷新页面重置")
-        let needKeyNum = drawNumMap.get(drawNum);
-        if(keyNum < needKeyNum) return alert("蓝宝石不足");
+    function draw(num) {
+        if(keyNum < num) return alert("红宝石不足");
         openLoad();
-        let delayTime = 200;
+        let delayTime = 100;
+        if(keyNum > 1) delayTime = 300
         setTimeout(function (){
-            console.log(random)
-            var prod = Math.ceil(Math.random()*random);
-            var prize = '';
-            for (j = 0; j < probability.length; j++) {
-                var a = probability[j][0];
-                var b = probability[j][1];
-                if (prod > a && prod <= b) {
-                    random = random-(b-a);
-                    prize = probability[j][2];
-                    if(destroyMap.has(prize)){
+            let prizeList = '';
+            for(i=0;i<num;i++){
+                var prod = Math.ceil(Math.random()*10000);
+                var prize = '';
+                for (j = 0; j < probability.length; j++) {
+                    var a = probability[j][0];
+                    var b = probability[j][1];
+                    if (prod >= a && prod <= b) {
+                        prize = probability[j][2];
                         var tempProp = {
                             name: prize,
                             status: 0,
@@ -741,18 +623,18 @@
                         tempStore.set(index++,tempProp);
                     }
                 }
+                let propImg = propImgMap.get(prize);
+                prizeList += "<li class='prize-item'><img src='"+propImg+"' width='100%' height='100%'></li>";
             }
-            keyNum = Number(keyNum) - Number(needKeyNum);
+            keyNum = Number(keyNum) - Number(num);
             $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
             closeLoad();
-            openPrize1Dialog("<li class='prize-item'>"+prize+"</li>");
-            probMap.delete(prize)
-            initProb();
-            drawNum++;
-            $(".lottery-key-num").text(drawNumMap.get(drawNum));
-
-            let propClass = probClassMap.get(prize);
-            $("."+propClass+"").append('<div class="col-shade"><span>已中奖</span></div>');
+            if(num === 1){
+                openPrize1Dialog(prizeList)
+            }else{
+                openPrize10Dialog(prizeList)
+            }
         }, delayTime);
     }
 
@@ -805,8 +687,8 @@
         let tempProp = tempStore.get(index);
         if(tempProp.status === 1) return alert("不能重复分解");
         let num = destroyMap.get(tempProp.name);
-        keyNum += num;
-        $(".key-num").text(keyNum);
+        scoreCount += num;
+        $(".score-count").text(scoreCount);
         tempProp.status = 1;
         var content = getTempStoreHtml();
         $("#temp-save-content").html(content);
