@@ -2,9 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CF活动抽奖模拟器大全</title>
+    <meta name="keywords" content="CF活动抽奖模拟器,抽奖模拟器,模拟抽奖">
+    <meta name="description" content="CF活动抽奖模拟器,抽奖模拟器,模拟抽奖">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0;
+        }
+        body{
+            min-width: 320px;
+            max-width: 768px;
+            margin: 0 auto;
+            background: rgba(153,153,153,0.4);
+        }
+        .photo{
+            width: 100px;
+            height: 100px;
+            margin: 20px auto 10px;
+            border: 4px solid #f2f2f2;
+            border-radius: 50%;
+        }
+        .photo > img {
+            border-radius: 50%;
+        }
+        .nickname{
+            color: #ffffff;
+            font-size: 25px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .social{
+            margin: 20px 10px;
+            border-radius: 5px;
+        }
+        .social > div{
+            display: inline-block;
+            width: 33.333%;
+            box-sizing: border-box;
+            height: 120px;
+            padding: 0 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .tiktok{
+            background: rgba(167,146,120,0.4);
+        }
+        .wechat{
+            background: rgba(7,193,96,0.4);
+        }
+        .helper{
+            background: rgba(255,184,0,0.4);
+        }
+        .social > div > img{
+            border-radius: 10px;
+        }
+        #body{
+            margin: 20px auto;
+            text-align: center;
+        }
+        .draw-list{
+            margin: 10px 5px;
+        }
+        .draw-item{
+            width: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .draw-item > a > img{
+            border-radius: 5px;
+        }
+
+    </style>
 </head>
 <body>
+    <div id="header">
+        <div class="photo">
+            <img src="http://tc.cferhdb.cn/i/2022/09/15/6322854ae437a.jpg" width="100%" height="100%">
+        </div>
+        <div class="nickname">玩家小帮手</div>
+        <div class="social">
+            <div class="tiktok">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/6322896604305.png" height="100%">
+            </div>
+            <div class="wechat">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/63228cffebaa5.png" height="100%">
+            </div>
+            <div class="helper" onclick="goHelper()">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/632294a40dffc.png" height="100%">
+            </div>
+        </div>
+    </div>
+    <div id="body">
+        <div class="draw-list">
+            <div class="draw-item">
+                <a href="https://cferxbs.github.io/csay.html" target="_blank">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/632299dab8317.png" width="100%" height="100%">
+                </a>
+            </div>
+            <div class="draw-item">
+                <a href="https://cferxbs.github.io/jjrg.html" target="_blank">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/63229b6965313.png" width="100%" height="100%">
+                </a>
+            </div>
+            <div class="draw-item">
+                <a href="https://cferxbs.github.io/xjwzxy.html" target="_blank">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/63229c835485c.png" width="100%" height="100%">
+                </a>
+            </div>
+            <div class="draw-item">
+                <a href="https://cferxbs.github.io/wzdb.html" target="_blank">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/63229d78b1df8.png" width="100%" height="100%">
+                </a>
+            </div>
+            <div class="draw-item">
+                <a href="https://cferxbs.github.io/wzlh.html" target="_blank">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/63229d48028be.png" width="100%" height="100%">
+                </a>
+            </div>
+        </div>
 
+    </div>
 </body>
+<script>
+    function goHelper() {
+        window.open("http://cferhdb.cn");
+    }
+</script>
 </html>
