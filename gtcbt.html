@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国图藏宝图模拟抽奖</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322b59681bcf.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        #home{
+            min-width: 320px;
+            max-width: 960px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            height: 35px;
+            line-height: 35px;
+            /*background-color: #333333;*/
+        }
+        #home > a{
+            color: yellow;
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+        }
+        .header{
+            min-width: 320px;
+            max-width: 960px;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            height: 40px;
+            margin: 20px auto;
+            line-height: 30px;
+            color: #ffc693;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key-num{
+            margin-right: 20px;
+        }
+        .score-count{
+        }
+        .record{
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 150px;
+            height: 40px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 15px 20px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322b87d23668.png") no-repeat;
+            background-size: 100% 100%;
+            font-size: 0;
+            position: relative;
+        }
+        .pond-change{
+            padding-top: 20px;
+        }
+        @media screen and (min-width: 768px) {
+            .pond{
+                padding: 0 40px 65px;
+            }
+            .pond-change{
+                padding-top: 55px;
+            }
+        }
+        .pond-change > div{
+            width: 50%;
+            display: inline-block;
+        }
+
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery > div{
+            width: 150px;
+            height: 40px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .temp-store{
+            text-align: center;
+            min-width: 320px;
+            max-width: 960px;
+            margin: 50px auto 0;
+            height: 200px;
+            /*background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fbda10034.png") no-repeat;*/
+            /*background-size: cover;*/
+        }
+        .temp-store > div{
+            display: inline-block;
+            /*border: 1px solid yellow;*/
+            vertical-align: top;
+        }
+        .ts-title{
+            text-align: center;
+            color: #ffc693;
+            font-size: 38px;
+            line-height: 1.1;
+            font-weight: bold;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+        .ts-img{
+            width: 200px;
+            height: 135px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322c5c9d50eb.png") no-repeat;
+            background-size: 100% 100%;
+
+        }
+        .ts-view-img{
+            width: 150px;
+            height: 50px;
+            margin-top: 20px;
+            cursor: pointer
+        }
+        .ts-intro{
+            color: #fcbb8f;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 9px 0 0 10px;
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 768px;
+            margin: 50px auto;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322c9bb00a65.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .prob-btn{
+            text-align: center;
+            padding-top: 50px;
+            height: 40px;
+        }
+        @media screen and (min-width: 768px){
+            .prob-btn{
+                padding-top: 80px;
+            }
+        }
+        .prob-btn > div{
+            height: 40px;
+            width: 40%;
+            display: inline-block;
+        }
+        .prob-img{
+            width: 100%;
+            display: block;
+            font-size: 0;
+            box-sizing: border-box;
+            padding: 10px 20px;
+        }
+        .prob-img > img{
+            display: inline-block;
+            text-align: center;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        #temp-save-dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322b59681bcf.png") repeat;
+            z-index: 9999;
+        }
+        @media screen and (max-width: 768px){
+            #temp-save-dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #temp-save-content{
+                height: 500px;
+            }
+        }
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #temp-save-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffc693;
+        }
+        #temp-save-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffc693;
+        }
+        #temp-save-close{
+            width: 40px;
+            height: 40px;
+            color: #ffc693;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #temp-save-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322b59681bcf.png") repeat;
+            color: #ffc693;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            height: 450px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322ca8ecec7e.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            height: 244px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322ca8ecec7e.png") no-repeat;
+            background-size: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            color: rgb(179,82,43);
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 10px;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: rgb(179,82,43);
+            width: 100%;
+            text-align: center;
+            /*padding-top: 55px;*/
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            color: rgb(179,82,43);
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: rgb(179,82,43);
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631ad1e8b164c.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+    <div id="home"><a href="https://cferxbs.github.io" target="_blank">点我查看其它活动抽奖模拟器</a></div>
+    <div class="body-box">
+        <div class="header">
+            <img src="http://tc.cferhdb.cn/i/2022/09/15/6322b431e37ef.png" width="100%" height="100%">
+        </div>
+        <div class="draw">
+            <div class="key">
+                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+                拥有线索值：<span class="score-count" style="color: #f0f8ff"> </span>
+            </div>
+            <div class="key-add">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322c522215b2.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322c546bed36.png" width="100%" height="100%">
+                </div>
+            </div>
+            <div class="pond">
+                <div class="pond-change">
+                    <div class="pond-1" onclick="cutPond(1)"><img src="http://tc.cferhdb.cn/i/2022/09/15/6322b97bb622e.png" width="100%"></div>
+                    <div class="pond-2" onclick="cutPond(2)"><img src="http://tc.cferhdb.cn/i/2022/09/15/6322b987502e9.png" width="100%"></div>
+                </div>
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/6322c41e6e678.png" width="100%" height="100%">
+            </div>
+            <div class="lottery">
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
+                </div>
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <div class="ts-img">
+            </div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322c6b1796ce.png" width="100%" height="100%">
+                </div>
+                <div class="ts-intro">
+                    1.分解道具获得钥匙
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+            <div class="prob-btn">
+                <div class="prob-1">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322d5639fe7c.png" height="100%">
+                </div>
+                <div class="prob-2">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322d5656343c.png" height="100%">
+                </div>
+            </div>
+            <div class="prob-img">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/6322d61ab5a26.png" width="50%">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/6322d6245ac49.png" width="50%">
+            </div>
+<!--            <img src="http://tc.cferhdb.cn/i/2022/09/15/6322c9bb00a65.png" width="100%" height="100%">-->
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p>联系邮箱：cferxbs@qq.com</p>
+        </div>
+    </div>
+    <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
+    <div id="prize10-dialog">
+        <div class="prize-title">中奖信息</div>
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-title">中奖信息</div>
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize1-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="temp-save-dialog">
+        <div style="width: 100%;height: 40px">
+            <div id="temp-save-header">
+                <div id="temp-save-hint">提示</div>
+                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+            </div>
+            <div id="temp-save-content">
+            </div>
+        </div>
+    </div>
+    <div id="loading"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    var keyNum = 110;
+    var scoreCount = 0;
+    var tempStore = new Map;
+    var index = 0;
+    var drawType = 1;
+
+    $(function (){
+        // alert("声明：\n " +
+        //     "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+        //     "联系邮箱：cferxbs@qq.com");
+        $(".key-num").text(keyNum);
+        $(".score-count").text(scoreCount);
+    })
+    const probability1 = [
+        [1,20,'幻神-丹凤皮肤'],
+        [21,50, '觉醒版王者之幻'],
+        [51,90, '莎莎'],
+        [91,150, 'AK47-黑鲨'],
+        [151,210, 'M4A1-龙血'],
+        [211,270, '黑骑士-白马银枪皮肤'],
+        [271,360, '雷神-烈虎皮肤'],
+        [361,450, '语音特效-机器人兑换卷x1'],
+        [451,650, 'M200-幻神蓝粉色光效'],
+        [651,2000, '王者之石x1'],
+        [2001,2050, '线索值x100'],
+        [2051,2200, '线索值x30'],
+        [2201,4200, '线索值x15'],
+        [4201,7200, '线索值x10'],
+        [7201,9980, '线索值x5'],
+    ];
+
+    const probability2 = [
+        [1,20,'幻神-青鹤皮肤'],
+        [21,50, '觉醒版王者之戮'],
+        [51,90, '女战神'],
+        [91,150, 'AK47-黑鲨'],
+        [151,210, 'M4A1-龙血'],
+        [211,270, '黑骑士-白马银枪皮肤'],
+        [271,360, '雷神-烈虎皮肤'],
+        [361,450, '语音特效-生化兑换卷x1'],
+        [451,650, 'M200-幻神蓝粉色光效'],
+        [651,2000, '王者之石x1'],
+        [2001,2050, '线索值x100'],
+        [2051,2200, '线索值x30'],
+        [2201,4200, '线索值x15'],
+        [4201,7200, '线索值x10'],
+        [7201,9980, '线索值x5'],
+    ];
+
+    var destroyMap = new Map();
+    destroyMap.set('幻神-丹凤皮肤',20);
+    destroyMap.set('幻神-青鹤皮肤',20);
+    destroyMap.set('觉醒版王者之幻',10);
+    destroyMap.set('觉醒版王者之戮',10);
+    destroyMap.set('莎莎',8);
+    destroyMap.set('女战神',8);
+    destroyMap.set('AK47-黑鲨',6);
+    destroyMap.set('M4A1-龙血',6);
+    destroyMap.set('黑骑士-白马银枪皮肤',6);
+    destroyMap.set('雷神-烈虎皮肤',4);
+    destroyMap.set('语音特效-机器人兑换卷x1',4);
+    destroyMap.set('语音特效-生化兑换卷x1',4);
+    destroyMap.set('M200-幻神蓝粉色光效',1);
+
+    var scoreMap = new Map();
+    scoreMap.set('线索值x5',5);
+    scoreMap.set('线索值x10',10);
+    scoreMap.set('线索值x20',20);
+    scoreMap.set('线索值x50',50);
+    scoreMap.set('线索值x100',100);
+
+    function cutPond(type) {
+        if(type === 1){
+            $(".pond > img").attr("src","http://tc.cferhdb.cn/i/2022/09/15/6322c41e6e678.png");
+            drawType = 1;
+        }else if(type === 2){
+            $(".pond > img").attr("src","http://tc.cferhdb.cn/i/2022/09/15/6322c43a29bde.png");
+            drawType = 2;
+        }
+
+    }
+    function addKey(num) {
+        openLoad();
+        setTimeout(function (){
+            keyNum = $(".key-num").text();
+            keyNum = Number(keyNum) + Number(num);
+            $(".key-num").text(keyNum);
+            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
+            closeLoad();
+            openDialog("系统消息",content);
+        },200);
+    }
+
+    function draw(num) {
+        if(keyNum < num) return alert("钥匙不足");
+        openLoad();
+        let delayTime = 100;
+        if(keyNum > 1) delayTime = 300
+        setTimeout(function (){
+            let prizeList = '';
+            let probability = probability1;
+            if(drawType === 1) probability = probability1;
+            if(drawType === 2) probability = probability2;
+            for(i=0;i<num;i++){
+                var prod = Math.ceil(Math.random()*10000);
+
+                var prize = '';
+                for (j = 0; j < probability.length; j++) {
+                    var a = probability[j][0];
+                    var b = probability[j][1];
+                    if (prod >= a && prod <= b) {
+                        prize = probability[j][2];
+                        if(destroyMap.has(prize)){
+                            var tempProp = {
+                                name: prize,
+                                status: 0,
+                                keyNum: destroyMap.get(prize)
+                            };
+                            tempStore.set(index++,tempProp);
+                        }else if(scoreMap.has(prize)){
+                            scoreCount += scoreMap.get(prize);
+                        }
+                    }
+                }
+                prizeList += "<li class='prize-item'>"+prize+"</li>";
+            }
+            keyNum = Number(keyNum) - Number(num);
+            $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
+            closeLoad();
+            if(num === 1){
+                openPrize1Dialog(prizeList)
+            }else{
+                openPrize10Dialog(prizeList)
+            }
+        }, delayTime);
+    }
+
+    function viewTempStore() {
+        setTimeout(function (){
+            var content = getTempStoreHtml();
+            openTempSave('暂存箱',content);
+        },100);
+    }
+
+    function getTempStoreHtml() {
+        var content = "<ul class='temp-prop-list'>";
+        for(let key of tempStore.keys()){
+            let tempProp = tempStore.get(key);
+            var itemProp = '';
+            if(tempProp.status === 0){
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }else{
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }
+            content += itemProp;
+        }
+        content += "</ul>";
+        return content;
+    }
+
+
+    function openShade(){
+        $("#shade").show();
+        $("body").css("overflow","hidden");
+    }
+    function closeShade(){
+        $("#shade").hide();
+        $("body").css("overflow","auto");
+    }
+
+    function openTempSave(title,content) {
+        if(title) $("#temp-save-hint").text(title);
+        $("#temp-save-content").html(content);
+        $("#temp-save-dialog").show();
+        openShade()
+    }
+
+    function closeTempSave() {
+        $("#temp-save-dialog").hide();
+        closeShade()
+    }
+
+    function decompose(index) {
+        let tempProp = tempStore.get(index);
+        if(tempProp.status === 1) return alert("不能重复分解");
+        let num = destroyMap.get(tempProp.name);
+        keyNum += num;
+        $(".key-num").text(keyNum);
+        tempProp.status = 1;
+        var content = getTempStoreHtml();
+        $("#temp-save-content").html(content);
+    }
+
+    function openPrize10Dialog(prize10List) {
+        $("#prize10-list").html(prize10List);
+        $("#prize10-dialog").show();
+        openShade();
+    }
+
+    function closePrize10Dialog() {
+        $("#prize10-dialog").hide();
+        closeShade();
+    }
+
+    function openPrize1Dialog(prize) {
+        $("#prize1-list").html(prize);
+        $("#prize1-dialog").show();
+        openShade()
+    }
+
+    function closePrize1Dialog() {
+        $("#prize1-dialog").hide();
+        closeShade()
+    }
+
+    function closeDialog() {
+        $("#dialog").hide();
+        closeShade()
+    }
+
+    function openDialog(title,content) {
+        if(title) $("#dialog-title").text(title);
+        $("#dialog-content").html(content);
+        $("#dialog").show();
+        openShade()
+    }
+
+    function openLoad(){
+        openShade();
+        $("#loading").show();
+    }
+    function closeLoad() {
+        $("#loading").hide();
+        closeShade();
+    }
+
+
+</script>
+</html>
