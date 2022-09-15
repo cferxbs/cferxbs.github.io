@@ -13,6 +13,14 @@
         body{
             background: url("http://tc.cferhdb.cn/i/2022/09/09/631adebe42da2.jpg") repeat-y;
         }
+        #home{
+            text-align: center;
+            font-size: 18px;
+            color: #ffffff;
+            height: 35px;
+            line-height: 35px;
+            background-color: #333333;
+        }
         .body-box{
             min-width: 320px;
             max-width: 960px;
@@ -493,153 +501,154 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-<div class="body-box">
-    <div class="header">
-        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b61c9ccce5.png" width="100%" height="100%">
-    </div>
-    <div class="draw">
-        <div class="key">
-            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-            拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span>
+    <div id="home">点我查看其它活动抽奖模拟器</div>
+    <div class="body-box">
+        <div class="header">
+            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b61c9ccce5.png" width="100%" height="100%">
         </div>
-        <div class="key-add">
-            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
+        <div class="draw">
+            <div class="key">
+                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+                拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span>
             </div>
-            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
+            <div class="key-add">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
+                </div>
             </div>
-        </div>
-        <div class="pond">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
-            <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
-            <div class="open-gift-box" onclick="drawStoneBox()">
-                <div class="open-gift-box-img"></div>
+            <div class="pond">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
+                <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
+                <div class="open-gift-box" onclick="drawStoneBox()">
+                    <div class="open-gift-box-img"></div>
+                </div>
             </div>
-        </div>
-        <div class="lottery">
-            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
-            </div>
-            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
-            </div>
-        </div>
-    </div>
-    <div class="temp-store">
-        <h3 class="ts-title">暂存箱</h3>
-        <div class="ts-img">
-        </div>
-        <div class="ts-view">
-            <div class="ts-view-img" onclick="viewTempStore()">
-                <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae788a859e.png" width="100%" height="100%">
-            </div>
-            <div class="ts-intro">
-                1.分解道具获得钥匙
+            <div class="lottery">
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
+                </div>
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card-list">
-        <div class="card-list-title"></div>
-        <div class="card-list-img">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b05405d905.png" width="100%" height="100%">
-            <ul class="exchange">
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0a7789e2d.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-jin">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('竞字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" >
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <div class="ts-img">
+            </div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae788a859e.png" width="100%" height="100%">
+                </div>
+                <div class="ts-intro">
+                    1.分解道具获得钥匙
+                </div>
+            </div>
+        </div>
+        <div class="card-list">
+            <div class="card-list-title"></div>
+            <div class="card-list-img">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b05405d905.png" width="100%" height="100%">
+                <ul class="exchange">
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0a7789e2d.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-jin">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('竞字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" >
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aa5de834.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-ji">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('技字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aa5de834.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-ji">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('技字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aaf84c7f.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-rong">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('荣字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aaf84c7f.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-rong">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('荣字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0ab14a032.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-guang">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('光字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0ab14a032.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-guang">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('光字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="team">
+            <div class="team-title"></div>
+            <div class="team-prop">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b46d62930b.png" width="100%" height="100%">
+            </div>
+            <div class="team-open">
+                <div class="team-open-title">消耗5张锋芒卡自动开团</div>
+                <div style="color: #ffc693;text-align: center;margin-top: 50px">当前拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span></div>
+                <div class="team-open-img" onclick="drawTeamProp()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b49fd6696a.png" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+            <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae8d27d239.png" width="50%" height="50%">
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p>联系邮箱：cferxbs@qq.com</p>
         </div>
     </div>
-    <div class="team">
-        <div class="team-title"></div>
-        <div class="team-prop">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b46d62930b.png" width="100%" height="100%">
+    <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
+    <div id="prize10-dialog">
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize-img"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
         </div>
-        <div class="team-open">
-            <div class="team-open-title">消耗5张锋芒卡自动开团</div>
-            <div style="color: #ffc693;text-align: center;margin-top: 50px">当前拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span></div>
-            <div class="team-open-img" onclick="drawTeamProp()">
-                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b49fd6696a.png" width="100%">
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <div class="prize-img"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize1-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="temp-save-dialog">
+        <div style="width: 100%;height: 40px">
+            <div id="temp-save-header">
+                <div id="temp-save-hint">提示</div>
+                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+            </div>
+            <div id="temp-save-content">
             </div>
         </div>
     </div>
-    <div class="probability">
-        <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae8d27d239.png" width="50%" height="50%">
-    </div>
-    <div class="disclaimer">
-        <p style="font-size: 25px">声明：</p>
-        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
-        <p>联系邮箱：cferxbs@qq.com</p>
-    </div>
-</div>
-<div id="shade"></div>
-<div id="dialog">
-    <h3 id="dialog-title"></h3>
-    <div id="dialog-content"></div>
-    <div id="dialog-btn" onclick="closeDialog()">确认</div>
-</div>
-<div id="prize10-dialog">
-    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-    <div class="prize-img"></div>
-    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-    <ul id="prize10-list"></ul>
-    <div class="warm-prompt">
-        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-    </div>
-</div>
-<div id="prize1-dialog">
-    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-    <div class="prize-img"></div>
-    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-    <ul id="prize1-list"></ul>
-    <div class="warm-prompt">
-        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-    </div>
-</div>
-<div id="temp-save-dialog">
-    <div style="width: 100%;height: 40px">
-        <div id="temp-save-header">
-            <div id="temp-save-hint">提示</div>
-            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
-        </div>
-        <div id="temp-save-content">
-        </div>
-    </div>
-</div>
-<div id="loading"></div>
+    <div id="loading"></div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
