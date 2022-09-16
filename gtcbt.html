@@ -755,7 +755,6 @@
             openDialog('系统消息','<p style="margin-top: 20px;text-align: center">剩余线索不足</p>')
             return;
         }
-
         let treasureTotal = 0;
         if(drawType === 1){
             treasureTotal = treasureTotal1;
@@ -782,7 +781,6 @@
         }else{
             treasureTotal = treasureTotal2;
         }
-        // console.log("treasureTotal:"+treasureTotal)
         let tempProp = {
             name: '',
             status: 0,
@@ -835,7 +833,11 @@
                 tempProp.name = 'M200-幻神蓝粉色光效';
             }
             tempStore.set(index++,tempProp);
-            return openDialog('系统消息','<p style="text-align: center;margin-top: 20px">恭喜你通过解锁藏宝图获得了'+tempProp.name+'</p>');
+            openLoad();
+            setTimeout(function () {
+                closeLoad();
+                return openDialog('系统消息','<p style="text-align: center;margin-top: 20px">恭喜你通过解锁藏宝图获得了'+tempProp.name+'</p>');
+            },300)
         }
     }
 
