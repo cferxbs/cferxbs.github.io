@@ -105,11 +105,61 @@
             display: inline-block;
             cursor: pointer;
         }
+        .treasure{
+            margin-top: 50px;
+        }
+        .treasure-title{
+            height: 40px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .treasure-hint{
+            text-align: center;
+            color: #f2d065;
+            font-size: 12px;
+        }
+        .treasure-put{
+            text-align: center;
+            height: 40px;
+            margin-top: 20px;
+        }
+        .treasure-put > div{
+            height: 40px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .treasure-count{
+            color: #f2d065;
+            margin: 10px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 15px;
+        }
+        .treasure-map{
+            height: 60px;
+            text-align: center;
+        }
+        .map{
+            width: 100%;
+            position: relative;
+        }
+        .map-shade{
+            width: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            bottom: 4px;
+            right: 0;
+            background: url("http://tc.cferhdb.cn/i/2022/09/15/6322e8ad5156b.png") no-repeat;
+            background-size: cover;
+        }
+
         .temp-store{
             text-align: center;
             min-width: 320px;
             max-width: 960px;
-            margin: 50px auto 0;
+            margin: 80px auto 0;
             height: 200px;
             /*background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fbda10034.png") no-repeat;*/
             /*background-size: cover;*/
@@ -460,6 +510,31 @@
                 </div>
             </div>
         </div>
+        <div class="treasure">
+            <div class="treasure-title">
+                <img src="http://tc.cferhdb.cn/i/2022/09/15/6322e48326df0.png" height="100%">
+            </div>
+            <div class="treasure-hint">
+                每次抽奖获得藏宝图线索值，线索值投入（消耗）到对应宝藏路线，可以解锁领取相应奖励<br>
+                注：如累计获得2200线索值，但投入某一路线并未满2200，则无法领取2200线索值奖励
+            </div>
+            <div class="treasure-put">
+                <div class="treasure-put-10" onclick="treasurePut(10)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322e6760fb10.png" height="100%">
+                </div>
+                <div class="treasure-put-100" onclick="treasurePut(100)">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322e67694d43.png" height="100%">
+                </div>
+            </div>
+            <div class="treasure-count">当前拥有的线索值：<span class="score-count"></span></div>
+            <div class="treasure-map">
+                <div class="map">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/15/6322e77c67dda.png" width="100%">
+                    <div class="map-shade"></div>
+                </div>
+
+            </div>
+        </div>
         <div class="temp-store">
             <h3 class="ts-title">暂存箱</h3>
             <div class="ts-img">
@@ -607,9 +682,13 @@
         if(type === 1){
             $(".pond > img").attr("src","http://tc.cferhdb.cn/i/2022/09/15/6322c41e6e678.png");
             drawType = 1;
+            $(".map > img").attr("src","http://tc.cferhdb.cn/i/2022/09/15/6322e77c67dda.png");
+            $(".map-shade").css("width",""+mapShadeWidth1+"%");
         }else if(type === 2){
             $(".pond > img").attr("src","http://tc.cferhdb.cn/i/2022/09/15/6322c43a29bde.png");
+            $(".map > img").attr("src","http://tc.cferhdb.cn/i/2022/09/16/6323e870e3f46.png");
             drawType = 2;
+            $(".map-shade").css("width",""+mapShadeWidth2+"%");
         }
 
     }
@@ -669,6 +748,175 @@
             }
         }, delayTime);
     }
+    var treasurePropSet = new Set();
+
+    function treasurePut(num) {
+        if(scoreCount < num) {
+            openDialog('系统消息','<p style="margin-top: 20px;text-align: center">剩余线索不足</p>')
+            return;
+        }
+
+        let treasureTotal = 0;
+        if(drawType === 1){
+            treasureTotal = treasureTotal1;
+        }else{
+            treasureTotal = treasureTotal2;
+        }
+        if(treasureTotal >= 2200){
+            return openDialog('系统消息','<p style="margin-top: 20px;text-align: center">你已成功解锁，无需再投入线索值</p>');
+        }
+
+        let usage = getMapShadeWidth(num);
+        scoreCount = scoreCount-usage;
+        let mapShadeWidth = 100;
+        if(drawType === 1){
+            mapShadeWidth = mapShadeWidth1;
+        }else{
+            mapShadeWidth = mapShadeWidth2;
+        }
+        $(".map-shade").css("width",""+mapShadeWidth+"%");
+        $(".score-count").text(scoreCount);
+
+        if(drawType === 1){
+            treasureTotal = treasureTotal1;
+        }else{
+            treasureTotal = treasureTotal2;
+        }
+        // console.log("treasureTotal:"+treasureTotal)
+        let tempProp = {
+            name: '',
+            status: 0,
+            keyNum: 0
+        };
+        if(treasureTotal >= 2200){
+            if(drawType === 1){
+                tempProp.name = '幻神-丹凤皮肤';
+                tempProp.keyNum = destroyMap.get('幻神-丹凤皮肤');
+            }else{
+                tempProp.name = '幻神-青鹤皮肤';
+                tempProp.keyNum = destroyMap.get('幻神-青鹤皮肤');
+            }
+        }else if(treasureTotal >= 1100){
+            if(drawType === 1){
+                tempProp.name = '莎莎';
+                tempProp.keyNum = destroyMap.get('莎莎');
+            }else{
+                tempProp.name = '女战神';
+                tempProp.keyNum = destroyMap.get('女战神');
+            }
+        }else if(treasureTotal >= 600){
+            if(drawType === 1){
+                tempProp.name = 'AK47-黑鲨';
+                tempProp.keyNum = destroyMap.get('AK47-黑鲨');
+            }else{
+                tempProp.name = 'M4A1-龙血';
+                tempProp.keyNum = destroyMap.get('M4A1-龙血');
+            }
+        }else if(treasureTotal >= 320){
+            if(drawType === 1){
+                tempProp.name = '语音特效-机器人兑换卷x1';
+                tempProp.keyNum = destroyMap.get('语音特效-机器人兑换卷x1');
+            }else{
+                tempProp.name = '语音特效-生化兑换卷x1';
+                tempProp.keyNum = destroyMap.get('语音特效-生化兑换卷x1');
+            }
+        }else if(treasureTotal >= 120){
+            if(drawType === 1){
+                tempProp.name = 'M200-幻神蓝粉色光效1';
+                tempProp.keyNum = destroyMap.get('M200-幻神蓝粉色光效');
+            }else{
+                tempProp.name = 'M200-幻神蓝粉色光效2';
+                tempProp.keyNum = destroyMap.get('M200-幻神蓝粉色光效');
+            }
+        }
+        if(tempProp.name && !treasurePropSet.has(tempProp.name)){
+            treasurePropSet.add(tempProp.name);
+            if(tempProp.name.indexOf('M200-幻神蓝粉色光效') > 0){
+                tempProp.name = 'M200-幻神蓝粉色光效';
+            }
+            tempStore.set(index++,tempProp);
+            return openDialog('系统消息','<p style="text-align: center;margin-top: 20px">恭喜你通过解锁藏宝图获得了'+tempProp.name+'</p>');
+        }
+    }
+
+
+
+    var treasureMap = new Map();
+    treasureMap.set(1,[120,80,120]);
+    treasureMap.set(2,[200,60,320]);
+    treasureMap.set(3,[280,40,600]);
+    treasureMap.set(4,[500,20,1100]);
+    treasureMap.set(5,[1100,0,2200]);
+
+    var mapShadeWidth1 = 100;
+    var mapShadeWidth2 = 100;
+
+    var gridNum1 = 1;
+    var gridNum2 = 1;
+
+    var treasureTotal1 = Number(0);
+    var treasureTotal2 = Number(0);
+
+
+    function getMapShadeWidth(num) {
+        let usage = 0;
+        let gridNum = 1;
+        let mapShadeWidth = 100;
+        let treasureTotal = 0;
+        if(drawType === 1){
+            gridNum = gridNum1;
+            mapShadeWidth = mapShadeWidth1;
+            treasureTotal = treasureTotal1;
+        }else{
+            gridNum = gridNum2;
+            mapShadeWidth = mapShadeWidth2;
+            treasureTotal = treasureTotal2;
+        }
+        let item = treasureMap.get(gridNum);
+        let treasureNum = item[0];
+        let minWidth = item[1];
+        let widthRate = (20/treasureNum);
+        let subWidth = (widthRate*num).toFixed(2);
+        let widthSum = Number(minWidth)+Number(subWidth);
+        // console.log("第 "+gridNum+" 个方格")
+        // console.log("方格需线索数："+treasureNum+' -- 累计需要线索：'+item[2]+' -- 遮罩最小宽度：'+minWidth);
+        // console.log("将截取宽度："+subWidth+' -- 截取+最小宽度：'+widthSum);
+        // console.log("---------------")
+        if(widthSum >= mapShadeWidth){
+            mapShadeWidth = minWidth;
+            usage = item[2]-treasureTotal;
+            // console.log("if使用线索数："+usage);
+            treasureTotal = item[2];
+            gridNum++;
+            if(drawType === 1){
+                gridNum1 = gridNum;
+                mapShadeWidth1 = mapShadeWidth;
+                treasureTotal1 = treasureTotal;
+            }else{
+                gridNum2 = gridNum;
+                mapShadeWidth2 = mapShadeWidth;
+                treasureTotal2 = treasureTotal;
+            }
+        }else{
+            mapShadeWidth = (mapShadeWidth - subWidth).toFixed(2);
+            usage = num;
+            // console.log("else使用线索数："+usage);
+            treasureTotal += Number(usage);
+            if(drawType === 1){
+                gridNum1 = gridNum;
+                mapShadeWidth1 = mapShadeWidth;
+                treasureTotal1 = treasureTotal;
+            }else{
+                gridNum2 = gridNum;
+                mapShadeWidth2 = mapShadeWidth;
+                treasureTotal2 = treasureTotal;
+            }
+        }
+        // console.log('剩余宽度：'+mapShadeWidth+" -- 剩余线索值："+(scoreCount-usage)+" -- 累计消耗线索值："+treasureTotal);
+        // console.log("=============================================")
+        return usage;
+    }
+
 
     function viewTempStore() {
         setTimeout(function (){
