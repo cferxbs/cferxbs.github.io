@@ -651,7 +651,8 @@
         $(".score-count").text(scoreCount);
         $(".score-residue").text(scoreResidue);
         $(".cf-currency-count").text(cfCurrencyCount);
-    })
+    });
+
     const probability = [
         [1,10,'传说梦魇 无序列号版'],
         [11,40, '悦蓝-惊涛骇浪'],
@@ -728,7 +729,7 @@
         if(keyNum < num) return alert("钥匙不足");
         openLoad();
         let delayTime = 100;
-        if(keyNum > 1) delayTime = 300
+        if(keyNum > 1) delayTime = 300;
         setTimeout(function (){
             let prizeList = '';
             for(i=0;i<num;i++){
