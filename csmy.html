@@ -137,48 +137,79 @@
                 font-size: 16px;
             }
         }
-        .temp-store{
-            text-align: center;
+        .luck-temp{
             min-width: 320px;
             max-width: 960px;
             margin: 50px auto 0;
-            height: 200px;
-            /*background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fbda10034.png") no-repeat;*/
-            background: url("http://tc.cferhdb.cn/i/2022/09/17/6325606e8d7a8.png") no-repeat;
-            background-size: 100% 100%;
+            text-align: center;
+            font-size: 0;
+        }
+        .luck-temp > div{
+            width: 50%;
+            display: inline-block;
+        }
+        .luck{
+            position: relative;
+        }
+        .luck-v-img{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            margin: -25px 0 0 -25px;
+        }
+        .luck-v{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            color: rgb(252,80,20);
+            font-size: 18px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -25px;
+        }
+        @media screen and (min-width: 768px){
+            .luck-v-img{
+                width: 100px;
+                height: 100px;
+                margin: -50px 0 0 -50px;
+            }
+            .luck-v{
+                font-size: 25px;
+            }
+        }
+        .luck-hint{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            color: #ffc693;
+            font-size: 6px;
+            max-width: 100px;
+        }
+        .temp-store{
+            position: relative;
         }
         .temp-store > div{
             display: inline-block;
-            /*border: 1px solid yellow;*/
             vertical-align: top;
         }
-        .ts-title{
-            text-align: center;
-            color: rgb(242,205,127);
-            font-size: 38px;
-            line-height: 1.1;
-            font-weight: bold;
-            padding-top: 20px;
-        }
-        .ts-img{
-            width: 200px;
-            height: 135px;
-             /*border: 2px solid yellow;*/
-            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fe939e150.png") no-repeat;
-            background-size: cover;
-
-        }
         .ts-view-img{
-            width: 130px;
-            height: 40px;
-            margin-top: 20px;
+            position: absolute;
+            top: 55%;
+            left: 52%;
+            width: 65px;
+            height: 20px;
             cursor: pointer
         }
-        .ts-intro{
-            color: rgb(242,205,127);
-            font-size: 14px;
-            line-height: 1.4;
-            padding: 9px 0 0 10px;
+        @media screen and (min-width: 768px){
+            .ts-view-img{
+                width: 130px;
+                height: 40px;
+                left: 55%;
+            }
         }
         .probability{
             min-width: 320px;
@@ -186,6 +217,10 @@
             margin: 50px auto;
             box-sizing: border-box;
             padding: 20px;
+            font-size: 0;
+        }
+        .probability > img {
+            vertical-align: top;
         }
 
         .disclaimer{
@@ -462,19 +497,23 @@
                 </div>
             </div>
         </div>
-        <div class="temp-store">
-            <h3 class="ts-title">暂存箱</h3>
-            <div class="ts-img">
+        <div class="luck-temp">
+            <div class="luck">
+                <img src="http://tc.cferhdb.cn/i/2022/09/19/6328061034c10.png" width="100%">
+                <div class="luck-v-img">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/19/632808e0c23e6.png" width="100%">
+                    <div class="luck-v">0</div>
+                </div>
+                <div class="luck-hint">幸运值达到888必中永久道具</div>
             </div>
-            <div class="ts-view">
+            <div class="temp-store">
+                <img src="http://tc.cferhdb.cn/i/2022/09/19/63280682040d4.png" width="100%">
                 <div class="ts-view-img" onclick="viewTempStore()">
                     <img src="http://tc.cferhdb.cn/i/2022/09/17/632560c6ed7d5.png" width="100%" height="100%">
                 </div>
-                <div class="ts-intro">
-                    1.分解道具获得钥匙
-                </div>
             </div>
         </div>
+
         <div class="exchange">
             <div class="exchange-title">积分兑换</div>
             <div class="score">
@@ -591,7 +630,8 @@
             </div>
         </div>
         <div class="probability">
-            <img src="http://tc.cferhdb.cn/i/2022/09/17/63255f9d9840c.png" width="100%" height="100%">
+            <img src="http://tc.cferhdb.cn/i/2022/09/17/63255f9d9840c.png" width="50%">
+            <img src="http://tc.cferhdb.cn/i/2022/09/19/6328172b1092d.png" width="50%">
         </div>
         <div class="disclaimer">
             <p style="font-size: 25px">声明：</p>
@@ -644,6 +684,7 @@
     var boxCount = 0;
     var tempStore = new Map;
     var index = 0;
+    var luck = 0;
 
     $(function (){
         alert("声明：\n " +
@@ -653,6 +694,7 @@
         $(".score-count").text(scoreCount);
         $(".score-residue").text(scoreResidue);
         $(".cf-currency-count").text(cfCurrencyCount);
+        $(".luck-v").text(luck);
     });
 
     const probability = [
@@ -673,7 +715,30 @@
         [5381,5400, '100积分'],
         [5401,5600, '10积分'],
         [5601,6000, '5积分'],
-        [6001,10000, '1积分'],
+        [6001,10000, '1积分']
+    ];
+
+    const luckPond = [
+        [1,10,'传说梦魇 无序列号版'],
+        [11,40, '悦蓝-惊涛骇浪'],
+        [41,60, '擎天-秘银兑换卷'],
+        [61,90, '王者冰魄觉醒版'],
+        [91,130, '王者之烈觉醒版'],
+        [131,180, '王者葵-惊若翩鸿'],
+        [181,250, '炫金毁灭'],
+        [251,340, '加特林-炼狱'],
+        [341,430, 'M4A1-黑龙'],
+        [431,580, '红色艾比玩偶兑换卷'],
+    ];
+
+    const luckValue = [
+        [1,10,'100'],
+        [11,50,'50'],
+        [51,300,'20'],
+        [301,800,'10'],
+        [801,1800,'5'],
+        [1801,4800,'2'],
+        [4801,10000,'1']
     ];
     var destroyMap = new Map();
     destroyMap.set('传说梦魇 无序列号版',48);
@@ -734,30 +799,64 @@
         if(keyNum > 1) delayTime = 300;
         setTimeout(function (){
             let prizeList = '';
-            for(i=0;i<num;i++){
-                var prod = Math.ceil(Math.random()*10000);
-
-                var prize = '';
-                for (j = 0; j < probability.length; j++) {
-                    var a = probability[j][0];
-                    var b = probability[j][1];
-                    if (prod >= a && prod <= b) {
-                        prize = probability[j][2];
-                        if(destroyMap.has(prize)){
-                            var tempProp = {
-                                name: prize,
-                                status: 0,
-                                keyNum: destroyMap.get(prize)
-                            };
-                            tempStore.set(index++,tempProp);
-                        }else if(scoreMap.has(prize)){
-                            scoreCount += scoreMap.get(prize);
-                            scoreResidue += scoreMap.get(prize);
-                        }if(cfCurrencyMap.has(prize)){
-                            cfCurrencyCount += cfCurrencyMap.get(prize);
-                            $(".cf-currency-count").text(cfCurrencyCount);
-                        }else{
-                            boxCount++;
+            for(let i=0;i<num;i++){
+                let prize = '';
+                if(luck >= 888){
+                    let prod = Math.ceil(Math.random()*580);
+                    for (let j = 0; j < luckPond.length; j++) {
+                        let min = luckPond[j][0];
+                        let max = luckPond[j][1];
+                        if (prod >= min && prod <= max) {
+                            prize = luckPond[j][2];
+                            if(destroyMap.has(prize)){
+                                let tempProp = {
+                                    name: prize,
+                                    status: 0,
+                                    keyNum: destroyMap.get(prize)
+                                };
+                                tempStore.set(index++,tempProp);
+                            }
+                            luck = 0;
+                        }
+                    }
+                }else{
+                    let prod = Math.ceil(Math.random()*10000);
+                    for (let j = 0; j < probability.length; j++) {
+                        let a = probability[j][0];
+                        let b = probability[j][1];
+                        if (prod >= a && prod <= b) {
+                            prize = probability[j][2];
+                            if(destroyMap.has(prize)){
+                                let tempProp = {
+                                    name: prize,
+                                    status: 0,
+                                    keyNum: destroyMap.get(prize)
+                                };
+                                tempStore.set(index++,tempProp);
+                            }else if(scoreMap.has(prize)){
+                                scoreCount += scoreMap.get(prize);
+                                scoreResidue += scoreMap.get(prize);
+                            }if(cfCurrencyMap.has(prize)){
+                                cfCurrencyCount += cfCurrencyMap.get(prize);
+                                $(".cf-currency-count").text(cfCurrencyCount);
+                            }else{
+                                boxCount++;
+                            }
+                            let tempLuck = 0;
+                            let luckProd = Math.ceil(Math.random()*10000);
+                            for (let z = 0; z < luckValue.length; z++) {
+                                let min = luckValue[z][0];
+                                let max = luckValue[z][1];
+                                if (luckProd >= min && luckProd <= max) {
+                                    tempLuck =luckValue[z][2];
+                                    luck += Number(tempLuck);
+                                }
+                            }
+                            if(destroyMap.has(prize)){
+                                luck = 0;
+                            }
+                            $(".luck-v").text(luck);
+                            prize += " 幸运值"+tempLuck;
                         }
                     }
                 }
