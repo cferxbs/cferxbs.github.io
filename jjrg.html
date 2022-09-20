@@ -501,518 +501,516 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-<div id="home">
-    微信搜索公众号：玩家小帮手<br>
-    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
-</div>
-<div class="body-box">
-    <div class="header">
-        <!--            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b61c9ccce5.png" width="100%" height="100%">-->
-        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327e3b864809.jpg" width="100%" height="100%">
+    <div id="home">
+        微信搜索公众号：玩家小帮手<br>
+        关注回复“抽奖模拟器”获取更多活动抽奖模拟器
     </div>
-    <div class="draw">
-        <div class="key">
-            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-            拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span>
+    <div class="body-box">
+        <div class="header">
+            <!--            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b61c9ccce5.png" width="100%" height="100%">-->
+            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327e3b864809.jpg" width="100%" height="100%">
         </div>
-        <div class="key-add">
-            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
+        <div class="draw">
+            <div class="key">
+                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+                拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span>
             </div>
-            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
+            <div class="key-add">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
+                </div>
             </div>
-        </div>
-        <div class="pond">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
-            <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
-            <div class="open-gift-box" onclick="drawStoneBox()">
-                <div class="open-gift-box-img"></div>
+            <div class="pond">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631adf0629dc5.png" width="100%" height="100%">
+                <p class="gift-box-text">剩余开启王者之石礼盒次数: <span class="gift-box-num">0</span></p>
+                <div class="open-gift-box" onclick="drawStoneBox()">
+                    <div class="open-gift-box-img"></div>
+                </div>
             </div>
-        </div>
-        <div class="lottery">
-            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
-            </div>
-            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
-            </div>
-        </div>
-    </div>
-    <div class="temp-store">
-        <h3 class="ts-title">暂存箱</h3>
-        <div class="ts-img">
-        </div>
-        <div class="ts-view">
-            <div class="ts-view-img" onclick="viewTempStore()">
-                <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae788a859e.png" width="100%" height="100%">
-            </div>
-            <div class="ts-intro">
-                1.分解道具获得钥匙
+            <div class="lottery">
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
+                </div>
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card-list">
-        <div class="card-list-title"></div>
-        <div class="card-list-img">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b05405d905.png" width="100%" height="100%">
-            <ul class="exchange">
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0a7789e2d.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-jin">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('竞字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" >
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <div class="ts-img">
+            </div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae788a859e.png" width="100%" height="100%">
+                </div>
+                <div class="ts-intro">
+                    1.分解道具获得钥匙
+                </div>
+            </div>
+        </div>
+        <div class="card-list">
+            <div class="card-list-title"></div>
+            <div class="card-list-img">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b05405d905.png" width="100%" height="100%">
+                <ul class="exchange">
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0a7789e2d.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-jin">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('竞字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" >
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aa5de834.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-ji">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('技字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aa5de834.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-ji">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('技字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aaf84c7f.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-rong">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('荣字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0aaf84c7f.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-rong">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('荣字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0ab14a032.png" width="100%" height="100%">
-                    <div class="card-num-box">
-                        <p>拥有: <span class="card-num-guang">0</span></p>
-                        <div class="card-exchange" onclick="convertCard('光字卡')">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                    </li>
+                    <li>
+                        <img src="http://tc.cferhdb.cn/i/2022/09/09/631b0ab14a032.png" width="100%" height="100%">
+                        <div class="card-num-box">
+                            <p>拥有: <span class="card-num-guang">0</span></p>
+                            <div class="card-exchange" onclick="convertCard('光字卡')">
+                                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b21a38c30f.png" width="100%" height="100%">
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="team">
+            <div class="team-title"></div>
+            <div class="team-prop">
+                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b46d62930b.png" width="100%" height="100%">
+            </div>
+            <div class="team-open">
+                <div class="team-open-title">消耗5张锋芒卡自动开团</div>
+                <div style="color: #ffc693;text-align: center;margin-top: 50px">当前拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span></div>
+                <div class="team-open-img" onclick="drawTeamProp()">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/09/631b49fd6696a.png" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+            <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae8d27d239.png" width="50%" height="50%">
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p>联系邮箱：cferxbs@qq.com</p>
         </div>
     </div>
-    <div class="team">
-        <div class="team-title"></div>
-        <div class="team-prop">
-            <img src="http://tc.cferhdb.cn/i/2022/09/09/631b46d62930b.png" width="100%" height="100%">
+    <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
+    <div id="prize10-dialog">
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <div class="prize-img"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
         </div>
-        <div class="team-open">
-            <div class="team-open-title">消耗5张锋芒卡自动开团</div>
-            <div style="color: #ffc693;text-align: center;margin-top: 50px">当前拥有锋芒卡：<span class="score-count" style="color: #f0f8ff"> </span></div>
-            <div class="team-open-img" onclick="drawTeamProp()">
-                <img src="http://tc.cferhdb.cn/i/2022/09/09/631b49fd6696a.png" width="100%">
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <div class="prize-img"></div>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize1-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+        </div>
+    </div>
+    <div id="temp-save-dialog">
+        <div style="width: 100%;height: 40px">
+            <div id="temp-save-header">
+                <div id="temp-save-hint">提示</div>
+                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+            </div>
+            <div id="temp-save-content">
             </div>
         </div>
     </div>
-    <div class="probability">
-        <img src="http://tc.cferhdb.cn/i/2022/09/09/631ae8d27d239.png" width="50%" height="50%">
-    </div>
-    <div class="disclaimer">
-        <p style="font-size: 25px">声明：</p>
-        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
-        <p>联系邮箱：cferxbs@qq.com</p>
-    </div>
-</div>
-<div id="shade"></div>
-<div id="dialog">
-    <h3 id="dialog-title"></h3>
-    <div id="dialog-content"></div>
-    <div id="dialog-btn" onclick="closeDialog()">确认</div>
-</div>
-<div id="prize10-dialog">
-    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-    <div class="prize-img"></div>
-    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-    <ul id="prize10-list"></ul>
-    <div class="warm-prompt">
-        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-    </div>
-</div>
-<div id="prize1-dialog">
-    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-    <div class="prize-img"></div>
-    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-    <ul id="prize1-list"></ul>
-    <div class="warm-prompt">
-        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-    </div>
-</div>
-<div id="temp-save-dialog">
-    <div style="width: 100%;height: 40px">
-        <div id="temp-save-header">
-            <div id="temp-save-hint">提示</div>
-            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
-        </div>
-        <div id="temp-save-content">
-        </div>
-    </div>
-</div>
-<div id="loading"></div>
-</body>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
-    var keyNum = 110;
-    var scoreCount = 0;
-    var stoneBoxCount = 0;
-    var tempStore = new Map;
-    var index = 0;
+    <div id="loading"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var keyNum = 110;
+        var scoreCount = 0;
+        var stoneBoxCount = 0;
+        var tempStore = new Map;
+        var index = 0;
 
-    $(function (){
-        alert("声明：\n " +
-            "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
-            "联系邮箱：cferxbs@qq.com");
-        $(".key-num").text(keyNum);
-        $(".score-count").text(scoreCount);
-        showCardNum();
-    });
+        $(function (){
+            alert("声明：\n " +
+                "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+                "联系邮箱：cferxbs@qq.com");
+            $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
+            showCardNum();
+        });
 
-    const probability = [
-        [1,30,'电竞教官-云悠悠'],
-        [31,70, 'M200-竞技荣光'],
-        [71,110, '柯尔特-竞技荣光'],
-        [111,250, '擎天-竞技荣光'],
-        [251,270, '火麒麟-盘古皮肤 兑换券X1 黑骑士-伏羲皮肤 兑换卷X1 二选一'],
-        [271,320, '裁决-雪莉杨'],
-        [321,400, '英雄级通用角色扩展栏位X1'],
-        [301,500, '稀有角色通用扩展栏位X1 高级角色通用扩展栏位X1 二选一'],
-        [501,600, '高爆手雷-竞技荣光'],
-        [601,750, '烟雾弹-竞技荣光'],
-        [751,900, '闪光弹-竞技荣光'],
-        [901,1000, '普通角色通用扩展栏位X1'],
-        [1001,2480, '王者之石礼盒X1'],
-        [2481,2500, '竞字卡'],
-        [2501,2600, '技字卡'],
-        [2601,3000, '荣字卡'],
-        [3001,6000, '光字卡'],
-        [6001,10000, '锋芒卡'],
-    ];
-    var destroyMap = new Map();
-    destroyMap.set('电竞教官-云悠悠',12);
-    destroyMap.set('M200-竞技荣光',12);
-    destroyMap.set('柯尔特-竞技荣光',10);
-    destroyMap.set('擎天-竞技荣光',4);
-    destroyMap.set('火麒麟-盘古皮肤 兑换券X1 黑骑士-伏羲皮肤 兑换卷X1 二选一',10);
-    destroyMap.set('裁决-雪莉杨',7);
-    destroyMap.set('英雄级通用角色扩展栏位X1',5);
-    destroyMap.set('稀有角色通用扩展栏位X1 高级角色通用扩展栏位X1 二选一',4);
-    destroyMap.set('高爆手雷-竞技荣光',2);
-    destroyMap.set('烟雾弹-竞技荣光',1);
-    destroyMap.set('闪光弹-竞技荣光',1);
-    destroyMap.set('普通角色通用扩展栏位X1',1);
-    destroyMap.set('幻神-周瑜皮肤',12);
-    destroyMap.set('火麒麟-盘古皮肤兑换券X1',10);
-    destroyMap.set('黑骑士-伏羲皮肤兑换券X1',10);
-    destroyMap.set('COP-旗袍兑换券X1',4);
-    destroyMap.set('悦动玩偶（不可交易）',4);
-    destroyMap.set('王者之心金色光效兑换券X1',4);
-    destroyMap.set('王者之势紫色光效（不可交易）',1);
+        const probability = [
+            [1,30,'电竞教官-云悠悠'],
+            [31,70, 'M200-竞技荣光'],
+            [71,110, '柯尔特-竞技荣光'],
+            [111,250, '擎天-竞技荣光'],
+            [251,270, '火麒麟-盘古皮肤 兑换券X1 黑骑士-伏羲皮肤 兑换卷X1 二选一'],
+            [271,320, '裁决-雪莉杨'],
+            [321,400, '英雄级通用角色扩展栏位X1'],
+            [301,500, '稀有角色通用扩展栏位X1 高级角色通用扩展栏位X1 二选一'],
+            [501,600, '高爆手雷-竞技荣光'],
+            [601,750, '烟雾弹-竞技荣光'],
+            [751,900, '闪光弹-竞技荣光'],
+            [901,1000, '普通角色通用扩展栏位X1'],
+            [1001,2480, '王者之石礼盒X1'],
+            [2481,2500, '竞字卡'],
+            [2501,2600, '技字卡'],
+            [2601,3000, '荣字卡'],
+            [3001,6000, '光字卡'],
+            [6001,10000, '锋芒卡'],
+        ];
+        var destroyMap = new Map();
+        destroyMap.set('电竞教官-云悠悠',12);
+        destroyMap.set('M200-竞技荣光',12);
+        destroyMap.set('柯尔特-竞技荣光',10);
+        destroyMap.set('擎天-竞技荣光',4);
+        destroyMap.set('火麒麟-盘古皮肤 兑换券X1 黑骑士-伏羲皮肤 兑换卷X1 二选一',10);
+        destroyMap.set('裁决-雪莉杨',7);
+        destroyMap.set('英雄级通用角色扩展栏位X1',5);
+        destroyMap.set('稀有角色通用扩展栏位X1 高级角色通用扩展栏位X1 二选一',4);
+        destroyMap.set('高爆手雷-竞技荣光',2);
+        destroyMap.set('烟雾弹-竞技荣光',1);
+        destroyMap.set('闪光弹-竞技荣光',1);
+        destroyMap.set('普通角色通用扩展栏位X1',1);
+        destroyMap.set('幻神-周瑜皮肤',12);
+        destroyMap.set('火麒麟-盘古皮肤兑换券X1',10);
+        destroyMap.set('黑骑士-伏羲皮肤兑换券X1',10);
+        destroyMap.set('COP-旗袍兑换券X1',4);
+        destroyMap.set('悦动玩偶（不可交易）',4);
+        destroyMap.set('王者之心金色光效兑换券X1',4);
+        destroyMap.set('王者之势紫色光效（不可交易）',1);
 
-    var scoreMap = new Map();
-    scoreMap.set('竞字卡',100);
-    scoreMap.set('技字卡',20);
-    scoreMap.set('荣字卡',5);
-    scoreMap.set('光字卡',2);
+        var scoreMap = new Map();
+        scoreMap.set('竞字卡',100);
+        scoreMap.set('技字卡',20);
+        scoreMap.set('荣字卡',5);
+        scoreMap.set('光字卡',2);
 
-    var cardNumMap = new Map();
-    cardNumMap.set('竞字卡',0);
-    cardNumMap.set('技字卡',0);
-    cardNumMap.set('荣字卡',0);
-    cardNumMap.set('光字卡',0);
+        var cardNumMap = new Map();
+        cardNumMap.set('竞字卡',0);
+        cardNumMap.set('技字卡',0);
+        cardNumMap.set('荣字卡',0);
+        cardNumMap.set('光字卡',0);
 
-    var teamProb = [
-        [1,1660,'高爆手雷-竞技荣光'],
-        [1661,3320,'烟雾弹-竞技荣光'],
-        [3321,4980,'闪光弹-竞技荣光'],
-        [4981,6640,'竞技荣光礼盒X1'],
-        [6641,8300,'随机盲盒X1'],
-        [8301,10000, '王者之石X10'],
-    ];
+        var teamProb = [
+            [1,1660,'高爆手雷-竞技荣光'],
+            [1661,3320,'烟雾弹-竞技荣光'],
+            [3321,4980,'闪光弹-竞技荣光'],
+            [4981,6640,'竞技荣光礼盒X1'],
+            [6641,8300,'随机盲盒X1'],
+            [8301,10000, '王者之石X10'],
+        ];
 
-    var stoneBox = [
-        [1,40, '王者之石X30'],
-        [41,100, '王者之石X20'],
-        [101,1000, '王者之石X10'],
-        [1001,4000, '王者之石X5'],
-        [4001,1000, '王者之石X1'],
-    ];
+        var stoneBox = [
+            [1,40, '王者之石X30'],
+            [41,100, '王者之石X20'],
+            [101,1000, '王者之石X10'],
+            [1001,4000, '王者之石X5'],
+            [4001,1000, '王者之石X1'],
+        ];
 
 
-    var jjrgBox = [
-        [1,30, 'M200-竞技荣光'],
-        [31,70, '柯尔特-竞技荣光'],
-        [71,1070, '擎天-竞技荣光'],
-        [1071,1320, '裁决-雪莉杨'],
-        [1321,1720, '英雄级通用角色扩展栏位X1'],
-        [1721,2220, '稀有角色通用扩展栏位X1'],
-        [2221,2720, '高级角色通用扩展栏位X1'],
-        [2721,5000, '高爆手雷-竞技荣光'],
-        [5001,7500, '烟雾弹-竞技荣光'],
-        [7501,10000, '闪光弹-竞技荣光'],
-    ];
+        var jjrgBox = [
+            [1,30, 'M200-竞技荣光'],
+            [31,70, '柯尔特-竞技荣光'],
+            [71,1070, '擎天-竞技荣光'],
+            [1071,1320, '裁决-雪莉杨'],
+            [1321,1720, '英雄级通用角色扩展栏位X1'],
+            [1721,2220, '稀有角色通用扩展栏位X1'],
+            [2221,2720, '高级角色通用扩展栏位X1'],
+            [2721,5000, '高爆手雷-竞技荣光'],
+            [5001,7500, '烟雾弹-竞技荣光'],
+            [7501,10000, '闪光弹-竞技荣光'],
+        ];
 
-    var blindBox = [
-        [1,60, '幻神-周瑜皮肤'],
-        [61,90, '电竞教官云悠悠'],
-        [91,130, '柯尔特-竞技荣光'],
-        [131,1130, '擎天-竞技荣光'],
-        [1131,1180, '火麒麟-盘古皮肤兑换券X1'],
-        [1181,1230, '黑骑士-伏羲皮肤兑换券X1'],
-        [1231,2230, 'COP-旗袍兑换券X1'],
-        [2231,3230, '悦动玩偶（不可交易）'],
-        [3231,4230, '王者之心金色光效兑换券X1'],
-        [4231,10000, '王者之势紫色光效（不可交易）'],
-    ];
+        var blindBox = [
+            [1,60, '幻神-周瑜皮肤'],
+            [61,90, '电竞教官云悠悠'],
+            [91,130, '柯尔特-竞技荣光'],
+            [131,1130, '擎天-竞技荣光'],
+            [1131,1180, '火麒麟-盘古皮肤兑换券X1'],
+            [1181,1230, '黑骑士-伏羲皮肤兑换券X1'],
+            [1231,2230, 'COP-旗袍兑换券X1'],
+            [2231,3230, '悦动玩偶（不可交易）'],
+            [3231,4230, '王者之心金色光效兑换券X1'],
+            [4231,10000, '王者之势紫色光效（不可交易）'],
+        ];
 
-    function addKey(j1) {
-        openLoad();
-        setTimeout(function() {
-                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
-                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](j1);
-                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
-                let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97 " + j1 + " \u628a\u94a5\u5319\x3c\x2f\x70\x3e";
-                closeLoad();
-                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
-            },
-            200);
-    }
-    function draw(fLAHB2) {
-        if (keyNum < fLAHB2) return openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u94a5\u5319\u4e0d\u8db3\x3c\x2f\x70\x3e");
-        openLoad();
-        let delayTime = 100;
-        if (keyNum > 1) delayTime = 300;
-        setTimeout(function() {
-                let prizeList = '';
-                for (i = 0; i < fLAHB2; i++) {
-                    var dQDj3 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
-                    var KKTtGyL4 = '';
-                    for (j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
-                        var Oss5 = probability[j][0];
-                        var iOsZFv6 = probability[j][1];
-                        if (dQDj3 >= Oss5 && dQDj3 <= iOsZFv6) {
-                            KKTtGyL4 = probability[j][2];
-                            if (destroyMap["\x68\x61\x73"](KKTtGyL4)) {
-                                var sJQsT7 = {
-                                    name: KKTtGyL4,
-                                    status: 0,
-                                    keyNum: destroyMap["\x67\x65\x74"](KKTtGyL4)
-                                };
-                                tempStore["\x73\x65\x74"](index++, sJQsT7);
-                            } else if (cardNumMap["\x68\x61\x73"](KKTtGyL4)) {
-                                let carNum = cardNumMap["\x67\x65\x74"](KKTtGyL4);
-                                cardNumMap["\x73\x65\x74"](KKTtGyL4, ++carNum);
-                            } else if (KKTtGyL4 === "\u738b\u8005\u4e4b\u77f3\u793c\u76d2\x58\x31") {
-                                stoneBoxCount++;
-                            } else {
-                                scoreCount++;
-                            }
-                        }
-                    }
-                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + KKTtGyL4 + "\x3c\x2f\x6c\x69\x3e";
-                }
-                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](fLAHB2);
-                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
-                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
-                closeLoad();
-                if (fLAHB2 === 1) {
-                    openPrize1Dialog(prizeList)
-                } else {
-                    openPrize10Dialog(prizeList)
-                }
-                showCardNum();
-                showGiftBoxNum();
-            },
-            delayTime);
-    }
-    function showGiftBoxNum() {
-        $("\x2e\x67\x69\x66\x74\x2d\x62\x6f\x78\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](stoneBoxCount);
-    }
-    function showCardNum() {
-        $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x6a\x69\x6e")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u7ade\u5b57\u5361"));
-        $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x6a\x69")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u6280\u5b57\u5361"));
-        $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x72\x6f\x6e\x67")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u8363\u5b57\u5361"));
-        $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x67\x75\x61\x6e\x67")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u5149\u5b57\u5361"));
-    }
-    function convertCard(K8) {
-        openLoad();
-        setTimeout(function() {
-                closeLoad();
-                let cardNum = cardNumMap["\x67\x65\x74"](K8);
-                if (cardNum <= 0) {
-                    return openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u5361\u7247\u4e0d\u8db3\x3c\x2f\x70\x3e");
-                }
-                let cardScore = scoreMap["\x67\x65\x74"](K8);
-                let num = cardNum * cardScore;
-                scoreCount += num;
-                openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u60a8\u6210\u529f\u5151\u6362 " + cardNum + " \u5f20" + K8 + " \u83b7\u5f97 " + num + " \u5f20\u950b\u8292\u5361\x3c\x2f\x70\x3e");
-                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
-                cardNumMap["\x73\x65\x74"](K8, 0);
-                showCardNum();
-            },
-            200);
-    }
-    function viewTempStore() {
-        setTimeout(function() {
-                var IrrsKliIS9 = getTempStoreHtml();
-                openTempSave('\u6682\u5b58\u7bb1', IrrsKliIS9);
-            },
-            100);
-    }
-    function getTempStoreHtml() {
-        var kvAOaHc10 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
-        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
-            let tempProp = tempStore["\x67\x65\x74"](key);
-            var duA$11 = '';
-            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
-                duA$11 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
-            } else {
-                duA$11 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
-            }
-            kvAOaHc10 += duA$11;
+        function addKey(j1) {
+            openLoad();
+            setTimeout(function() {
+                    keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                    keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](j1);
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97 " + j1 + " \u628a\u94a5\u5319\x3c\x2f\x70\x3e";
+                    closeLoad();
+                    openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                },
+                200);
         }
-        kvAOaHc10 += "\x3c\x2f\x75\x6c\x3e";
-        return kvAOaHc10;
-    }
-    function drawTeamProp() {
-        openLoad();
-        setTimeout(function() {
-                closeLoad();
-                if (scoreCount < 5) {
-                    return openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e\u950b\u8292\u5361\u4e0d\u8db3\x35\u5f20\x3c\x2f\x70\x3e');
-                }
-                let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
-                let prop = '\u738b\u8005\u4e4b\u77f3\x58\x31\x30';
-                for (i = 0; i < teamProb["\x6c\x65\x6e\x67\x74\x68"]; i++) {
-                    let a = teamProb[i][0];
-                    let b = teamProb[i][1];
-                    if (prod >= a && prod <= b) {
-                        prop = teamProb[i][2];
-                        if (prop == '\u7ade\u6280\u8363\u5149\u793c\u76d2\x58\x31') {
-                            prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
-                            for (j = 0; j < jjrgBox["\x6c\x65\x6e\x67\x74\x68"]; j++) {
-                                a = jjrgBox[j][0];
-                                b = jjrgBox[j][1];
-                                if (prod >= a && prod <= b) {
-                                    prop = jjrgBox[j][2];
-                                }
-                            }
-                        } else if (prop == '\u968f\u673a\u76f2\u76d2\x58\x31') {
-                            prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
-                            for (j = 0; j < blindBox["\x6c\x65\x6e\x67\x74\x68"]; j++) {
-                                a = blindBox[j][0];
-                                b = blindBox[j][1];
-                                if (prod >= a && prod <= b) {
-                                    prop = blindBox[j][2];
+        function draw(fLAHB2) {
+            if (keyNum < fLAHB2) return openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u94a5\u5319\u4e0d\u8db3\x3c\x2f\x70\x3e");
+            openLoad();
+            let delayTime = 100;
+            if (keyNum > 1) delayTime = 300;
+            setTimeout(function() {
+                    let prizeList = '';
+                    for (i = 0; i < fLAHB2; i++) {
+                        var dQDj3 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                        var KKTtGyL4 = '';
+                        for (j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                            var Oss5 = probability[j][0];
+                            var iOsZFv6 = probability[j][1];
+                            if (dQDj3 >= Oss5 && dQDj3 <= iOsZFv6) {
+                                KKTtGyL4 = probability[j][2];
+                                if (destroyMap["\x68\x61\x73"](KKTtGyL4)) {
+                                    var sJQsT7 = {
+                                        name: KKTtGyL4,
+                                        status: 0,
+                                        keyNum: destroyMap["\x67\x65\x74"](KKTtGyL4)
+                                    };
+                                    tempStore["\x73\x65\x74"](index++, sJQsT7);
+                                } else if (cardNumMap["\x68\x61\x73"](KKTtGyL4)) {
+                                    let carNum = cardNumMap["\x67\x65\x74"](KKTtGyL4);
+                                    cardNumMap["\x73\x65\x74"](KKTtGyL4, ++carNum);
+                                } else if (KKTtGyL4 === "\u738b\u8005\u4e4b\u77f3\u793c\u76d2\x58\x31") {
+                                    stoneBoxCount++;
+                                } else {
+                                    scoreCount++;
                                 }
                             }
                         }
-                        break;
+                        prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + KKTtGyL4 + "\x3c\x2f\x6c\x69\x3e";
                     }
-                }
-                if ('\u738b\u8005\u4e4b\u77f3\x58\x31\x30' !== prop) {
-                    var miLSEpRgg12 = {
-                        name: prop,
-                        status: 0,
-                        keyNum: destroyMap["\x67\x65\x74"](prop)
-                    };
-                    tempStore["\x73\x65\x74"](index++, miLSEpRgg12);
-                }
-                scoreCount = scoreCount - 5;
-                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
-                openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e\u606d\u559c\u4f60\u83b7\u5f97 ' + prop + ' \x3c\x2f\x70\x3e')
-            },
-            200);
-    }
-    function drawStoneBox() {
-        openLoad();
-        setTimeout(function() {
-                closeLoad();
-                if (stoneBoxCount <= 0) return openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x22\x3e\u738b\u8005\u4e4b\u77f3\u5b9d\u7bb1\u4e0d\u8db3\x3c\x2f\x70\x3e');
-                let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
-                let prop = '\u738b\u8005\u4e4b\u77f3\x58\x31';
-                for (i = 0; i < stoneBox["\x6c\x65\x6e\x67\x74\x68"]; i++) {
-                    let a = stoneBox[i][0];
-                    let b = stoneBox[i][1];
-                    if (prod >= a && prod <= b) {
-                        prop = stoneBox[i][2];
-                        break;
+                    keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](fLAHB2);
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    closeLoad();
+                    if (fLAHB2 === 1) {
+                        openPrize1Dialog(prizeList)
+                    } else {
+                        openPrize10Dialog(prizeList)
                     }
+                    showCardNum();
+                    showGiftBoxNum();
+                },
+                delayTime);
+        }
+        function showGiftBoxNum() {
+            $("\x2e\x67\x69\x66\x74\x2d\x62\x6f\x78\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](stoneBoxCount);
+        }
+        function showCardNum() {
+            $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x6a\x69\x6e")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u7ade\u5b57\u5361"));
+            $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x6a\x69")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u6280\u5b57\u5361"));
+            $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x72\x6f\x6e\x67")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u8363\u5b57\u5361"));
+            $("\x2e\x63\x61\x72\x64\x2d\x6e\x75\x6d\x2d\x67\x75\x61\x6e\x67")["\x74\x65\x78\x74"](cardNumMap["\x67\x65\x74"]("\u5149\u5b57\u5361"));
+        }
+        function convertCard(K8) {
+            openLoad();
+            setTimeout(function() {
+                    closeLoad();
+                    let cardNum = cardNumMap["\x67\x65\x74"](K8);
+                    if (cardNum <= 0) {
+                        return openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u5361\u7247\u4e0d\u8db3\x3c\x2f\x70\x3e");
+                    }
+                    let cardScore = scoreMap["\x67\x65\x74"](K8);
+                    let num = cardNum * cardScore;
+                    scoreCount += num;
+                    openDialog("\u7cfb\u7edf\u63d0\u793a", "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u60a8\u6210\u529f\u5151\u6362 " + cardNum + " \u5f20" + K8 + " \u83b7\u5f97 " + num + " \u5f20\u950b\u8292\u5361\x3c\x2f\x70\x3e");
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    cardNumMap["\x73\x65\x74"](K8, 0);
+                    showCardNum();
+                },
+                200);
+        }
+        function viewTempStore() {
+            setTimeout(function() {
+                    var IrrsKliIS9 = getTempStoreHtml();
+                    openTempSave('\u6682\u5b58\u7bb1', IrrsKliIS9);
+                },
+                100);
+        }
+        function getTempStoreHtml() {
+            var kvAOaHc10 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+            for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+                let tempProp = tempStore["\x67\x65\x74"](key);
+                var duA$11 = '';
+                if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                    duA$11 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+                } else {
+                    duA$11 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
                 }
-                stoneBoxCount = --stoneBoxCount;
-                showGiftBoxNum();
-                openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x22\x3e\u606d\u559c\u4f60\u83b7\u5f97 ' + prop + '\x3c\x2f\x70\x3e')
-            },
-            200)
-    }
-    function openShade() {
-        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
-        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
-    }
-    function closeShade() {
-        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
-        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
-    }
-    function openTempSave(AOeeg_jky13, FozAW$qYt14) {
-        if (AOeeg_jky13) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](AOeeg_jky13);
-        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](FozAW$qYt14);
-        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
-        openShade()
-    }
-    function closeTempSave() {
-        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
-        closeShade()
-    }
-    function decompose(SLyamhdNh15) {
-        let tempProp = tempStore["\x67\x65\x74"](SLyamhdNh15);
-        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
-        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
-        keyNum += num;
-        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
-        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
-        var c16 = getTempStoreHtml();
-        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](c16);
-    }
-    function openPrize10Dialog(OjMdAG17) {
-        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](OjMdAG17);
-        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
-        openShade();
-    }
-    function closePrize10Dialog() {
-        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
-        closeShade();
-    }
-    function openPrize1Dialog(iXGHJjss18) {
-        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](iXGHJjss18);
-        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
-        openShade()
-    }
-    function closePrize1Dialog() {
-        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
-        closeShade()
-    }
-    function closeDialog() {
-        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
-        closeShade()
-    }
-    function openDialog(dmhN19, KhqGOAN_20) {
-        if (dmhN19) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](dmhN19);
-        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](KhqGOAN_20);
-        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
-        openShade()
-    }
-    function openLoad() {
-        openShade();
-        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
-    }
-    function closeLoad() {
-        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
-        closeShade();
-    }
-
-
-</script>
+                kvAOaHc10 += duA$11;
+            }
+            kvAOaHc10 += "\x3c\x2f\x75\x6c\x3e";
+            return kvAOaHc10;
+        }
+        function drawTeamProp() {
+            openLoad();
+            setTimeout(function() {
+                    closeLoad();
+                    if (scoreCount < 5) {
+                        return openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e\u950b\u8292\u5361\u4e0d\u8db3\x35\u5f20\x3c\x2f\x70\x3e');
+                    }
+                    let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    let prop = '\u738b\u8005\u4e4b\u77f3\x58\x31\x30';
+                    for (i = 0; i < teamProb["\x6c\x65\x6e\x67\x74\x68"]; i++) {
+                        let a = teamProb[i][0];
+                        let b = teamProb[i][1];
+                        if (prod >= a && prod <= b) {
+                            prop = teamProb[i][2];
+                            if (prop == '\u7ade\u6280\u8363\u5149\u793c\u76d2\x58\x31') {
+                                prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                                for (j = 0; j < jjrgBox["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                                    a = jjrgBox[j][0];
+                                    b = jjrgBox[j][1];
+                                    if (prod >= a && prod <= b) {
+                                        prop = jjrgBox[j][2];
+                                    }
+                                }
+                            } else if (prop == '\u968f\u673a\u76f2\u76d2\x58\x31') {
+                                prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                                for (j = 0; j < blindBox["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                                    a = blindBox[j][0];
+                                    b = blindBox[j][1];
+                                    if (prod >= a && prod <= b) {
+                                        prop = blindBox[j][2];
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    if ('\u738b\u8005\u4e4b\u77f3\x58\x31\x30' !== prop) {
+                        var miLSEpRgg12 = {
+                            name: prop,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](prop)
+                        };
+                        tempStore["\x73\x65\x74"](index++, miLSEpRgg12);
+                    }
+                    scoreCount = scoreCount - 5;
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e\u606d\u559c\u4f60\u83b7\u5f97 ' + prop + ' \x3c\x2f\x70\x3e')
+                },
+                200);
+        }
+        function drawStoneBox() {
+            openLoad();
+            setTimeout(function() {
+                    closeLoad();
+                    if (stoneBoxCount <= 0) return openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x22\x3e\u738b\u8005\u4e4b\u77f3\u5b9d\u7bb1\u4e0d\u8db3\x3c\x2f\x70\x3e');
+                    let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    let prop = '\u738b\u8005\u4e4b\u77f3\x58\x31';
+                    for (i = 0; i < stoneBox["\x6c\x65\x6e\x67\x74\x68"]; i++) {
+                        let a = stoneBox[i][0];
+                        let b = stoneBox[i][1];
+                        if (prod >= a && prod <= b) {
+                            prop = stoneBox[i][2];
+                            break;
+                        }
+                    }
+                    stoneBoxCount = --stoneBoxCount;
+                    showGiftBoxNum();
+                    openDialog('\u7cfb\u7edf\u63d0\u793a', '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x22\x3e\u606d\u559c\u4f60\u83b7\u5f97 ' + prop + '\x3c\x2f\x70\x3e')
+                },
+                200)
+        }
+        function openShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
+        }
+        function closeShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
+        }
+        function openTempSave(AOeeg_jky13, FozAW$qYt14) {
+            if (AOeeg_jky13) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](AOeeg_jky13);
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](FozAW$qYt14);
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function closeTempSave() {
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function decompose(SLyamhdNh15) {
+            let tempProp = tempStore["\x67\x65\x74"](SLyamhdNh15);
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+            let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
+            keyNum += num;
+            $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+            tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+            var c16 = getTempStoreHtml();
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](c16);
+        }
+        function openPrize10Dialog(OjMdAG17) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](OjMdAG17);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade();
+        }
+        function closePrize10Dialog() {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade();
+        }
+        function openPrize1Dialog(iXGHJjss18) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](iXGHJjss18);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function closePrize1Dialog() {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function closeDialog() {
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function openDialog(dmhN19, KhqGOAN_20) {
+            if (dmhN19) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](dmhN19);
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](KhqGOAN_20);
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function openLoad() {
+            openShade();
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
+        }
+        function closeLoad() {
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
+            closeShade();
+        }
+    </script>
+</body>
 </html>
