@@ -11,7 +11,7 @@
             padding: 0;
         }
         body{
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316dea7cf887.png") repeat-y;
+            background: url("static/img/csay/bg.png") repeat-y;
         }
         #home{
             min-width: 320px;
@@ -29,7 +29,7 @@
             width: auto;
             margin: auto;
             padding: 0 0 50px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/06/6316dea7cf887.png") repeat-y;
+            background: url("static/img/csay/bg.png") repeat-y;
         }
         .header{
             min-width: 320px;
@@ -103,7 +103,7 @@
             max-width: 960px;
             margin: 50px auto 0;
             height: 200px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fbda10034.png") no-repeat;
+            background: url("static/img/csay/storage-box-bg.png") no-repeat;
             background-size: cover;
         }
         .temp-store > div{
@@ -122,8 +122,8 @@
         .ts-img{
             width: 200px;
             height: 135px;
-             /*border: 2px solid yellow;*/
-            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fe939e150.png") no-repeat;
+            /*border: 2px solid yellow;*/
+            background: url("static/img/csay/storage-box-img.png") no-repeat;
             background-size: cover;
 
         }
@@ -160,7 +160,7 @@
             margin: -250px 0 0 -250px;
             display: none;
             width: 500px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/07/63181514bfc33.png") repeat;
+            background: url("static/img/csay/bg.png") repeat;
             z-index: 9999;
         }
         @media screen and (max-width: 768px){
@@ -213,7 +213,7 @@
             height: 300px;
             box-sizing: border-box;
             padding: 0 10px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/07/63181514bfc33.png") repeat;
+            background: url("static/img/csay/bg.png") repeat;
             color: #ffc693;
             overflow-y: auto;
         }
@@ -251,7 +251,7 @@
             left: 50%;
             margin-top: -225px;
             margin-left: -160px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/08/631956354e983.png") no-repeat;
+            background: url("static/img/csay/prize-list.png") no-repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
             padding: 0 15px;
@@ -266,7 +266,7 @@
             left: 50%;
             margin-top: -122px;
             margin-left: -160px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/08/6319615ba39fd.png") no-repeat;
+            background: url("static/img/csay/prize-list.png") no-repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
             padding: 0 15px;
@@ -300,7 +300,7 @@
             font-size: 12px;
             line-height: 27px;
             text-align: center;
-            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195a5f5be1b.png") no-repeat;
+            background: url("static/img/csay/prize-item.png") no-repeat;
         }
         .warm-prompt{
             font-size: 12px;
@@ -315,7 +315,7 @@
             position: absolute;
             top: -15px;
             right: -20px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
+            background: url("static/img/close.png") no-repeat;
             background-size: cover;
         }
 
@@ -371,7 +371,7 @@
             left: 50%;
             margin-top: -8px;
             margin-left: -8px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/09/631ad1e8b164c.gif") no-repeat 100%;
+            background: url("static/img/load.gif") no-repeat 100%;
             background-size: cover;
             z-index: 9998;
             display: none;
@@ -381,95 +381,94 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="home">
-        微信搜索公众号：玩家小帮手<br>
-        关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+<div id="home">
+    微信搜索公众号：玩家小帮手<br>
+    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="static/img/csay/banner.png" width="100%" height="100%">
     </div>
-    <div class="body-box">
-        <div class="header">
-<!--            <img src="http://tc.cferhdb.cn/i/2022/09/06/6317128568556.png" width="100%" height="100%">-->
-            <img src="http://tc.cferhdb.cn/i/2022/09/15/6322966ad3834.png" width="100%" height="100%">
+    <div class="draw">
+        <div class="key">
+            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+            拥有暗裔币：<span class="score-count" style="color: #f0f8ff"> </span>
         </div>
-        <div class="draw">
-            <div class="key">
-                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-                拥有暗裔币：<span class="score-count" style="color: #f0f8ff"> </span>
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                <img src="static/img/csay/key-1.png" width="100%" height="100%">
             </div>
-            <div class="key-add">
-                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f013554a2.png" width="100%" height="100%">
-                </div>
-                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6316f036783c5.png" width="100%" height="100%">
-                </div>
-            </div>
-            <div class="pond">
-                <img src="http://tc.cferhdb.cn/i/2022/09/06/631702d85ae6e.png" width="100%" height="100%">
-            </div>
-            <div class="lottery">
-                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/06/631701649291b.png" width="100%" height="100%">
-                </div>
-                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/06/6317016a05457.png" width="100%" height="100%">
-                </div>
+            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                <img src="static/img/csay/key-10.png" width="100%" height="100%">
             </div>
         </div>
-        <div class="temp-store">
-            <h3 class="ts-title">暂存箱</h3>
-            <div class="ts-img">
+        <div class="pond">
+            <img src="static/img/csay/pond.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="static/img/csay/lottery-1.png" width="100%" height="100%">
             </div>
-            <div class="ts-view">
-                <div class="ts-view-img" onclick="viewTempStore()">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/07/63180039f1fd4.png" width="100%" height="100%">
-                </div>
-                <div class="ts-intro">
-                    1.分解道具获得钥匙
-                </div>
-            </div>
-        </div>
-        <div class="probability">
-            <img src="http://tc.cferhdb.cn/i/2022/09/06/6316ec3bcaa34.png" width="100%" height="100%">
-        </div>
-        <div class="disclaimer">
-            <p style="font-size: 25px">声明：</p>
-            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
-            <p>联系邮箱：cferxbs@qq.com</p>
-        </div>
-    </div>
-    <div id="shade"></div>
-    <div id="dialog">
-        <h3 id="dialog-title"></h3>
-        <div id="dialog-content"></div>
-        <div id="dialog-btn" onclick="closeDialog()">确认</div>
-    </div>
-    <div id="prize10-dialog">
-        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize10-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="prize1-dialog">
-        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize1-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="temp-save-dialog">
-        <div style="width: 100%;height: 40px">
-            <div id="temp-save-header">
-                <div id="temp-save-hint">提示</div>
-                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
-            </div>
-            <div id="temp-save-content">
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="static/img/csay/lottery-10.png" width="100%" height="100%">
             </div>
         </div>
     </div>
-    <div id="loading"></div>
+    <div class="temp-store">
+        <h3 class="ts-title">暂存箱</h3>
+        <div class="ts-img">
+        </div>
+        <div class="ts-view">
+            <div class="ts-view-img" onclick="viewTempStore()">
+                <img src="static/img/csay/storage-box-view.png" width="100%" height="100%">
+            </div>
+            <div class="ts-intro">
+                1.分解道具获得钥匙
+            </div>
+        </div>
+    </div>
+    <div class="probability">
+        <img src="static/img/csay/prob.png" width="100%" height="100%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         var keyNum = 110;
