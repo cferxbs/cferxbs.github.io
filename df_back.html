@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>毒蜂溯影 斩尽邪祟模拟抽奖</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("http://tc.cferhdb.cn/i/2022/09/18/6326fd18ca458.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        #home{
+            min-width: 320px;
+            max-width: 960px;
+            padding: 3px 0;
+            margin: auto;
+            text-align: center;
+            font-size: 16px;
+            background-color: #333333;
+            color: yellow;
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+            /*background: url("http://tc.cferhdb.cn/i/2022/09/18/6326fd18ca458.jpg") repeat-y;*/
+        }
+        .header{
+            min-width: 320px;
+            max-width: 960px;
+            position: relative;
+        }
+        .more-hint{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            text-align: right;
+        }
+        .more-hint > p{
+            margin: 5px 0;
+        }
+        .draw-img{
+            width: 80%;
+            text-align: center;
+            margin: 10px auto;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            height: 40px;
+            margin: 10px auto;
+            line-height: 40px;
+            color: #ffc693;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key-num{
+            margin-right: 20px;
+        }
+        .score-count{
+            margin-right: 10px;
+        }
+        .record{
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 135px;
+            height: 35px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .switch-pond{
+            width: 100%;
+            font-size: 0;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .switch-pond > div{
+            width: 50%;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+        .switch-pond-epic{
+            padding: 0 10px 0 30px;
+        }
+        .switch-pond-rare{
+            padding: 0 30px 0 10px;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery > div{
+            width: 150px;
+            height: 50px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .exchange-title{
+            height: 40px;
+            line-height: 40px;
+            color: rgb(242,205,127);
+            font-size: 25px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+        .score{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgb(242,205,127);
+            font-size: 16px;
+            margin: 10px;
+        }
+        .exchange-row{
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0;
+            text-align: center;
+        }
+        .exchange-col{
+            width: 20%;
+            box-sizing: border-box;
+            padding: 5px 2px;
+            display: inline-block;
+        }
+        .exchange-bg{
+            background: url("static/img/df/exchange-bg.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .exchange-btn{
+            margin-top: 1px;
+            width: 100%;
+            position: relative;
+        }
+        .exchange-score{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -32px;
+            color: rgb(42,130,63);
+            font-size: 12px;
+            text-align: center;
+        }
+        @media screen and (min-width: 768px) {
+            .exchange-score{
+                margin: -11px 0 0 -46px;
+                font-size: 16px;
+            }
+        }
+        .temp-store{
+            text-align: center;
+            min-width: 320px;
+            max-width: 960px;
+            margin: 50px auto 0;
+            box-sizing: border-box;
+            padding: 0 20px;
+            position: relative;
+            /*height: 200px;*/
+            /*background: url("http://tc.cferhdb.cn/i/2022/09/19/6327cf8ba58ea.png") no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+        .temp-store > div{
+            display: inline-block;
+            /*border: 1px solid yellow;*/
+            vertical-align: top;
+        }
+        .ts-title{
+            text-align: center;
+            color: rgb(242,205,127);
+            font-size: 38px;
+            line-height: 1.1;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .ts-img{
+            width: 200px;
+            height: 135px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/07/6317fe939e150.png") no-repeat;
+            background-size: cover;
+
+        }
+        .ts-view{
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            margin-top: -20px;
+        }
+
+        .ts-view-img{
+            width: 110px;
+            height: 40px;
+            cursor: pointer
+        }
+        .ts-intro{
+            color: rgb(242,205,127);
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 9px 0 0 10px;
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 50px auto;
+            box-sizing: border-box;
+            padding: 20px;
+            font-size: 0;
+        }
+        .probability > img{
+            display: inline-block;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        #temp-save-dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327d1d1866f8.png") no-repeat;
+            background-size: cover;
+            z-index: 9999;
+        }
+        @media screen and (max-width: 768px){
+            #temp-save-dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #temp-save-content{
+                height: 500px;
+            }
+        }
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #temp-save-header{
+            width: 100%;
+            height: 40px;
+            padding: 0 2px;
+            /*border-bottom: 1px solid #ffc693;*/
+        }
+        #temp-save-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffc693;
+        }
+        #temp-save-close{
+            width: 40px;
+            height: 40px;
+            color: #ffc693;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #temp-save-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327d1d1866f8.png") no-repeat;
+            background-size: 100% 100%;
+            color: #ffc693;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("static/img/df/exchange-bg.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("static/img/df/exchange-bg.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(242,205,127);
+            margin: 25px 0 10px;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            background: url("http://tc.cferhdb.cn/i/2022/09/20/63292760b088b.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin: 10px 0 20px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("http://tc.cferhdb.cn/i/2022/09/09/631ad1e8b164c.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+<div id="home">
+    微信搜索公众号：玩家小帮手<br>
+    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="static/img/df/banner.jpg" width="100%" height="100%">
+    </div>
+    <div class="draw">
+        <div class="draw-img">
+            <img src="static/img/df/cj-title.png" width="100%">
+        </div>
+        <div class="key">
+            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+        </div>
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                <img src="static/img/df/key-1.png" width="100%" height="100%">
+            </div>
+            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                <img src="static/img/df/key-10.png" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="switch-pond">
+            <div class="switch-pond-epic" onclick="switchPond('epic')">
+                <img src="static/img/df/epic-show.png" width="100%">
+            </div>
+            <div class="switch-pond-rare" onclick="switchPond('rare')">
+                <img src="static/img/df/rare-hide.png" width="100%">
+            </div>
+        </div>
+        <div class="pond">
+            <img src="static/img/df/pond-epic.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="static/img/df/lottery-1.png" width="100%" height="100%">
+            </div>
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="static/img/df/lottery-10.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <div class="temp-store">
+        <img src="static/img/df/storage-box.png" width="100%">
+        <div class="ts-view">
+            <div class="ts-view-img" onclick="viewTempStore()">
+                <img src="static/img/df/storage-box-view.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <div class="exchange">
+        <div class="exchange-title">积分兑换</div>
+        <div class="score">
+            累计获得积分：<span class="score-count" style="color: #f0f8ff"></span>
+            剩余积分：<span class="score-residue" style="color: #f0f8ff"></span>
+        </div>
+        <div class="exchange-table">
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-1.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(1)">
+                        <img src="static/img/df/score-900.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-2.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(2)">
+                        <img src="static/img/df/score-660.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-3.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(3)">
+                        <img src="static/img/df/score-450.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-4.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(4)">
+                        <img src="static/img/df/score-450.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-5.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(5)">
+                        <img src="static/img/df/score-300.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-6.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(6)">
+                        <img src="static/img/df/score-200.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-7.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(7)">
+                        <img src="static/img/df/score-100.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-8.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(8)">
+                        <img src="static/img/df/score-100.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-9.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(9)">
+                        <img src="static/img/df/score-50.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-10.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(10)">
+                        <img src="static/img/df/score-50.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-11.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(11)">
+                        <img src="static/img/df/score-50.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-12.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(12)">
+                        <img src="static/img/df/score-5.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="static/img/df/prop-13.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(13)">
+                        <img src="static/img/df/score-5.png" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="probability">
+        <img src="static/img/df/prob-epic.png" width="50%">
+        <img src="static/img/df/prob-rare.png" width="50%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    var keyNum = 110;
+    var scoreCount = 0;
+    var scoreResidue = 0;
+    var cfCurrencyCount = 0;
+    var tempStore = new Map;
+    var index = 0;
+    var pond = 'epic';
+
+    $(function (){
+        alert("声明：\n " +
+            "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+            "联系邮箱：cferxbs@qq.com");
+        $(".key-num").text(keyNum);
+        $(".score-count").text(scoreCount);
+        $(".score-residue").text(scoreResidue);
+        $(".cf-currency-count").text(cfCurrencyCount);
+    });
+
+    const probability_epic = [
+        [1,30,'炼狱-悦蓝（非觉醒版）'],
+        [31,70, '加特林-炼狱'],
+        [71,130, '伪装幽灵'],
+        [131,190, '异变清道夫'],
+        [191,270, '炼狱星空皮肤（不可交易）'],
+        [271,390, '黑龙吞噬者'],
+        [391,630, '迷你生化手雷'],
+        [631,870, '死亡之眼'],
+        [871,1350, '[属性卡]捕食者之眼'],
+        [1351,1830, '[属性卡]佣兵觉醒'],
+        [1831,2310, '[属性卡]生化狂暴化'],
+        [2311,2330, '积分X100'],
+        [2331,2500, '积分X50'],
+        [2501,3500, '积分X20'],
+        [3501,6000, '积分X10'],
+        [6001,10000, '积分X5'],
+    ];
+
+    const probability_rare = [
+        [1,10,'加特林-炼狱'],
+        [11,40, '黑龙吞噬者'],
+        [41,100, '死亡之眼'],
+        [101,200, '积分X10'],
+        [201,1000, '积分X5'],
+        [1001,10000, '积分X1'],
+    ];
+
+    var destroyMap = new Map();
+    destroyMap.set('炼狱-悦蓝（非觉醒版）',8);
+    destroyMap.set('加特林-炼狱',6);
+    destroyMap.set('伪装幽灵',4);
+    destroyMap.set('异变清道夫',4);
+    destroyMap.set('炼狱星空皮肤（不可交易）',3);
+    destroyMap.set('黑龙吞噬者',2);
+    destroyMap.set('迷你生化手雷',1);
+    destroyMap.set('死亡之眼',1);
+
+    var exchangeMap = new Map();
+    exchangeMap.set(1,['炼狱-悦蓝（非觉醒版）',900]);
+    exchangeMap.set(2,['加特林-炼狱',660]);
+    exchangeMap.set(3,['伪装幽灵',450]);
+    exchangeMap.set(4,['异变清道夫',450]);
+    exchangeMap.set(5,['炼狱星空皮肤（不可交易）',300]);
+    exchangeMap.set(6,['黑龙吞噬者',200]);
+    exchangeMap.set(7,['迷你生化手雷',100]);
+    exchangeMap.set(8,['死亡之眼',100]);
+    exchangeMap.set(9,['[属性卡]捕食者之眼',50]);
+    exchangeMap.set(10,['[属性卡]佣兵觉醒',50]);
+    exchangeMap.set(11,['[属性卡]生化狂暴化',50]);
+    exchangeMap.set(12,['属性变更券x2',5]);
+    exchangeMap.set(13,['交易专用钥匙x2',5]);
+
+    var scoreMap = new Map();
+    scoreMap.set('积分X1',1);
+    scoreMap.set('积分X5',5);
+    scoreMap.set('积分X10',10);
+    scoreMap.set('积分X20',20);
+    scoreMap.set('积分X50',50);
+    scoreMap.set('积分X100',100);
+
+    var cfCurrencyMap = new Map();
+    cfCurrencyMap.set('1000CF点',1000);
+    cfCurrencyMap.set('5000CF点',5000);
+    cfCurrencyMap.set('10000CF点',10000);
+
+    function addKey(fqW1) {
+        openLoad();
+        setTimeout(function() {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](fqW1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                let content = "\u606d\u559c\u4f60\u83b7\u5f97 " + fqW1 + " \u628a\u94a5\u5319";
+                closeLoad();
+                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+            },
+            200);
+    }
+    function switchPond(pondName) {
+        if(pondName === 'epic'){
+            $('.switch-pond-epic > img').attr('src','static/img/df/epic-show.png');
+            $('.switch-pond-rare > img').attr('src','static/img/df/rare-hide.png');
+            $(".pond > img").attr('src','static/img/df/pond-epic.png');
+            pond = "epic";
+        }else if(pondName === 'rare'){
+            $('.switch-pond-epic > img').attr('src','static/img/df/epic-hide.png');
+            $('.switch-pond-rare > img').attr('src','static/img/df/rare-show.png');
+            $(".pond > img").attr('src','static/img/df/pond-rare.png');
+            pond = "rare";
+        }
+    }
+    function draw(aNQtq3) {
+        if (keyNum < aNQtq3) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
+        openLoad();
+        var j4 = probability_epic;
+        if (pond === '\x72\x61\x72\x65') j4 = probability_rare;
+        let delayTime = 100;
+        if (keyNum > 1) delayTime = 300;
+        setTimeout(function() {
+                let prizeList = '';
+                for (i = 0; i < aNQtq3; i++) {
+                    var cME5 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    var KsBEEWblT6 = '';
+                    for (j = 0; j < j4["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                        var B7 = j4[j][0];
+                        var KProZre8 = j4[j][1];
+                        if (cME5 >= B7 && cME5 <= KProZre8) {
+                            KsBEEWblT6 = j4[j][2];
+                            if (destroyMap["\x68\x61\x73"](KsBEEWblT6)) {
+                                var TNyaTj9 = {
+                                    name: KsBEEWblT6,
+                                    status: 0,
+                                    keyNum: destroyMap["\x67\x65\x74"](KsBEEWblT6)
+                                };
+                                tempStore["\x73\x65\x74"](index++, TNyaTj9);
+                            } else if (scoreMap["\x68\x61\x73"](KsBEEWblT6)) {
+                                scoreCount += scoreMap["\x67\x65\x74"](KsBEEWblT6);
+                                scoreResidue += scoreMap["\x67\x65\x74"](KsBEEWblT6);
+                            }
+                        }
+                    }
+                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + KsBEEWblT6 + "\x3c\x2f\x6c\x69\x3e";
+                }
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](aNQtq3);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                closeLoad();
+                if (aNQtq3 === 1) {
+                    openPrize1Dialog(prizeList)
+                } else {
+                    openPrize10Dialog(prizeList)
+                }
+            },
+            delayTime);
+    }
+    function exchange(RSFJPlOT10) {
+        let item = exchangeMap["\x67\x65\x74"](RSFJPlOT10);
+        if (!item) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u5151\u6362\u9519\u8bef');
+        }
+        let propName = item[0];
+        let needScore = item[1];
+        if (scoreResidue < needScore) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u79ef\u5206\u4e0d\u8db3');
+        }
+        openLoad();
+        setTimeout(function() {
+                closeLoad();
+                scoreResidue -= needScore;
+                if (destroyMap["\x68\x61\x73"](propName)) {
+                    var XXhXY11 = {
+                        name: propName,
+                        status: 0,
+                        keyNum: destroyMap["\x67\x65\x74"](propName)
+                    };
+                    tempStore["\x73\x65\x74"](index++, XXhXY11);
+                } else if (cfCurrencyMap["\x68\x61\x73"](propName)) {
+                    cfCurrencyCount += cfCurrencyMap["\x67\x65\x74"](propName);
+                    $("\x2e\x63\x66\x2d\x63\x75\x72\x72\x65\x6e\x63\x79\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](cfCurrencyCount);
+                }
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                openDialog('\u7cfb\u7edf\u6d88\u606f', '\u606d\u559c\u4f60\u83b7\u5f97\u4e86 ' + propName + '');
+            },
+            300);
+    }
+    function viewTempStore() {
+        setTimeout(function() {
+                var tswDPXK12 = getTempStoreHtml();
+                openTempSave('\u6682\u5b58\u7bb1', tswDPXK12);
+            },
+            100);
+    }
+    function getTempStoreHtml() {
+        var siMDMm13 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+            let tempProp = tempStore["\x67\x65\x74"](key);
+            var WuceeWaEk14 = '';
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                WuceeWaEk14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            } else {
+                WuceeWaEk14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            }
+            siMDMm13 += WuceeWaEk14;
+        }
+        siMDMm13 += "\x3c\x2f\x75\x6c\x3e";
+        return siMDMm13;
+    }
+    function openShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
+    }
+    function closeShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
+    }
+    function openTempSave(YVXeBlpsv15, wsrp16) {
+        if (YVXeBlpsv15) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](YVXeBlpsv15);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](wsrp16);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function closeTempSave() {
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function decompose(XrboEVm17) {
+        let tempProp = tempStore["\x67\x65\x74"](XrboEVm17);
+        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
+        keyNum += num;
+        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+        var WdUaf18 = getTempStoreHtml();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](WdUaf18);
+    }
+    function openPrize10Dialog(U19) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](U19);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function closePrize10Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function openPrize1Dialog(klBt20) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](klBt20);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function closePrize1Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function closeDialog() {
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function openDialog(o21, Kav_Zam22) {
+        if (o21) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](o21);
+        Kav_Zam22 = '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e' + Kav_Zam22 + '\x3c\x2f\x70\x3e';
+        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](Kav_Zam22);
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function openLoad() {
+        openShade();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
+    }
+    function closeLoad() {
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+
+
+</script>
+</html>
