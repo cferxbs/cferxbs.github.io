@@ -523,161 +523,147 @@
     scoreMap.set('暗裔币X50',50);
     scoreMap.set('暗裔币X100',100);
 
-    function addKey(num) {
+    function addKey(kPFC1) {
         openLoad();
-        setTimeout(function (){
-            keyNum = $(".key-num").text();
-            keyNum = Number(keyNum) + Number(num);
-            $(".key-num").text(keyNum);
-            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
-            closeLoad();
-            openDialog("系统消息",content);
-        },200);
+        setTimeout(function() {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](kPFC1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97 " + kPFC1 + " \u628a\u94a5\u5319\x3c\x2f\x70\x3e";
+                closeLoad();
+                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+            },
+            200);
     }
-
-    function draw(num) {
-        if(keyNum < num) return alert("钥匙不足");
+    function draw(reGoNWm2) {
+        if (keyNum < reGoNWm2) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
         openLoad();
         let delayTime = 100;
-        if(keyNum > 1) delayTime = 300
-        setTimeout(function (){
-            let prizeList = '';
-            for(i=0;i<num;i++){
-                var prod = Math.ceil(Math.random()*10000);
-
-                var prize = '';
-                for (j = 0; j < probability.length; j++) {
-                    var a = probability[j][0];
-                    var b = probability[j][1];
-                    if (prod >= a && prod <= b) {
-                        prize = probability[j][2];
-                        if(destroyMap.has(prize)){
-                            var tempProp = {
-                                name: prize,
-                                status: 0,
-                                keyNum: destroyMap.get(prize)
-                            };
-                            tempStore.set(index++,tempProp);
-                        }else if(scoreMap.has(prize)){
-                            scoreCount += scoreMap.get(prize);
-                        }else{
-                            boxCount++;
+        if (keyNum > 1) delayTime = 300;
+        setTimeout(function() {
+                let prizeList = '';
+                for (i = 0; i < reGoNWm2; i++) {
+                    var C3 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    var llfXcfk4 = '';
+                    for (j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                        var masmgr5 = probability[j][0];
+                        var us_yjns6 = probability[j][1];
+                        if (C3 >= masmgr5 && C3 <= us_yjns6) {
+                            llfXcfk4 = probability[j][2];
+                            if (destroyMap["\x68\x61\x73"](llfXcfk4)) {
+                                var WDgKrN7 = {
+                                    name: llfXcfk4,
+                                    status: 0,
+                                    keyNum: destroyMap["\x67\x65\x74"](llfXcfk4)
+                                };
+                                tempStore["\x73\x65\x74"](index++, WDgKrN7);
+                            } else if (scoreMap["\x68\x61\x73"](llfXcfk4)) {
+                                scoreCount += scoreMap["\x67\x65\x74"](llfXcfk4);
+                            } else {
+                                boxCount++;
+                            }
                         }
                     }
+                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + llfXcfk4 + "\x3c\x2f\x6c\x69\x3e";
                 }
-                prizeList += "<li class='prize-item'>"+prize+"</li>";
-            }
-            keyNum = Number(keyNum) - Number(num);
-            $(".key-num").text(keyNum);
-            $(".score-count").text(scoreCount);
-            closeLoad();
-            if(num === 1){
-                openPrize1Dialog(prizeList)
-            }else{
-                openPrize10Dialog(prizeList)
-            }
-        }, delayTime);
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](reGoNWm2);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                closeLoad();
+                if (reGoNWm2 === 1) {
+                    openPrize1Dialog(prizeList)
+                } else {
+                    openPrize10Dialog(prizeList)
+                }
+            },
+            delayTime);
     }
-
     function viewTempStore() {
-        setTimeout(function (){
-            var content = getTempStoreHtml();
-            openTempSave('暂存箱',content);
-        },100);
+        setTimeout(function() {
+                var dccFYBlIY8 = getTempStoreHtml();
+                openTempSave('\u6682\u5b58\u7bb1', dccFYBlIY8);
+            },
+            100);
     }
-
     function getTempStoreHtml() {
-        var content = "<ul class='temp-prop-list'>";
-        for(let key of tempStore.keys()){
-            let tempProp = tempStore.get(key);
-            var itemProp = '';
-            if(tempProp.status === 0){
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
-            }else{
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+        var olRByFwKU9 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+            let tempProp = tempStore["\x67\x65\x74"](key);
+            var GepDEqNK10 = '';
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                GepDEqNK10 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            } else {
+                GepDEqNK10 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
             }
-            content += itemProp;
+            olRByFwKU9 += GepDEqNK10;
         }
-        content += "</ul>";
-        return content;
+        olRByFwKU9 += "\x3c\x2f\x75\x6c\x3e";
+        return olRByFwKU9;
     }
-
-
-    function openShade(){
-        $("#shade").show();
-        $("body").css("overflow","hidden");
+    function openShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
     }
-    function closeShade(){
-        $("#shade").hide();
-        $("body").css("overflow","auto");
+    function closeShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
     }
-
-    function openTempSave(title,content) {
-        if(title) $("#temp-save-hint").text(title);
-        $("#temp-save-content").html(content);
-        $("#temp-save-dialog").show();
+    function openTempSave(igrFJGnCA11, X_dhAMG12) {
+        if (igrFJGnCA11) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](igrFJGnCA11);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](X_dhAMG12);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
     function closeTempSave() {
-        $("#temp-save-dialog").hide();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
-    function decompose(index) {
-        let tempProp = tempStore.get(index);
-        if(tempProp.status === 1) return alert("不能重复分解");
-        let num = destroyMap.get(tempProp.name);
+    function decompose(woGFf13) {
+        let tempProp = tempStore["\x67\x65\x74"](woGFf13);
+        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
         keyNum += num;
-        $(".key-num").text(keyNum);
-        tempProp.status = 1;
-        var content = getTempStoreHtml();
-        $("#temp-save-content").html(content);
+        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+        var jlpAt14 = getTempStoreHtml();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](jlpAt14);
     }
-
-    function openPrize10Dialog(prize10List) {
-        $("#prize10-list").html(prize10List);
-        $("#prize10-dialog").show();
+    function openPrize10Dialog(vBRjE15) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](vBRjE15);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade();
     }
-
     function closePrize10Dialog() {
-        $("#prize10-dialog").hide();
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
-
-    function openPrize1Dialog(prize) {
-        $("#prize1-list").html(prize);
-        $("#prize1-dialog").show();
+    function openPrize1Dialog(ZbYn16) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](ZbYn16);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
     function closePrize1Dialog() {
-        $("#prize1-dialog").hide();
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
     function closeDialog() {
-        $("#dialog").hide();
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
-    function openDialog(title,content) {
-        if(title) $("#dialog-title").text(title);
-        $("#dialog-content").html(content);
-        $("#dialog").show();
+    function openDialog(XgJn17, VZFQv18) {
+        if (XgJn17) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](XgJn17);
+        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](VZFQv18);
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
-    function openLoad(){
+    function openLoad() {
         openShade();
-        $("#loading").show();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
     }
     function closeLoad() {
-        $("#loading").hide();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
-
 
 </script>
 </html>

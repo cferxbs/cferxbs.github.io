@@ -229,6 +229,10 @@
             margin: 50px auto;
             box-sizing: border-box;
             padding: 20px;
+            font-size: 0;
+        }
+        .probability > img{
+            display: inline-block;
         }
 
         .disclaimer{
@@ -340,7 +344,7 @@
             left: 50%;
             margin-top: -225px;
             margin-left: -160px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327d1d1866f8.png") no-repeat;
+            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327cc7774026.png") no-repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
             padding: 0 15px;
@@ -355,7 +359,7 @@
             left: 50%;
             margin-top: -122px;
             margin-left: -160px;
-            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327d1d1866f8.png") no-repeat;
+            background: url("http://tc.cferhdb.cn/i/2022/09/19/6327cc7774026.png") no-repeat;
             background-size: 100% 100%;
             box-sizing: border-box;
             padding: 0 15px;
@@ -394,7 +398,8 @@
             font-size: 12px;
             line-height: 27px;
             text-align: center;
-            /*background: url("http://tc.cferhdb.cn/i/2022/09/08/63195a5f5be1b.png") no-repeat;*/
+            background: url("http://tc.cferhdb.cn/i/2022/09/20/63292760b088b.png") no-repeat;
+            background-size: 100% 100%;
         }
         .warm-prompt{
             font-size: 12px;
@@ -407,8 +412,8 @@
             width: 25px;
             height: 25px;
             position: absolute;
-            top: -17px;
-            right: -20px;
+            top: 10px;
+            right: 5px;
             background: url("http://tc.cferhdb.cn/i/2022/09/08/63195d2392f83.png") no-repeat;
             background-size: cover;
         }
@@ -475,220 +480,221 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="home">
-        微信搜索公众号：玩家小帮手<br>
-        关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+<div id="home">
+    微信搜索公众号：玩家小帮手<br>
+    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fd03961e0.jpg" width="100%" height="100%">
     </div>
-    <div class="body-box">
-        <div class="header">
-            <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fd03961e0.jpg" width="100%" height="100%">
+    <div class="draw">
+        <div class="draw-img">
+            <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fe591ea24.png" width="100%">
         </div>
-        <div class="draw">
-            <div class="draw-img">
-                <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fe591ea24.png" width="100%">
+        <div class="key">
+            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+        </div>
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/6326ffdc47f96.png" width="100%" height="100%">
             </div>
-            <div class="key">
-                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-            </div>
-            <div class="key-add">
-                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/6326ffdc47f96.png" width="100%" height="100%">
-                </div>
-                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fffd5491a.png" width="100%" height="100%">
-                </div>
-            </div>
-            <div class="switch-pond">
-                <div class="switch-pond-epic" onclick="switchPond('epic')">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/63270285d3ad2.png" width="100%">
-                </div>
-                <div class="switch-pond-rare" onclick="switchPond('rare')">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/63270294197a6.png" width="100%">
-                </div>
-            </div>
-            <div class="pond">
-                <img src="http://tc.cferhdb.cn/i/2022/09/18/63270364928c4.png" width="100%" height="100%">
-            </div>
-            <div class="lottery">
-                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/6327083f8506c.png" width="100%" height="100%">
-                </div>
-                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/18/63270856a8549.png" width="100%" height="100%">
-                </div>
+            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/6326fffd5491a.png" width="100%" height="100%">
             </div>
         </div>
-        <div class="temp-store">
-            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cf8ba58ea.png" width="100%">
-            <div class="ts-view">
-                <div class="ts-view-img" onclick="viewTempStore()">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d0ed5a70a.png" width="100%" height="100%">
-                </div>
+        <div class="switch-pond">
+            <div class="switch-pond-epic" onclick="switchPond('epic')">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/63270285d3ad2.png" width="100%">
+            </div>
+            <div class="switch-pond-rare" onclick="switchPond('rare')">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/63270294197a6.png" width="100%">
             </div>
         </div>
-        <div class="exchange">
-            <div class="exchange-title">积分兑换</div>
-            <div class="score">
-                累计获得积分：<span class="score-count" style="color: #f0f8ff"></span>
-                剩余积分：<span class="score-residue" style="color: #f0f8ff"></span>
+        <div class="pond">
+            <img src="http://tc.cferhdb.cn/i/2022/09/18/63270364928c4.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/6327083f8506c.png" width="100%" height="100%">
             </div>
-            <div class="exchange-table">
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbb6d0f80.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(1)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d4213dbed.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbd98466b.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(2)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5206eb78.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbe13cc8a.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(3)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d534ebca6.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbef5a314.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(4)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d534ebca6.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbf8647ca.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(5)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d55d2751d.png" width="100%">
-                        </div>
-                    </div>
-                </div>
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cc0169273.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(6)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5cac9c99.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd0027ba4.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(7)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5e616127.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327ccf86d376.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(8)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5e616127.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd1164e36.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(9)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd1acfe08.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(10)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
-                        </div>
-                    </div>
-                </div>
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd246739d.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(11)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd34b3e43.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(12)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d614724b8.png" width="100%">
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <div class="exchange-bg">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd358252b.png" width="100%">
-                        </div>
-                        <div class="exchange-btn" onclick="exchange(13)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d614724b8.png" width="100%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="probability">
-<!--            <img src="http://tc.cferhdb.cn/i/2022/09/17/63255f9d9840c.png" width="100%" height="100%">-->
-        </div>
-        <div class="disclaimer">
-            <p style="font-size: 25px">声明：</p>
-            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
-            <p>联系邮箱：cferxbs@qq.com</p>
-        </div>
-    </div>
-    <div id="shade"></div>
-    <div id="dialog">
-        <h3 id="dialog-title"></h3>
-        <div id="dialog-content"></div>
-        <div id="dialog-btn" onclick="closeDialog()">确认</div>
-    </div>
-    <div id="prize10-dialog">
-        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-        <div class="prize-title">中奖信息</div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize10-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="prize1-dialog">
-        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-        <div class="prize-title">中奖信息</div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize1-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="temp-save-dialog">
-        <div style="width: 100%;height: 40px">
-            <div id="temp-save-header">
-                <div id="temp-save-hint">提示</div>
-                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
-            </div>
-            <div id="temp-save-content">
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="http://tc.cferhdb.cn/i/2022/09/18/63270856a8549.png" width="100%" height="100%">
             </div>
         </div>
     </div>
-    <div id="loading"></div>
+    <div class="temp-store">
+        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cf8ba58ea.png" width="100%">
+        <div class="ts-view">
+            <div class="ts-view-img" onclick="viewTempStore()">
+                <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d0ed5a70a.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <div class="exchange">
+        <div class="exchange-title">积分兑换</div>
+        <div class="score">
+            累计获得积分：<span class="score-count" style="color: #f0f8ff"></span>
+            剩余积分：<span class="score-residue" style="color: #f0f8ff"></span>
+        </div>
+        <div class="exchange-table">
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbb6d0f80.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(1)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d4213dbed.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbd98466b.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(2)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5206eb78.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbe13cc8a.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(3)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d534ebca6.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbef5a314.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(4)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d534ebca6.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cbf8647ca.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(5)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d55d2751d.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cc0169273.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(6)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5cac9c99.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd0027ba4.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(7)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5e616127.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327ccf86d376.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(8)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5e616127.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd1164e36.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(9)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd1acfe08.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(10)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd246739d.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(11)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d5f50a177.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd34b3e43.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(12)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d614724b8.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <div class="exchange-bg">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327cd358252b.png" width="100%">
+                    </div>
+                    <div class="exchange-btn" onclick="exchange(13)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327d614724b8.png" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="probability">
+        <img src="http://tc.cferhdb.cn/i/2022/09/20/632927b322916.png" width="50%">
+        <img src="http://tc.cferhdb.cn/i/2022/09/20/632927b21c572.png" width="50%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -698,7 +704,7 @@
     var cfCurrencyCount = 0;
     var tempStore = new Map;
     var index = 0;
-    var pond = 'epic'
+    var pond = 'epic';
 
     $(function (){
         alert("声明：\n " +
@@ -711,53 +717,49 @@
     });
 
     const probability_epic = [
-        [1,10,'炼狱-悦蓝（非觉醒版）'],
-        [11,40, '加特林-炼狱'],
-        [41,60, '伪装幽灵'],
-        [61,90, '异变清道夫'],
-        [91,130, '炼狱星空皮肤'],
-        [131,180, '黑龙吞噬者'],
-        [181,250, '迷你生化手雷'],
-        [251,340, '死亡之眼'],
-        [341,430, '[属性卡]捕食者之眼'],
-        [431,580, '[属性卡]佣兵觉醒'],
-        [581,780, '[属性卡]生化狂暴化'],
-        [781,980, '积分X100'],
-        [981,1380, '积分X50'],
-        [1381,5380, '积分X20'],
-        [5381,5400, '积分X10'],
-        [5401,5600, '积分X5'],
+        [1,30,'炼狱-悦蓝（非觉醒版）'],
+        [31,70, '加特林-炼狱'],
+        [71,130, '伪装幽灵'],
+        [131,190, '异变清道夫'],
+        [191,270, '炼狱星空皮肤（不可交易）'],
+        [271,390, '黑龙吞噬者'],
+        [391,630, '迷你生化手雷'],
+        [631,870, '死亡之眼'],
+        [871,1350, '[属性卡]捕食者之眼'],
+        [1351,1830, '[属性卡]佣兵觉醒'],
+        [1831,2310, '[属性卡]生化狂暴化'],
+        [2311,2330, '积分X100'],
+        [2331,2500, '积分X50'],
+        [2501,3500, '积分X20'],
+        [3501,6000, '积分X10'],
+        [6001,10000, '积分X5'],
     ];
 
     const probability_rare = [
         [1,10,'加特林-炼狱'],
         [11,40, '黑龙吞噬者'],
-        [251,340, '死亡之眼'],
-        [1381,5380, '积分X10'],
-        [5381,5400, '积分X5'],
-        [5401,5600, '积分X1'],
+        [41,100, '死亡之眼'],
+        [101,200, '积分X10'],
+        [201,1000, '积分X5'],
+        [1001,10000, '积分X1'],
     ];
 
     var destroyMap = new Map();
-    destroyMap.set('炼狱-悦蓝（非觉醒版）',48);
-    destroyMap.set('加特林-炼狱',24);
-    destroyMap.set('伪装幽灵',14);
-    destroyMap.set('异变清道夫',12);
-    destroyMap.set('炼狱星空皮肤',12);
-    destroyMap.set('黑龙吞噬者',7);
-    destroyMap.set('迷你生化手雷',5);
-    destroyMap.set('死亡之眼',4);
-    destroyMap.set('[属性卡]捕食者之眼',4);
-    destroyMap.set('[属性卡]佣兵觉醒',4);
-    destroyMap.set('[属性卡]生化狂暴化',4);
-
+    destroyMap.set('炼狱-悦蓝（非觉醒版）',8);
+    destroyMap.set('加特林-炼狱',6);
+    destroyMap.set('伪装幽灵',4);
+    destroyMap.set('异变清道夫',4);
+    destroyMap.set('炼狱星空皮肤（不可交易）',3);
+    destroyMap.set('黑龙吞噬者',2);
+    destroyMap.set('迷你生化手雷',1);
+    destroyMap.set('死亡之眼',1);
 
     var exchangeMap = new Map();
     exchangeMap.set(1,['炼狱-悦蓝（非觉醒版）',900]);
     exchangeMap.set(2,['加特林-炼狱',660]);
     exchangeMap.set(3,['伪装幽灵',450]);
     exchangeMap.set(4,['异变清道夫',450]);
-    exchangeMap.set(5,['炼狱星空皮肤',300]);
+    exchangeMap.set(5,['炼狱星空皮肤（不可交易）',300]);
     exchangeMap.set(6,['黑龙吞噬者',200]);
     exchangeMap.set(7,['迷你生化手雷',100]);
     exchangeMap.set(8,['死亡之眼',100]);
@@ -780,206 +782,191 @@
     cfCurrencyMap.set('5000CF点',5000);
     cfCurrencyMap.set('10000CF点',10000);
 
-    function addKey(num) {
+    function addKey(fqW1) {
         openLoad();
-        setTimeout(function (){
-            keyNum = $(".key-num").text();
-            keyNum = Number(keyNum) + Number(num);
-            $(".key-num").text(keyNum);
-            let content = "恭喜你获得 "+num+" 把钥匙";
-            closeLoad();
-            openDialog("系统消息",content);
-        },200);
+        setTimeout(function() {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](fqW1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                let content = "\u606d\u559c\u4f60\u83b7\u5f97 " + fqW1 + " \u628a\u94a5\u5319";
+                closeLoad();
+                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+            },
+            200);
     }
-
-    function switchPond(pondName) {
-        if(pondName === 'epic'){
-            $('.switch-pond-epic > img').attr('src','http://tc.cferhdb.cn/i/2022/09/18/63270285d3ad2.png');
-            $('.switch-pond-rare > img').attr('src','http://tc.cferhdb.cn/i/2022/09/18/63270294197a6.png');
-            $(".pond > img").attr('src','http://tc.cferhdb.cn/i/2022/09/18/63270364928c4.png');
-            pond = "epic";
-        }else if(pondName === 'rare'){
-            $('.switch-pond-epic > img').attr('src','http://tc.cferhdb.cn/i/2022/09/18/632706f04e19c.png');
-            $('.switch-pond-rare > img').attr('src','http://tc.cferhdb.cn/i/2022/09/18/632706ff6b7a0.png');
-            $(".pond > img").attr('src','http://tc.cferhdb.cn/i/2022/09/18/6327070d394f4.png');
-            pond = "rare";
+    function switchPond(srJSnAud2) {
+        if (srJSnAud2 === '\x65\x70\x69\x63') {
+            $('\x2e\x73\x77\x69\x74\x63\x68\x2d\x70\x6f\x6e\x64\x2d\x65\x70\x69\x63 \x3e \x69\x6d\x67')["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x32\x38\x35\x64\x33\x61\x64\x32\x2e\x70\x6e\x67');
+            $('\x2e\x73\x77\x69\x74\x63\x68\x2d\x70\x6f\x6e\x64\x2d\x72\x61\x72\x65 \x3e \x69\x6d\x67')["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x32\x39\x34\x31\x39\x37\x61\x36\x2e\x70\x6e\x67');
+            $("\x2e\x70\x6f\x6e\x64 \x3e \x69\x6d\x67")["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x33\x36\x34\x39\x32\x38\x63\x34\x2e\x70\x6e\x67');
+            pond = "\x65\x70\x69\x63";
+        } else if (srJSnAud2 === '\x72\x61\x72\x65') {
+            $('\x2e\x73\x77\x69\x74\x63\x68\x2d\x70\x6f\x6e\x64\x2d\x65\x70\x69\x63 \x3e \x69\x6d\x67')["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x36\x66\x30\x34\x65\x31\x39\x63\x2e\x70\x6e\x67');
+            $('\x2e\x73\x77\x69\x74\x63\x68\x2d\x70\x6f\x6e\x64\x2d\x72\x61\x72\x65 \x3e \x69\x6d\x67')["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x36\x66\x66\x36\x62\x37\x61\x30\x2e\x70\x6e\x67');
+            $("\x2e\x70\x6f\x6e\x64 \x3e \x69\x6d\x67")["\x61\x74\x74\x72"]('\x73\x72\x63', '\x68\x74\x74\x70\x3a\x2f\x2f\x74\x63\x2e\x63\x66\x65\x72\x68\x64\x62\x2e\x63\x6e\x2f\x69\x2f\x32\x30\x32\x32\x2f\x30\x39\x2f\x31\x38\x2f\x36\x33\x32\x37\x30\x37\x30\x64\x33\x39\x34\x66\x34\x2e\x70\x6e\x67');
+            pond = "\x72\x61\x72\x65";
         }
     }
-
-    function draw(num) {
-        if(keyNum < num) return alert("钥匙不足");
+    function draw(aNQtq3) {
+        if (keyNum < aNQtq3) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
         openLoad();
-
-        var probability = probability_epic;
-        if(pond === 'rare') probability = probability_rare;
-
+        var j4 = probability_epic;
+        if (pond === '\x72\x61\x72\x65') j4 = probability_rare;
         let delayTime = 100;
-        if(keyNum > 1) delayTime = 300;
-        setTimeout(function (){
-            let prizeList = '';
-            for(i=0;i<num;i++){
-                var prod = Math.ceil(Math.random()*10000);
-                var prize = '';
-                for (j = 0; j < probability.length; j++) {
-                    var a = probability[j][0];
-                    var b = probability[j][1];
-                    if (prod >= a && prod <= b) {
-                        prize = probability[j][2];
-                        if(destroyMap.has(prize)){
-                            var tempProp = {
-                                name: prize,
-                                status: 0,
-                                keyNum: destroyMap.get(prize)
-                            };
-                            tempStore.set(index++,tempProp);
-                        }else if(scoreMap.has(prize)){
-                            scoreCount += scoreMap.get(prize);
-                            scoreResidue += scoreMap.get(prize);
+        if (keyNum > 1) delayTime = 300;
+        setTimeout(function() {
+                let prizeList = '';
+                for (i = 0; i < aNQtq3; i++) {
+                    var cME5 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    var KsBEEWblT6 = '';
+                    for (j = 0; j < j4["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                        var B7 = j4[j][0];
+                        var KProZre8 = j4[j][1];
+                        if (cME5 >= B7 && cME5 <= KProZre8) {
+                            KsBEEWblT6 = j4[j][2];
+                            if (destroyMap["\x68\x61\x73"](KsBEEWblT6)) {
+                                var TNyaTj9 = {
+                                    name: KsBEEWblT6,
+                                    status: 0,
+                                    keyNum: destroyMap["\x67\x65\x74"](KsBEEWblT6)
+                                };
+                                tempStore["\x73\x65\x74"](index++, TNyaTj9);
+                            } else if (scoreMap["\x68\x61\x73"](KsBEEWblT6)) {
+                                scoreCount += scoreMap["\x67\x65\x74"](KsBEEWblT6);
+                                scoreResidue += scoreMap["\x67\x65\x74"](KsBEEWblT6);
+                            }
                         }
                     }
+                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + KsBEEWblT6 + "\x3c\x2f\x6c\x69\x3e";
                 }
-                prizeList += "<li class='prize-item'>"+prize+"</li>";
-            }
-            keyNum = Number(keyNum) - Number(num);
-            $(".key-num").text(keyNum);
-            $(".score-count").text(scoreCount);
-            $(".score-residue").text(scoreResidue);
-            closeLoad();
-            if(num === 1){
-                openPrize1Dialog(prizeList)
-            }else{
-                openPrize10Dialog(prizeList)
-            }
-        }, delayTime);
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](aNQtq3);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                closeLoad();
+                if (aNQtq3 === 1) {
+                    openPrize1Dialog(prizeList)
+                } else {
+                    openPrize10Dialog(prizeList)
+                }
+            },
+            delayTime);
     }
-
-
-    function exchange(key) {
-        let item = exchangeMap.get(key);
-        if(!item){
-            return openDialog('系统消息','兑换错误');
+    function exchange(RSFJPlOT10) {
+        let item = exchangeMap["\x67\x65\x74"](RSFJPlOT10);
+        if (!item) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u5151\u6362\u9519\u8bef');
         }
         let propName = item[0];
         let needScore = item[1];
-        if(scoreResidue < needScore){
-            return openDialog('系统消息','积分不足');
+        if (scoreResidue < needScore) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u79ef\u5206\u4e0d\u8db3');
         }
         openLoad();
-        setTimeout(function () {
-            closeLoad();
-            scoreResidue -= needScore;
-            if(destroyMap.has(propName)){
-                var tempProp = {
-                    name: propName,
-                    status: 0,
-                    keyNum: destroyMap.get(propName)
-                };
-                tempStore.set(index++,tempProp);
-            }else if(cfCurrencyMap.has(propName)){
-                cfCurrencyCount += cfCurrencyMap.get(propName);
-                $(".cf-currency-count").text(cfCurrencyCount);
-            }
-            $(".score-residue").text(scoreResidue);
-            openDialog('系统消息','恭喜你获得了 '+propName+'');
-        },300);
+        setTimeout(function() {
+                closeLoad();
+                scoreResidue -= needScore;
+                if (destroyMap["\x68\x61\x73"](propName)) {
+                    var XXhXY11 = {
+                        name: propName,
+                        status: 0,
+                        keyNum: destroyMap["\x67\x65\x74"](propName)
+                    };
+                    tempStore["\x73\x65\x74"](index++, XXhXY11);
+                } else if (cfCurrencyMap["\x68\x61\x73"](propName)) {
+                    cfCurrencyCount += cfCurrencyMap["\x67\x65\x74"](propName);
+                    $("\x2e\x63\x66\x2d\x63\x75\x72\x72\x65\x6e\x63\x79\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](cfCurrencyCount);
+                }
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                openDialog('\u7cfb\u7edf\u6d88\u606f', '\u606d\u559c\u4f60\u83b7\u5f97\u4e86 ' + propName + '');
+            },
+            300);
     }
     function viewTempStore() {
-        setTimeout(function (){
-            var content = getTempStoreHtml();
-            openTempSave('暂存箱',content);
-        },100);
+        setTimeout(function() {
+                var tswDPXK12 = getTempStoreHtml();
+                openTempSave('\u6682\u5b58\u7bb1', tswDPXK12);
+            },
+            100);
     }
-
     function getTempStoreHtml() {
-        var content = "<ul class='temp-prop-list'>";
-        for(let key of tempStore.keys()){
-            let tempProp = tempStore.get(key);
-            var itemProp = '';
-            if(tempProp.status === 0){
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
-            }else{
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+        var siMDMm13 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+            let tempProp = tempStore["\x67\x65\x74"](key);
+            var WuceeWaEk14 = '';
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                WuceeWaEk14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            } else {
+                WuceeWaEk14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
             }
-            content += itemProp;
+            siMDMm13 += WuceeWaEk14;
         }
-        content += "</ul>";
-        return content;
+        siMDMm13 += "\x3c\x2f\x75\x6c\x3e";
+        return siMDMm13;
     }
-
-
-    function openShade(){
-        $("#shade").show();
-        $("body").css("overflow","hidden");
+    function openShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
     }
-    function closeShade(){
-        $("#shade").hide();
-        $("body").css("overflow","auto");
+    function closeShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
     }
-
-    function openTempSave(title,content) {
-        if(title) $("#temp-save-hint").text(title);
-        $("#temp-save-content").html(content);
-        $("#temp-save-dialog").show();
-        openShade()
-    }
-
-    function closeTempSave() {
-        $("#temp-save-dialog").hide();
-        closeShade()
-    }
-
-    function decompose(index) {
-        let tempProp = tempStore.get(index);
-        if(tempProp.status === 1) return alert("不能重复分解");
-        let num = destroyMap.get(tempProp.name);
-        keyNum += num;
-        $(".key-num").text(keyNum);
-        tempProp.status = 1;
-        var content = getTempStoreHtml();
-        $("#temp-save-content").html(content);
-    }
-
-    function openPrize10Dialog(prize10List) {
-        $("#prize10-list").html(prize10List);
-        $("#prize10-dialog").show();
+    function openTempSave(YVXeBlpsv15, wsrp16) {
+        if (YVXeBlpsv15) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](YVXeBlpsv15);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](wsrp16);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade();
     }
-
-    function closePrize10Dialog() {
-        $("#prize10-dialog").hide();
+    function closeTempSave() {
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
-
-    function openPrize1Dialog(prize) {
-        $("#prize1-list").html(prize);
-        $("#prize1-dialog").show();
-        openShade()
+    function decompose(XrboEVm17) {
+        let tempProp = tempStore["\x67\x65\x74"](XrboEVm17);
+        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
+        keyNum += num;
+        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+        var WdUaf18 = getTempStoreHtml();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](WdUaf18);
     }
-
-    function closePrize1Dialog() {
-        $("#prize1-dialog").hide();
-        closeShade()
-    }
-
-    function closeDialog() {
-        $("#dialog").hide();
-        closeShade()
-    }
-
-    function openDialog(title,content) {
-        if(title) $("#dialog-title").text(title);
-        content = '<p style="text-align: center;margin-top: 20px">'+content+'</p>'
-        $("#dialog-content").html(content);
-        $("#dialog").show();
-        openShade()
-    }
-
-    function openLoad(){
+    function openPrize10Dialog(U19) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](U19);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade();
-        $("#loading").show();
+    }
+    function closePrize10Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function openPrize1Dialog(klBt20) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](klBt20);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function closePrize1Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function closeDialog() {
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function openDialog(o21, Kav_Zam22) {
+        if (o21) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](o21);
+        Kav_Zam22 = '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e' + Kav_Zam22 + '\x3c\x2f\x70\x3e';
+        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](Kav_Zam22);
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function openLoad() {
+        openShade();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
     }
     function closeLoad() {
-        $("#loading").hide();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
 

@@ -464,216 +464,216 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="home">
-        微信搜索公众号：玩家小帮手<br>
-        关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+<div id="home">
+    微信搜索公众号：玩家小帮手<br>
+    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="http://tc.cferhdb.cn/i/2022/09/19/6327dca558141.png" width="100%" height="100%">
     </div>
-    <div class="body-box">
-        <div class="header">
-            <img src="http://tc.cferhdb.cn/i/2022/09/19/6327dca558141.png" width="100%" height="100%">
+    <div class="draw">
+        <div class="key">
+            当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
+            累计获得 <span class="cf-currency-count" style="color: #f0f8ff"></span> CF点
         </div>
-        <div class="draw">
-            <div class="key">
-                当前剩余钥匙：<span class="key-num" style="color: #f0f8ff"> </span>
-                累计获得 <span class="cf-currency-count" style="color: #f0f8ff"></span> CF点
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cb87c12a.png" width="100%" height="100%">
             </div>
-            <div class="key-add">
-                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cb87c12a.png" width="100%" height="100%">
-                </div>
-                <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cc766339.png" width="100%" height="100%">
-                </div>
-            </div>
-            <div class="pond">
-                <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cfe32a38.png" width="100%" height="100%">
-            </div>
-            <div class="lottery">
-                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/16/63243ef24c571.png" width="100%" height="100%">
-                </div>
-                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/16/63243ef1b07ff.png" width="100%" height="100%">
-                </div>
+            <div class="key-add-10" onclick="addKey(11)" title="增加11个钥匙">
+                <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cc766339.png" width="100%" height="100%">
             </div>
         </div>
-        <div class="luck-temp">
-            <div class="luck">
-                <img src="http://tc.cferhdb.cn/i/2022/09/19/6328061034c10.png" width="100%">
-                <div class="luck-v-img">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/19/632808e0c23e6.png" width="100%">
-                    <div class="luck-v">0</div>
-                </div>
-                <div class="luck-hint">幸运值达到888必中永久道具</div>
+        <div class="pond">
+            <img src="http://tc.cferhdb.cn/i/2022/09/16/63243cfe32a38.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="http://tc.cferhdb.cn/i/2022/09/16/63243ef24c571.png" width="100%" height="100%">
             </div>
-            <div class="temp-store">
-                <img src="http://tc.cferhdb.cn/i/2022/09/19/63280682040d4.png" width="100%">
-                <div class="ts-view-img" onclick="viewTempStore()">
-                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632560c6ed7d5.png" width="100%" height="100%">
-                </div>
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="http://tc.cferhdb.cn/i/2022/09/16/63243ef1b07ff.png" width="100%" height="100%">
             </div>
         </div>
+    </div>
+    <div class="luck-temp">
+        <div class="luck">
+            <img src="http://tc.cferhdb.cn/i/2022/09/19/6328061034c10.png" width="100%">
+            <div class="luck-v-img">
+                <img src="http://tc.cferhdb.cn/i/2022/09/19/632808e0c23e6.png" width="100%">
+                <div class="luck-v">0</div>
+            </div>
+            <div class="luck-hint">幸运值达到888必中永久道具</div>
+        </div>
+        <div class="temp-store">
+            <img src="http://tc.cferhdb.cn/i/2022/09/19/63280682040d4.png" width="100%">
+            <div class="ts-view-img" onclick="viewTempStore()">
+                <img src="http://tc.cferhdb.cn/i/2022/09/17/632560c6ed7d5.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
 
-        <div class="exchange">
-            <div class="exchange-title">积分兑换</div>
-            <div class="score">
-                累计获得积分：<span class="score-count" style="color: #f0f8ff"></span>
-                剩余积分：<span class="score-residue" style="color: #f0f8ff"></span>
-            </div>
-            <div class="exchange-table">
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/63254f4e1debc.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(1)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">225积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c2f075b.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(2)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">300积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c3c52fe.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(3)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">225积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c51bd7b.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(4)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">180积分兑换</span>
-                        </div>
+    <div class="exchange">
+        <div class="exchange-title">积分兑换</div>
+        <div class="score">
+            累计获得积分：<span class="score-count" style="color: #f0f8ff"></span>
+            剩余积分：<span class="score-residue" style="color: #f0f8ff"></span>
+        </div>
+        <div class="exchange-table">
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/63254f4e1debc.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(1)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">225积分兑换</span>
                     </div>
                 </div>
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/6325572526295.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(5)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">150积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/63255744702c4.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(6)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">90积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/6325575a5140d.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(7)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">60积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/63255775c0d0f.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(8)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">60积分兑换</span>
-                        </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c2f075b.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(2)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">300积分兑换</span>
                     </div>
                 </div>
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/63255784556b5.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(9)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">45积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632557c7c9caa.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(10)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">100积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632557e3ceda3.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(11)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">50积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632557f361610.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(12)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">10积分兑换</span>
-                        </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c3c52fe.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(3)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">225积分兑换</span>
                     </div>
                 </div>
-                <div class="exchange-row">
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/6325581857399.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(13)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">1积分兑换</span>
-                        </div>
-                    </div>
-                    <div class="exchange-col">
-                        <img src="http://tc.cferhdb.cn/i/2022/09/17/6325582e77bc5.png" width="100%">
-                        <div class="exchange-btn" onclick="exchange(14)">
-                            <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
-                            <span class="exchange-score">1积分兑换</span>
-                        </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632556c51bd7b.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(4)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">180积分兑换</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="probability">
-            <img src="http://tc.cferhdb.cn/i/2022/09/17/63255f9d9840c.png" width="50%">
-            <img src="http://tc.cferhdb.cn/i/2022/09/19/6328172b1092d.png" width="50%">
-        </div>
-        <div class="disclaimer">
-            <p style="font-size: 25px">声明：</p>
-            <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
-            <p>联系邮箱：cferxbs@qq.com</p>
-        </div>
-    </div>
-    <div id="shade"></div>
-    <div id="dialog">
-        <h3 id="dialog-title"></h3>
-        <div id="dialog-content"></div>
-        <div id="dialog-btn" onclick="closeDialog()">确认</div>
-    </div>
-    <div id="prize10-dialog">
-        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
-        <div class="prize-title">中奖信息</div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize10-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="prize1-dialog">
-        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
-        <div class="prize-title">中奖信息</div>
-        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
-        <ul id="prize1-list"></ul>
-        <div class="warm-prompt">
-            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
-        </div>
-    </div>
-    <div id="temp-save-dialog">
-        <div style="width: 100%;height: 40px">
-            <div id="temp-save-header">
-                <div id="temp-save-hint">提示</div>
-                <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/6325572526295.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(5)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">150积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/63255744702c4.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(6)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">90积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/6325575a5140d.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(7)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">60积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/63255775c0d0f.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(8)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">60积分兑换</span>
+                    </div>
+                </div>
             </div>
-            <div id="temp-save-content">
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/63255784556b5.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(9)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">45积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632557c7c9caa.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(10)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">100积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632557e3ceda3.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(11)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">50积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/632557f361610.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(12)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">10积分兑换</span>
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/6325581857399.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(13)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">1积分兑换</span>
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="http://tc.cferhdb.cn/i/2022/09/17/6325582e77bc5.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(14)">
+                        <img src="http://tc.cferhdb.cn/i/2022/09/17/632551a45a001.png" width="100%">
+                        <span class="exchange-score">1积分兑换</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="loading"></div>
+    <div class="probability">
+        <img src="http://tc.cferhdb.cn/i/2022/09/17/63255f9d9840c.png" width="50%">
+        <img src="http://tc.cferhdb.cn/i/2022/09/19/6328172b1092d.png" width="50%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -780,228 +780,217 @@
     cfCurrencyMap.set('5000CF点',5000);
     cfCurrencyMap.set('10000CF点',10000);
 
-    function addKey(num) {
+    function addKey(cbhb1) {
         openLoad();
-        setTimeout(function (){
-            keyNum = $(".key-num").text();
-            keyNum = Number(keyNum) + Number(num);
-            $(".key-num").text(keyNum);
-            let content = "恭喜你获得 "+num+" 把钥匙";
-            closeLoad();
-            openDialog("系统消息",content);
-        },200);
+        setTimeout(function() {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](cbhb1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                let content = "\u606d\u559c\u4f60\u83b7\u5f97 " + cbhb1 + " \u628a\u94a5\u5319";
+                closeLoad();
+                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+            },
+            200);
     }
-
-    function draw(num) {
-        if(keyNum < num) return alert("钥匙不足");
+    function draw(nR$2) {
+        if (keyNum < nR$2) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
         openLoad();
         let delayTime = 100;
-        if(keyNum > 1) delayTime = 300;
-        setTimeout(function (){
-            let prizeList = '';
-            for(let i=0;i<num;i++){
-                let prize = '';
-                if(luck >= 888){
-                    let prod = Math.ceil(Math.random()*580);
-                    for (let j = 0; j < luckPond.length; j++) {
-                        let min = luckPond[j][0];
-                        let max = luckPond[j][1];
-                        if (prod >= min && prod <= max) {
-                            prize = luckPond[j][2];
-                            if(destroyMap.has(prize)){
-                                let tempProp = {
-                                    name: prize,
-                                    status: 0,
-                                    keyNum: destroyMap.get(prize)
-                                };
-                                tempStore.set(index++,tempProp);
-                            }
-                            luck = 0;
-                        }
-                    }
-                }else{
-                    let prod = Math.ceil(Math.random()*10000);
-                    for (let j = 0; j < probability.length; j++) {
-                        let a = probability[j][0];
-                        let b = probability[j][1];
-                        if (prod >= a && prod <= b) {
-                            prize = probability[j][2];
-                            if(destroyMap.has(prize)){
-                                let tempProp = {
-                                    name: prize,
-                                    status: 0,
-                                    keyNum: destroyMap.get(prize)
-                                };
-                                tempStore.set(index++,tempProp);
-                            }else if(scoreMap.has(prize)){
-                                scoreCount += scoreMap.get(prize);
-                                scoreResidue += scoreMap.get(prize);
-                            }if(cfCurrencyMap.has(prize)){
-                                cfCurrencyCount += cfCurrencyMap.get(prize);
-                                $(".cf-currency-count").text(cfCurrencyCount);
-                            }else{
-                                boxCount++;
-                            }
-                            let tempLuck = 0;
-                            let luckProd = Math.ceil(Math.random()*10000);
-                            for (let z = 0; z < luckValue.length; z++) {
-                                let min = luckValue[z][0];
-                                let max = luckValue[z][1];
-                                if (luckProd >= min && luckProd <= max) {
-                                    tempLuck =luckValue[z][2];
-                                    luck += Number(tempLuck);
+        if (keyNum > 1) delayTime = 300;
+        setTimeout(function() {
+                let prizeList = '';
+                for (let i = 0; i < nR$2; i++) {
+                    let prize = '';
+                    if (luck >= 888) {
+                        let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 580);
+                        for (let j = 0; j < luckPond["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                            let min = luckPond[j][0];
+                            let max = luckPond[j][1];
+                            if (prod >= min && prod <= max) {
+                                prize = luckPond[j][2];
+                                if (destroyMap["\x68\x61\x73"](prize)) {
+                                    let tempProp = {
+                                        name: prize,
+                                        status: 0,
+                                        keyNum: destroyMap["\x67\x65\x74"](prize)
+                                    };
+                                    tempStore["\x73\x65\x74"](index++, tempProp);
                                 }
-                            }
-                            if(destroyMap.has(prize)){
                                 luck = 0;
                             }
-                            $(".luck-v").text(luck);
-                            prize += " 幸运值"+tempLuck;
+                        }
+                    } else {
+                        let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                        for (let j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                            let a = probability[j][0];
+                            let b = probability[j][1];
+                            if (prod >= a && prod <= b) {
+                                prize = probability[j][2];
+                                if (destroyMap["\x68\x61\x73"](prize)) {
+                                    let tempProp = {
+                                        name: prize,
+                                        status: 0,
+                                        keyNum: destroyMap["\x67\x65\x74"](prize)
+                                    };
+                                    tempStore["\x73\x65\x74"](index++, tempProp);
+                                } else if (scoreMap["\x68\x61\x73"](prize)) {
+                                    scoreCount += scoreMap["\x67\x65\x74"](prize);
+                                    scoreResidue += scoreMap["\x67\x65\x74"](prize);
+                                }
+                                if (cfCurrencyMap["\x68\x61\x73"](prize)) {
+                                    cfCurrencyCount += cfCurrencyMap["\x67\x65\x74"](prize);
+                                    $("\x2e\x63\x66\x2d\x63\x75\x72\x72\x65\x6e\x63\x79\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](cfCurrencyCount);
+                                } else {
+                                    boxCount++;
+                                }
+                                let tempLuck = 0;
+                                let luckProd = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                                for (let z = 0; z < luckValue["\x6c\x65\x6e\x67\x74\x68"]; z++) {
+                                    let min = luckValue[z][0];
+                                    let max = luckValue[z][1];
+                                    if (luckProd >= min && luckProd <= max) {
+                                        tempLuck = luckValue[z][2];
+                                        luck += window["\x4e\x75\x6d\x62\x65\x72"](tempLuck);
+                                    }
+                                }
+                                if (destroyMap["\x68\x61\x73"](prize)) {
+                                    luck = 0;
+                                }
+                                $("\x2e\x6c\x75\x63\x6b\x2d\x76")["\x74\x65\x78\x74"](luck);
+                                prize += "\x2c\u5e78\u8fd0\u503c\x2a" + tempLuck;
+                            }
                         }
                     }
+                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + prize + "\x3c\x2f\x6c\x69\x3e";
                 }
-                prizeList += "<li class='prize-item'>"+prize+"</li>";
-            }
-            keyNum = Number(keyNum) - Number(num);
-            $(".key-num").text(keyNum);
-            $(".score-count").text(scoreCount);
-            $(".score-residue").text(scoreResidue);
-            closeLoad();
-            if(num === 1){
-                openPrize1Dialog(prizeList)
-            }else{
-                openPrize10Dialog(prizeList)
-            }
-        }, delayTime);
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](nR$2);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                closeLoad();
+                if (nR$2 === 1) {
+                    openPrize1Dialog(prizeList)
+                } else {
+                    openPrize10Dialog(prizeList)
+                }
+            },
+            delayTime);
     }
-
-
-    function exchange(key) {
-        let item = exchangeMap.get(key);
-        if(!item){
-            return openDialog('系统消息','兑换错误');
+    function exchange(d3) {
+        let item = exchangeMap["\x67\x65\x74"](d3);
+        if (!item) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u5151\u6362\u9519\u8bef');
         }
         let propName = item[0];
         let needScore = item[1];
-        if(scoreResidue < needScore){
-            return openDialog('系统消息','积分不足');
+        if (scoreResidue < needScore) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u79ef\u5206\u4e0d\u8db3');
         }
         openLoad();
-        setTimeout(function () {
-            closeLoad();
-            scoreResidue -= needScore;
-            if(destroyMap.has(propName)){
-                var tempProp = {
-                    name: propName,
-                    status: 0,
-                    keyNum: destroyMap.get(propName)
-                };
-                tempStore.set(index++,tempProp);
-            }else if(cfCurrencyMap.has(propName)){
-                cfCurrencyCount += cfCurrencyMap.get(propName);
-                $(".cf-currency-count").text(cfCurrencyCount);
-            }
-            $(".score-residue").text(scoreResidue);
-            openDialog('系统消息','恭喜你获得了 '+propName+'');
-        },300);
+        setTimeout(function() {
+                closeLoad();
+                scoreResidue -= needScore;
+                if (destroyMap["\x68\x61\x73"](propName)) {
+                    var jrwqTaDYh4 = {
+                        name: propName,
+                        status: 0,
+                        keyNum: destroyMap["\x67\x65\x74"](propName)
+                    };
+                    tempStore["\x73\x65\x74"](index++, jrwqTaDYh4);
+                } else if (cfCurrencyMap["\x68\x61\x73"](propName)) {
+                    cfCurrencyCount += cfCurrencyMap["\x67\x65\x74"](propName);
+                    $("\x2e\x63\x66\x2d\x63\x75\x72\x72\x65\x6e\x63\x79\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](cfCurrencyCount);
+                }
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                openDialog('\u7cfb\u7edf\u6d88\u606f', '\u606d\u559c\u4f60\u83b7\u5f97\u4e86 ' + propName + '');
+            },
+            300);
     }
     function viewTempStore() {
-        setTimeout(function (){
-            var content = getTempStoreHtml();
-            openTempSave('暂存箱',content);
-        },100);
+        setTimeout(function() {
+                var DTLzRNSF_5 = getTempStoreHtml();
+                openTempSave('\u6682\u5b58\u7bb1', DTLzRNSF_5);
+            },
+            100);
     }
-
     function getTempStoreHtml() {
-        var content = "<ul class='temp-prop-list'>";
-        for(let key of tempStore.keys()){
-            let tempProp = tempStore.get(key);
-            var itemProp = '';
-            if(tempProp.status === 0){
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
-            }else{
-                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+        var FpJNeES6 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+            let tempProp = tempStore["\x67\x65\x74"](key);
+            var giGI7 = '';
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                giGI7 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            } else {
+                giGI7 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
             }
-            content += itemProp;
+            FpJNeES6 += giGI7;
         }
-        content += "</ul>";
-        return content;
+        FpJNeES6 += "\x3c\x2f\x75\x6c\x3e";
+        return FpJNeES6;
     }
-
-
-    function openShade(){
-        $("#shade").show();
-        $("body").css("overflow","hidden");
+    function openShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
     }
-    function closeShade(){
-        $("#shade").hide();
-        $("body").css("overflow","auto");
+    function closeShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
     }
-
-    function openTempSave(title,content) {
-        if(title) $("#temp-save-hint").text(title);
-        $("#temp-save-content").html(content);
-        $("#temp-save-dialog").show();
+    function openTempSave(z8, m$B9) {
+        if (z8) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](z8);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](m$B9);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
     function closeTempSave() {
-        $("#temp-save-dialog").hide();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
-    function decompose(index) {
-        let tempProp = tempStore.get(index);
-        if(tempProp.status === 1) return alert("不能重复分解");
-        let num = destroyMap.get(tempProp.name);
+    function decompose(i$ANQOU10) {
+        let tempProp = tempStore["\x67\x65\x74"](i$ANQOU10);
+        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
         keyNum += num;
-        $(".key-num").text(keyNum);
-        tempProp.status = 1;
-        var content = getTempStoreHtml();
-        $("#temp-save-content").html(content);
+        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+        var oko11 = getTempStoreHtml();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](oko11);
     }
-
-    function openPrize10Dialog(prize10List) {
-        $("#prize10-list").html(prize10List);
-        $("#prize10-dialog").show();
+    function openPrize10Dialog(ch12) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](ch12);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade();
     }
-
     function closePrize10Dialog() {
-        $("#prize10-dialog").hide();
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
-
-    function openPrize1Dialog(prize) {
-        $("#prize1-list").html(prize);
-        $("#prize1-dialog").show();
+    function openPrize1Dialog(bRYQDdIu13) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](bRYQDdIu13);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
     function closePrize1Dialog() {
-        $("#prize1-dialog").hide();
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
     function closeDialog() {
-        $("#dialog").hide();
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
         closeShade()
     }
-
-    function openDialog(title,content) {
-        if(title) $("#dialog-title").text(title);
-        content = '<p style="text-align: center;margin-top: 20px">'+content+'</p>'
-        $("#dialog-content").html(content);
-        $("#dialog").show();
+    function openDialog(WUXDCimN14, hVtzI15) {
+        if (WUXDCimN14) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](WUXDCimN14);
+        hVtzI15 = '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e' + hVtzI15 + '\x3c\x2f\x70\x3e';
+        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](hVtzI15);
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
         openShade()
     }
-
-    function openLoad(){
+    function openLoad() {
         openShade();
-        $("#loading").show();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
     }
     function closeLoad() {
-        $("#loading").hide();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
         closeShade();
     }
 
