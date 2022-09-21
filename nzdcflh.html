@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>年终大促福利汇模拟抽奖</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /*background: url("static/img/nzdcflh/bg.jpg") no-repeat;*/
+            /*background-size: 100% 100%;*/
+        }
+        #home{
+            min-width: 320px;
+            max-width: 960px;
+            padding: 3px 0;
+            margin: auto;
+            text-align: center;
+            font-size: 16px;
+            background-color: #333333;
+            color: yellow;
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+            background: url("static/img/nzdcflh/bg.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .header{
+            min-width: 320px;
+            max-width: 960px;
+            position: relative;
+        }
+        .more-hint > p{
+            margin: 5px 0;
+        }
+        .lottery-title-img{
+            height: 50px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            margin: 20px auto;
+            color: rgb(104,101,101);
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key-num{
+            color: rgb(104,101,101);
+            margin-right: 20px;
+        }
+        .score-count{
+            color: rgb(104,101,101);
+            margin-right: 10px;
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 120px;
+            height: 30px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .key-add-cf{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add-cf > div{
+            width: 150px;
+            height: 30px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery > div{
+            width: 150px;
+            height: 53px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .exchange-title{
+            height: 40px;
+            line-height: 40px;
+            color: rgb(104,101,101);
+            font-size: 25px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+        .score{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgb(104,101,101);
+            font-size: 16px;
+            margin: 10px;
+        }
+        .score-residue{
+            color: rgb(104,101,101);
+        }
+        .exchange-row{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            font-size: 0;
+            text-align: center;
+        }
+        .exchange-col{
+            width: 25%;
+            box-sizing: border-box;
+            padding: 5px 3px;
+            display: inline-block;
+        }
+        .exchange-row:nth-child(1) > .exchange-col{
+            width: 33.3333%;
+        }
+        .exchange-btn{
+            width: 100%;
+            margin-top: 5px;
+            position: relative;
+        }
+        .exchange-score{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -32px;
+            color: rgb(104,101,101);
+            font-size: 12px;
+            text-align: center;
+        }
+        @media screen and (min-width: 768px) {
+            .exchange-score{
+                margin: -11px 0 0 -46px;
+                font-size: 16px;
+            }
+        }
+
+        .luck-temp > div{
+            width: 50%;
+            display: inline-block;
+        }
+        .temp-store{
+            width: 100%;
+            margin-top: 40px;
+            position: relative;
+        }
+        .temp-store > div{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .ts-view-img{
+            position: absolute;
+            top: 55%;
+            left: 52%;
+            width: 100px;
+            height: 40px;
+            cursor: pointer
+        }
+        @media screen and (min-width: 768px){
+            .ts-view-img{
+                width: 180px;
+                height: 60px;
+                left: 52%;
+            }
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 960px;
+            margin:auto;
+            box-sizing: border-box;
+            padding: 50px;
+            font-size: 0;
+        }
+        .probability > img {
+            vertical-align: top;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: auto;
+            padding: 0 20px;
+            color: rgb(104,101,101);
+        }
+
+        #temp-save-dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("static/img/nzdcflh/storage-box-bg.png") repeat;
+            z-index: 9999;
+        }
+        @media screen and (max-width: 768px){
+            #temp-save-dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #temp-save-content{
+                height: 500px;
+            }
+        }
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #temp-save-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffffff;
+        }
+        #temp-save-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #temp-save-close{
+            width: 40px;
+            height: 40px;
+            color: #ffffff;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #temp-save-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("static/img/nzdcflh/storage-box-bg.png") repeat;
+            color: #ffffff;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("static/img/nzdcflh/prize-list.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("static/img/nzdcflh/prize-list.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 25px 0 10px;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin: 10px 0 20px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            background: url("static/img/close.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("static/img/load.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+<div id="home">
+    微信搜索公众号：玩家小帮手<br>
+    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="static/img/nzdcflh/banner.png" width="100%" height="100%">
+    </div>
+    <div class="draw">
+        <div class="lottery-title-img">
+            <img src="static/img/nzdcflh/lottery-title.png" height="100%">
+        </div>
+        <div class="key">
+            当前剩余钥匙：<span class="key-num"></span>
+            累计获得福券：<span class="score-count"></span>
+        </div>
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1,1)" title="增加1个钥匙">
+                <img src="static/img/nzdcflh/key-1.png" width="100%" height="100%">
+            </div>
+            <div class="key-add-11" onclick="addKey(11,11)" title="增加11个钥匙">
+                <img src="static/img/nzdcflh/key-11.png" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="key-add-cf">
+            <div class="key-add-cf-1" onclick="addKey(1,0)" title="增加1个钥匙">
+                <img src="static/img/nzdcflh/key-1-cf.png" width="100%" height="100%">
+            </div>
+            <div class="key-add-cf-11" onclick="addKey(11,0)" title="增加11个钥匙">
+                <img src="static/img/nzdcflh/key-11-cf.png" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="pond">
+            <img src="static/img/nzdcflh/pond.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="static/img/nzdcflh/lottery-1.png" width="100%" height="100%">
+            </div>
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="static/img/nzdcflh/lottery-10.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <div class="temp-store">
+        <img src="static/img/nzdcflh/storage-box.png" width="100%">
+        <div class="ts-view-img" onclick="viewTempStore()">
+            <img src="static/img/nzdcflh/storage-box-view.png" width="100%" height="100%">
+        </div>
+    </div>
+
+    <div class="exchange">
+        <div class="exchange-title">福券兑换</div>
+        <div class="score">
+            累计获得福券：<span class="score-count"></span>
+            剩余福券：<span class="score-residue"></span>
+        </div>
+        <div class="exchange-table">
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh1.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(1)">
+                        <img class="exchange-img-1" src="static/img/nzdcflh/exchange-150.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh2.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(2)">
+                        <img class="exchange-img-2" src="static/img/nzdcflh/exchange-120.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh3.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(3)">
+                        <img class="exchange-img-3" src="static/img/nzdcflh/exchange-90.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh4.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(4)">
+                        <img class="exchange-img-4" src="static/img/nzdcflh/exchange-90_2.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh5.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(5)">
+                        <img class="exchange-img-5" src="static/img/nzdcflh/exchange-90_2.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh6.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(6)">
+                        <img class="exchange-img-6" src="static/img/nzdcflh/exchange-90_2.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh7.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(7)">
+                        <img class="exchange-img-7" src="static/img/nzdcflh/exchange-60.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh8.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(8)">
+                        <img class="exchange-img-8" src="static/img/nzdcflh/exchange-45.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh9.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(9)">
+                        <img class="exchange-img-9" src="static/img/nzdcflh/exchange-45.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh10.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(10)">
+                        <img class="exchange-img-10" src="static/img/nzdcflh/exchange-30.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh11.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(11)">
+                        <img class="exchange-img-11" src="static/img/nzdcflh/exchange-30.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="exchange-row">
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh12.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(12)">
+                        <img class="exchange-img-12" src="static/img/nzdcflh/exchange-30.png" width="100%">
+                    </div>
+                </div>
+                <div class="exchange-col">
+                    <img src="static/img/nzdcflh/dh13.png" width="100%">
+                    <div class="exchange-btn" onclick="exchange(13)">
+                        <img class="exchange-img-13" src="static/img/nzdcflh/exchange-15.png" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="probability">
+        <img src="static/img/nzdcflh/prob.png" width="100%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    var keyNum = 110;
+    var scoreCount = 110;
+    var scoreResidue = 110;
+    var tempStore = new Map;
+    var index = 0;
+    var luck = 0;
+
+    $(function (){
+        alert("声明：\n " +
+            "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+            "联系邮箱：cferxbs@qq.com");
+        $(".key-num").text(keyNum);
+        $(".score-count").text(scoreCount);
+        $(".score-residue").text(scoreResidue);
+        $(".luck-v").text(luck);
+    });
+
+    const probability = [
+        [1,10,'BARRETT-极光音效卡兑换券'],
+        [11,20, '王者之势'],
+        [21,40, '新灵狐者'],
+        [41,70, '9A91-烈火'],
+        [71,100, 'M4A1-死神'],
+        [101,130, 'BARRETT-极光'],
+        [131,170, 'AN94-超新星'],
+        [171,220, '沙鹰-天神'],
+        [221,270, '屠龙'],
+        [271,330, 'EVO III-赤血龙魂'],
+        [331,390, '黑武士-暗月'],
+        [391,460, '疾爆烟雾弹-十周年'],
+        [461,530, '轻型军用手斧-镜'],
+        [531,1000, '王者之石X1'],
+        [1001,2500, '堕天使道具卡X2'],
+        [2501,5000, '属性变更券X2'],
+        [5001,7500, '交易专用钥匙X2'],
+        [7501,10000, '饰品鉴定书X5']
+    ];
+
+    var destroyMap = new Map();
+    destroyMap.set('BARRETT-极光音效卡兑换券',10);
+    destroyMap.set('王者之势',8);
+    destroyMap.set('新灵狐者',6);
+    destroyMap.set('9A91-烈火',6);
+    destroyMap.set('M4A1-死神',6);
+    destroyMap.set('BARRETT-极光',6);
+    destroyMap.set('AN94-超新星',4);
+    destroyMap.set('沙鹰-天神',3);
+    destroyMap.set('屠龙',3);
+    destroyMap.set('EVO III-赤血龙魂',2);
+    destroyMap.set('黑武士-暗月',2);
+    destroyMap.set('疾爆烟雾弹-十周年',2);
+    destroyMap.set('轻型军用手斧-镜',1);
+
+
+    var exchangeMap = new Map();
+    exchangeMap.set(1,['BARRETT-极光音效卡兑换券',150]);
+    exchangeMap.set(2,['王者之势',120]);
+    exchangeMap.set(3,['新灵狐者',90]);
+    exchangeMap.set(4,['9A91-烈火',90]);
+    exchangeMap.set(5,['M4A1-死神',90]);
+    exchangeMap.set(6,['BARRETT-极光',90]);
+    exchangeMap.set(7,['AN94-超新星',60]);
+    exchangeMap.set(8,['沙鹰-天神',45]);
+    exchangeMap.set(9,['屠龙',45]);
+    exchangeMap.set(10,['EVO III-赤血龙魂',30]);
+    exchangeMap.set(11,['黑武士-暗月',30]);
+    exchangeMap.set(12,['疾爆烟雾弹-十周年',30]);
+    exchangeMap.set(13,['轻型军用手斧-镜',15]);
+
+
+    function addKey(ukBLkVB1, GkeFtL2) {
+        openLoad();
+        setTimeout(function() {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](ukBLkVB1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                let content = "\u606d\u559c\u4f60\u83b7\u5f97 " + ukBLkVB1 + " \u628a\u94a5\u5319";
+                if (GkeFtL2 > 0) {
+                    content += "\x2c " + GkeFtL2 + " \u4e2a\u798f\u5238";
+                    scoreCount += window["\x4e\x75\x6d\x62\x65\x72"](GkeFtL2);
+                    scoreResidue += window["\x4e\x75\x6d\x62\x65\x72"](GkeFtL2);
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                }
+                closeLoad();
+                openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+            },
+            200);
+    }
+    function draw(QevKL3) {
+        if (keyNum < QevKL3) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
+        openLoad();
+        let delayTime = 100;
+        if (keyNum > 1) delayTime = 300;
+        setTimeout(function() {
+                let prizeList = '';
+                for (i = 0; i < QevKL3; i++) {
+                    var BYUtSRMpu4 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    var vytLTT$Ih5 = '';
+                    for (j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                        var FtgEAmv6 = probability[j][0];
+                        var dDlTicYK7 = probability[j][1];
+                        if (BYUtSRMpu4 >= FtgEAmv6 && BYUtSRMpu4 <= dDlTicYK7) {
+                            vytLTT$Ih5 = probability[j][2];
+                            if (destroyMap["\x68\x61\x73"](vytLTT$Ih5)) {
+                                var RIMdss8 = {
+                                    name: vytLTT$Ih5,
+                                    status: 0,
+                                    keyNum: destroyMap["\x67\x65\x74"](vytLTT$Ih5)
+                                };
+                                tempStore["\x73\x65\x74"](index++, RIMdss8);
+                            }
+                        }
+                    }
+                    prizeList += "\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + vytLTT$Ih5 + "\x3c\x2f\x6c\x69\x3e";
+                }
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](QevKL3);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                closeLoad();
+                if (QevKL3 === 1) {
+                    openPrize1Dialog(prizeList)
+                } else {
+                    openPrize10Dialog(prizeList)
+                }
+            },
+            delayTime);
+    }
+    function exchange(YaUUmJR9) {
+        let item = exchangeMap["\x67\x65\x74"](YaUUmJR9);
+        if (!item) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u5151\u6362\u9519\u8bef');
+        }
+        let propName = item[0];
+        let needScore = item[1];
+        if (scoreResidue < needScore) {
+            return openDialog('\u7cfb\u7edf\u6d88\u606f', '\u798f\u5238\u4e0d\u8db3');
+        }
+        openLoad();
+        setTimeout(function() {
+                closeLoad();
+                scoreResidue -= needScore;
+                if (destroyMap["\x68\x61\x73"](propName)) {
+                    var o10 = {
+                        name: propName,
+                        status: 0,
+                        keyNum: destroyMap["\x67\x65\x74"](propName)
+                    };
+                    tempStore["\x73\x65\x74"](index++, o10);
+                }
+                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                openDialog('\u7cfb\u7edf\u6d88\u606f', '\u606d\u559c\u4f60\u83b7\u5f97\u4e86 ' + propName + '');
+                if (YaUUmJR9 <= 3) {
+                    $("\x2e\x65\x78\x63\x68\x61\x6e\x67\x65\x2d\x69\x6d\x67\x2d" + YaUUmJR9 + "")["\x61\x74\x74\x72"]("\x73\x72\x63", "\x73\x74\x61\x74\x69\x63\x2f\x69\x6d\x67\x2f\x6e\x7a\x64\x63\x66\x6c\x68\x2f\x68\x61\x73\x2d\x63\x68\x61\x6e\x67\x65\x2d\x32\x2e\x70\x6e\x67");
+                } else {
+                    $("\x2e\x65\x78\x63\x68\x61\x6e\x67\x65\x2d\x69\x6d\x67\x2d" + YaUUmJR9 + "")["\x61\x74\x74\x72"]("\x73\x72\x63", "\x73\x74\x61\x74\x69\x63\x2f\x69\x6d\x67\x2f\x6e\x7a\x64\x63\x66\x6c\x68\x2f\x68\x61\x73\x2d\x63\x68\x61\x6e\x67\x65\x2d\x31\x2e\x70\x6e\x67");
+                }
+            },
+            300);
+    }
+    function viewTempStore() {
+        setTimeout(function() {
+                var _LumLUs11 = getTempStoreHtml();
+                openTempSave('\u6682\u5b58\u7bb1', _LumLUs11);
+            },
+            100);
+    }
+    function getTempStoreHtml() {
+        var OrSHOrt12 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+        for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+            let tempProp = tempStore["\x67\x65\x74"](key);
+            var hShteTI13 = '';
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                hShteTI13 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            } else {
+                hShteTI13 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+            }
+            OrSHOrt12 += hShteTI13;
+        }
+        OrSHOrt12 += "\x3c\x2f\x75\x6c\x3e";
+        return OrSHOrt12;
+    }
+    function openShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
+    }
+    function closeShade() {
+        $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+        $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
+    }
+    function openTempSave(a14, Hq15) {
+        if (a14) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](a14);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](Hq15);
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade()
+    }
+    function closeTempSave() {
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade()
+    }
+    function decompose(OQN16) {
+        let tempProp = tempStore["\x67\x65\x74"](OQN16);
+        if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+        let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
+        keyNum += num;
+        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+        tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+        var RcGimUPCP17 = getTempStoreHtml();
+        $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](RcGimUPCP17);
+    }
+    function openPrize10Dialog(Hhyba18) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](Hhyba18);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade();
+    }
+    function closePrize10Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+    function openPrize1Dialog(LGf19) {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](LGf19);
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade()
+    }
+    function closePrize1Dialog() {
+        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade()
+    }
+    function closeDialog() {
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+        closeShade()
+    }
+    function openDialog(O20, TVr21) {
+        if (O20) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](O20);
+        TVr21 = '\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x22\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x22\x3e' + TVr21 + '\x3c\x2f\x70\x3e';
+        $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](TVr21);
+        $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+        openShade()
+    }
+    function openLoad() {
+        openShade();
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
+    }
+    function closeLoad() {
+        $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
+        closeShade();
+    }
+</script>
+</body>
+</html>
