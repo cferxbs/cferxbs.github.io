@@ -690,10 +690,11 @@
                 </div>
             </div>
         </div>
-<!--        <div class="probability">-->
-<!--            <img src="static/img/mvp/prob-1.png" width="100%">-->
-<!--            <img src="static/img/mvp/prob-3.png" width="100%">-->
-<!--        </div>-->
+        <div class="probability">
+            <img src="static/img/mvp/prob-1.png" width="100%">
+            <img src="static/img/mvp/prob-2.png" width="100%">
+            <img src="static/img/mvp/prob-3.png" width="100%">
+        </div>
         <div class="disclaimer">
             <p style="font-size: 25px">声明：</p>
             <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
@@ -998,7 +999,7 @@
         }
 
         function openMvpBox() {
-            if(voiceCount <= 0){
+            if(mvpBoxCount <= 0){
                 return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>MVP宝箱不足</p>");
             }
             setTimeout(function (){
