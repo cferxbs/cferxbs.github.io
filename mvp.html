@@ -1010,7 +1010,6 @@
                     let b = mvp_probability[j][1];
                     if (prod >= a && prod <= b) {
                         prize = mvp_probability[j][2];
-
                         if(prize === '抽奖钥匙x1'){
                             keyNum++;
                             $(".key-num").text(keyNum);
@@ -1023,8 +1022,8 @@
                         }
                     }
                 }
-                mvpBoxCount = Number(mvpBoxCount) - Number(1);
-                $(".mvpBoxCount").text(mvpBoxCount);
+                --mvpBoxCount;
+                $(".mvp-box-count").text(mvpBoxCount);
                 closeLoad();
                 return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>"+prize+"</p>");
             }, 200);
