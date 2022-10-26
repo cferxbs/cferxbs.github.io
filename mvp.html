@@ -10,6 +10,30 @@
             margin: 0;
             padding: 0;
         }
+        #activity{
+            font-size: 0;
+        }
+        #activity > div{
+            width: 50%;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+        }
+        #activity > div > a{
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            width: 100%;
+            height: 40px;
+            display: inline-block;
+        }
+        #activity > div:nth-child(1){
+            background: #1e9fff;
+        }
+        #activity > div:nth-child(2){
+            background: #ffb800;
+        }
         body{
             background: url("static/img/mvp/bg2.png") repeat;
             /*background-size: 100% 100%;*/
@@ -502,6 +526,14 @@
 </head>
 <body>
     <div id="intro"></div>
+    <div id="activity">
+        <div>
+            <a href="https://act.daoju.qq.com/act/a20210719dmc/" target="_blank">电脑活动地址</a>
+        </div>
+        <div>
+            <a href="https://app.daoju.qq.com/act/a20210719dmc/" target="_blank">手机活动地址</a>
+        </div>
+    </div>
     <div class="body-box">
         <div class="header">
             <img src="static/img/mvp/bg1.jpg" width="100%" height="100%">
