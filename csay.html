@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>传说暗裔序列号版模拟抽奖</title>
+    <link rel="import" href="page/Page_1.html" id="page1">
     <style>
         *{
             margin: 0;
@@ -12,16 +13,6 @@
         }
         body{
             background: url("static/img/csay/bg.png") repeat-y;
-        }
-        #home{
-            min-width: 320px;
-            max-width: 960px;
-            padding: 3px 0;
-            margin: auto;
-            text-align: center;
-            font-size: 16px;
-            background-color: #333333;
-            color: yellow;
         }
         .body-box{
             min-width: 320px;
@@ -381,10 +372,7 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-<div id="home">
-    微信搜索公众号：玩家小帮手<br>
-    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
-</div>
+<div id="intro"></div>
 <div class="body-box">
     <div class="header">
         <img src="static/img/csay/banner.png" width="100%" height="100%">
@@ -483,6 +471,7 @@
                 "联系邮箱：cferxbs@qq.com");
             $(".key-num").text(keyNum);
             $(".score-count").text(scoreCount);
+            $("#intro").load("cferxbs.html");
         })
         const probability = [
             [1,10,'传说暗裔 无序列号版'],

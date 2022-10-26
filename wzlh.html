@@ -14,16 +14,6 @@
             background: url("static/img/wzlh/bg.png") no-repeat;
             background-size: 100% 100%;
         }
-        #home{
-            min-width: 320px;
-            max-width: 960px;
-            padding: 3px 0;
-            margin: auto;
-            text-align: center;
-            font-size: 16px;
-            background-color: #333333;
-            color: yellow;
-        }
         .body-box{
             min-width: 320px;
             max-width: 960px;
@@ -439,10 +429,7 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="home">
-        微信搜索公众号：玩家小帮手<br>
-        关注回复“抽奖模拟器”获取更多活动抽奖模拟器
-    </div>
+    <div id="intro"></div>
     <div class="body-box">
         <div class="header">
         </div>
@@ -621,6 +608,7 @@
             $(".key-num").text(keyNum);
             $(".lottery-key-num").text(drawNumMap.get(drawNum));
             initProb();
+            $("#intro").load("cferxbs.html");
         });
 
         const probMap = new Map();

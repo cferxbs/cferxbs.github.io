@@ -14,16 +14,6 @@
             background: url("static/img/mvp/bg2.png") repeat;
             /*background-size: 100% 100%;*/
         }
-        #home{
-            min-width: 320px;
-            max-width: 960px;
-            padding: 3px 0;
-            margin: auto;
-            text-align: center;
-            font-size: 16px;
-            background-color: #333333;
-            color: yellow;
-        }
         .body-box{
             min-width: 320px;
             max-width: 960px;
@@ -511,12 +501,7 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="home">
-        微信搜索公众号：玩家小帮手 <br>
-        关注回复“抽奖模拟器”获取更多活动抽奖模拟器<br>
-        抖音搜索：玩家小帮手<br>
-        加入粉丝群第一时间获取新活动抽奖模拟器
-    </div>
+    <div id="intro"></div>
     <div class="body-box">
         <div class="header">
             <img src="static/img/mvp/bg1.jpg" width="100%" height="100%">
@@ -740,6 +725,7 @@
     <div id="loading"></div>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
+
         var keyNum = 110;
         var scoreCount = 0;
         var scoreResidue = 0;
@@ -759,6 +745,7 @@
             $(".luck-v").text(luck);
             $(".voice-count").text(voiceCount);
             $(".mvp-box-count").text(mvpBoxCount);
+            $("#intro").load("cferxbs.html");
         });
 
         const probability = [

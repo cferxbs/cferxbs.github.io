@@ -14,16 +14,6 @@
             background: url("static/img/csmy/bg.jpg") no-repeat;
             background-size: 100% 100%;
         }
-        #home{
-            min-width: 320px;
-            max-width: 960px;
-            padding: 3px 0;
-            margin: auto;
-            text-align: center;
-            font-size: 16px;
-            background-color: #333333;
-            color: yellow;
-        }
         .body-box{
             min-width: 320px;
             max-width: 960px;
@@ -463,10 +453,7 @@
     <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-<div id="home">
-    微信搜索公众号：玩家小帮手<br>
-    关注回复“抽奖模拟器”获取更多活动抽奖模拟器
-</div>
+<div id="intro"></div>
 <div class="body-box">
     <div class="header">
         <img src="static/img/csmy/banner.png" width="100%" height="100%">
@@ -692,6 +679,7 @@
             $(".score-residue").text(scoreResidue);
             $(".cf-currency-count").text(cfCurrencyCount);
             $(".luck-v").text(luck);
+            $("#intro").load("cferxbs.html");
         });
 
         const probability = [
