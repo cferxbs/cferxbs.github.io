@@ -11,6 +11,9 @@
             padding: 0;
         }
         #activity{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 0 auto;
             font-size: 0;
         }
         #activity > div{
@@ -874,308 +877,298 @@
         scoreMap.set('积分x10',10);
         scoreMap.set('积分x20',20);
 
-        function addKey(num) {
+        function addKey(pWIcUOi1) {
             openLoad();
-            setTimeout(function (){
-                keyNum = $(".key-num").text();
-                keyNum = Number(keyNum) + Number(num);
-                $(".key-num").text(keyNum);
-                let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
-                closeLoad();
-                openDialog("系统消息",content);
-            },200);
+            setTimeout(function() {
+                    keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                    keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](pWIcUOi1);
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97 " + pWIcUOi1 + " \u628a\u94a5\u5319\x3c\x2f\x70\x3e";
+                    closeLoad();
+                    openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                },
+                200);
         }
 
-        function draw(num) {
-            if(keyNum < num) return alert("钥匙不足");
+        function draw(JRQ1) {
+            if (keyNum < JRQ1) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
             openLoad();
             let delayTime = 100;
-            if(keyNum > 1) delayTime = 300;
-            setTimeout(function (){
-                let prizeMap = new Map();
-                for(let i=0;i<num;i++){
-                    let prod = Math.ceil(Math.random()*10000);
-                    for (let j = 0; j < probability.length; j++) {
-                        let prize = '';
-                        let a = probability[j][0];
-                        let b = probability[j][1];
-                        if (prod >= a && prod <= b) {
-                            prize = probability[j][2];
-                            if(destroyMap.has(prize)){
-                                let tempProp = {
-                                    name: prize,
-                                    status: 0,
-                                    keyNum: destroyMap.get(prize)
-                                };
-                                tempStore.set(index++,tempProp);
-                            }
-                            if(prize === '随机MVP名片喷图'){
-                                prod = Math.ceil(Math.random()*10000);
-                                for (let z = 0; z < card_probability.length; z++) {
-                                    let a1 = card_probability[z][0];
-                                    let b1 = card_probability[z][1];
-                                    if (prod >= a1 && prod <= b1) {
-                                        prize = card_probability[z][2];
-                                        if(destroyMap.has(prize)){
-                                            let tempProp = {
-                                                name: prize,
-                                                status: 0,
-                                                keyNum: destroyMap.get(prize)
-                                            };
-                                            tempStore.set(index++,tempProp);
+            if (keyNum > 1) delayTime = 300;
+            setTimeout(function() {
+                    let prizeMap = new Map();
+                    for (let i = 0; i < JRQ1; i++) {
+                        let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                        for (let j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                            let prize = '';
+                            let a = probability[j][0];
+                            let b = probability[j][1];
+                            if (prod >= a && prod <= b) {
+                                prize = probability[j][2];
+                                if (destroyMap["\x68\x61\x73"](prize)) {
+                                    let tempProp = {
+                                        name: prize,
+                                        status: 0,
+                                        keyNum: destroyMap["\x67\x65\x74"](prize)
+                                    };
+                                    tempStore["\x73\x65\x74"](index++, tempProp);
+                                }
+                                if (prize === '\u968f\u673a\x4d\x56\x50\u540d\u7247\u55b7\u56fe') {
+                                    prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                                    for (let z = 0; z < card_probability["\x6c\x65\x6e\x67\x74\x68"]; z++) {
+                                        let a1 = card_probability[z][0];
+                                        let b1 = card_probability[z][1];
+                                        if (prod >= a1 && prod <= b1) {
+                                            prize = card_probability[z][2];
+                                            if (destroyMap["\x68\x61\x73"](prize)) {
+                                                let tempProp = {
+                                                    name: prize,
+                                                    status: 0,
+                                                    keyNum: destroyMap["\x67\x65\x74"](prize)
+                                                };
+                                                tempStore["\x73\x65\x74"](index++, tempProp);
+                                            }
                                         }
                                     }
                                 }
+                                let prizeCount = prizeMap["\x67\x65\x74"](prize);
+                                if (!prizeCount) prizeCount = 0;
+                                if (prize === '\u8bed\u97f3\u5305\u56db\u9009\x2d\u81ea\u9009\u5238') {
+                                    voiceCount++;
+                                    $("\x2e\x76\x6f\x69\x63\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](voiceCount);
+                                }
+                                if (prize === '\x4d\x56\x50\u5b9d\u7bb1') {
+                                    mvpBoxCount++;
+                                    $("\x2e\x6d\x76\x70\x2d\x62\x6f\x78\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](mvpBoxCount);
+                                }
+                                if (prize["\x69\x6e\x64\x65\x78\x4f\x66"]('\u79ef\u5206') >= 0) {
+                                    let score = scoreMap["\x67\x65\x74"](prize);
+                                    scoreCount = window["\x4e\x75\x6d\x62\x65\x72"](scoreCount) + score;
+                                    scoreResidue = window["\x4e\x75\x6d\x62\x65\x72"](scoreResidue) + score;
+                                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                                }
+                                prizeMap["\x73\x65\x74"](prize, ++prizeCount);
                             }
-                            let prizeCount = prizeMap.get(prize);
-                            if(!prizeCount) prizeCount = 0;
-                            if(prize === '语音包四选-自选券'){
-                                voiceCount++;
-                                $(".voice-count").text(voiceCount);
-                            }
-                            if(prize === 'MVP宝箱'){
-                                mvpBoxCount++;
-                                $(".mvp-box-count").text(mvpBoxCount);
-                            }
-                            if(prize.indexOf('积分')>=0){
-                                let score = scoreMap.get(prize);
-                                scoreCount =  Number(scoreCount) + score;
-                                scoreResidue = Number(scoreResidue) + score;
-                                $(".score-count").text(scoreCount);
-                                $(".score-residue").text(scoreResidue);
-                            }
-                            console.log(prize);
-                            prizeMap.set(prize,++prizeCount);
                         }
                     }
-                }
-                keyNum = Number(keyNum) - Number(num);
-                $(".key-num").text(keyNum);
-                closeLoad();
-                let prizeText = '';
-                console.log(prizeMap);
-                for (let prize of prizeSet.keys()) {
-                    let prizeCount = prizeMap.get(prize);
-                    if(prizeCount){
-                        prize = prize+"x"+prizeCount+"<br>";
-                        prizeText += prize;
+                    keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](JRQ1);
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    closeLoad();
+                    let prizeText = '';
+                    for (let prize of prizeSet["\x6b\x65\x79\x73"]()) {
+                        let prizeCount = prizeMap["\x67\x65\x74"](prize);
+                        if (prizeCount) {
+                            prize = prize + "\x78" + prizeCount + "\x3c\x62\x72\x3e";
+                            prizeText += prize;
+                        }
                     }
-                }
-                openDialog("中奖信息",prizeText);
-            }, delayTime);
+                    openDialog("\u4e2d\u5956\u4fe1\u606f", prizeText);
+                },
+                delayTime);
         }
 
-        function exchangeVoice(voiceIndex) {
-            if(voiceCount <= 0){
-                return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>语音自选卷不足</p>");
+        function exchangeVoice(lCDwuse1) {
+            if (voiceCount <= 0) {
+                return openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u8bed\u97f3\u81ea\u9009\u5377\u4e0d\u8db3\x3c\x2f\x70\x3e");
             }
             openLoad();
-            setTimeout(function () {
-                closeLoad();
-                voiceCount--;
-                $(".voice-count").text(voiceCount);
-
-                let prizeName = '';
-                if(voiceIndex === 1){
-                    let prize = '70KG语音包';
-                    prizeName = prize;
-                    let tempProp = {
-                        name: prize,
-                        status: 0,
-                        keyNum: destroyMap.get(prize)
-                    };
-                    tempStore.set(index++,tempProp);
-                }
-                if(voiceIndex === 2){
-                    let prize = '白鲨语音包';
-                    prizeName = prize;
-                    let tempProp = {
-                        name: prize,
-                        status: 0,
-                        keyNum: destroyMap.get(prize)
-                    };
-                    tempStore.set(index++,tempProp);
-                }
-                if(voiceIndex === 3){
-                    let prize = '绝迹语音包';
-                    prizeName = prize;
-                    let tempProp = {
-                        name: prize,
-                        status: 0,
-                        keyNum: destroyMap.get(prize)
-                    };
-                    tempStore.set(index++,tempProp);
-                }
-                if(voiceIndex === 4){
-                    let prize = 'N9语音包';
-                    prizeName = prize;
-                    let tempProp = {
-                        name: prize,
-                        status: 0,
-                        keyNum: destroyMap.get(prize)
-                    };
-                    tempStore.set(index++,tempProp);
-                }
-
-                openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>恭喜你获得了 "+prizeName+"</p>");
-            },300);
+            setTimeout(function() {
+                    closeLoad();
+                    voiceCount--;
+                    $("\x2e\x76\x6f\x69\x63\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](voiceCount);
+                    let prizeName = '';
+                    if (lCDwuse1 === 1) {
+                        let prize = '\x37\x30\x4b\x47\u8bed\u97f3\u5305';
+                        prizeName = prize;
+                        let tempProp = {
+                            name: prize,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](prize)
+                        };
+                        tempStore["\x73\x65\x74"](index++, tempProp);
+                    }
+                    if (lCDwuse1 === 2) {
+                        let prize = '\u767d\u9ca8\u8bed\u97f3\u5305';
+                        prizeName = prize;
+                        let tempProp = {
+                            name: prize,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](prize)
+                        };
+                        tempStore["\x73\x65\x74"](index++, tempProp);
+                    }
+                    if (lCDwuse1 === 3) {
+                        let prize = '\u7edd\u8ff9\u8bed\u97f3\u5305';
+                        prizeName = prize;
+                        let tempProp = {
+                            name: prize,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](prize)
+                        };
+                        tempStore["\x73\x65\x74"](index++, tempProp);
+                    }
+                    if (lCDwuse1 === 4) {
+                        let prize = '\x4e\x39\u8bed\u97f3\u5305';
+                        prizeName = prize;
+                        let tempProp = {
+                            name: prize,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](prize)
+                        };
+                        tempStore["\x73\x65\x74"](index++, tempProp);
+                    }
+                    openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97\u4e86 " + prizeName + "\x3c\x2f\x70\x3e");
+                },
+                300);
         }
 
         function openMvpBox() {
-            if(mvpBoxCount <= 0){
-                return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>MVP宝箱不足</p>");
+            if (mvpBoxCount <= 0) {
+                return openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\x4d\x56\x50\u5b9d\u7bb1\u4e0d\u8db3\x3c\x2f\x70\x3e");
             }
-            setTimeout(function (){
-                let prod = Math.ceil(Math.random()*10000);
-                let prize = '';
-                for (let j = 0; j < mvp_probability.length; j++) {
-                    let a = mvp_probability[j][0];
-                    let b = mvp_probability[j][1];
-                    if (prod >= a && prod <= b) {
-                        prize = mvp_probability[j][2];
-                        if(prize === '抽奖钥匙x1'){
-                            keyNum++;
-                            $(".key-num").text(keyNum);
+            setTimeout(function() {
+                    let prod = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                    let prize = '';
+                    for (let j = 0; j < mvp_probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                        let a = mvp_probability[j][0];
+                        let b = mvp_probability[j][1];
+                        if (prod >= a && prod <= b) {
+                            prize = mvp_probability[j][2];
+                            if (prize === '\u62bd\u5956\u94a5\u5319\x78\x31') {
+                                keyNum++;
+                                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                            }
+                            if (prize === '\u79ef\u5206\x78\x31\x30') {
+                                scoreCount += 10;
+                                scoreResidue += 10;
+                                $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                                $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                            }
                         }
-                        if(prize === '积分x10'){
-                            scoreCount += 10;
-                            scoreResidue += 10;
-                            $(".score-count").text(scoreCount);
-                            $(".score-residue").text(scoreResidue);
-                        }
-                    }
-                }
-                --mvpBoxCount;
-                $(".mvp-box-count").text(mvpBoxCount);
-                closeLoad();
-                return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>"+prize+"</p>");
-            }, 200);
-
+                    }--mvpBoxCount;
+                    $("\x2e\x6d\x76\x70\x2d\x62\x6f\x78\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](mvpBoxCount);
+                    closeLoad();
+                    return openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e" + prize + "\x3c\x2f\x70\x3e");
+                },
+                200);
         }
 
 
-        function exchange(key) {
-            let item = exchangeMap.get(key);
-            if(!item){
-                return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>兑换信息错误</p>");
+        function exchange(uor1) {
+            let item = exchangeMap["\x67\x65\x74"](uor1);
+            if (!item) {
+                return openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u5151\u6362\u4fe1\u606f\u9519\u8bef\x3c\x2f\x70\x3e");
             }
             let propName = item[0];
             let needScore = item[1];
-            if(scoreResidue < needScore){
-                return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>积分不足</p>");
+            if (scoreResidue < needScore) {
+                return openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u79ef\u5206\u4e0d\u8db3\x3c\x2f\x70\x3e");
             }
             openLoad();
-            setTimeout(function () {
-                closeLoad();
-                scoreResidue -= needScore;
-                if(destroyMap.has(propName)){
-                    var tempProp = {
-                        name: propName,
-                        status: 0,
-                        keyNum: destroyMap.get(propName)
-                    };
-                    tempStore.set(index++,tempProp);
-                }
-                $(".score-residue").text(scoreResidue);
-                openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>恭喜你获得了 "+propName+"</p>");
-            },300);
+            setTimeout(function() {
+                    closeLoad();
+                    scoreResidue -= needScore;
+                    if (destroyMap["\x68\x61\x73"](propName)) {
+                        var sC2 = {
+                            name: propName,
+                            status: 0,
+                            keyNum: destroyMap["\x67\x65\x74"](propName)
+                        };
+                        tempStore["\x73\x65\x74"](index++, sC2);
+                    }
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x72\x65\x73\x69\x64\x75\x65")["\x74\x65\x78\x74"](scoreResidue);
+                    openDialog('\u7cfb\u7edf\u6d88\u606f', "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97\u4e86 " + propName + "\x3c\x2f\x70\x3e");
+                },
+                300);
         }
+
+
+
         function viewTempStore() {
-            setTimeout(function (){
-                var content = getTempStoreHtml();
-                openTempSave('暂存箱',content);
-            },100);
+            setTimeout(function() {
+                    var LUkyeq1 = getTempStoreHtml();
+                    openTempSave('\u6682\u5b58\u7bb1', LUkyeq1);
+                },
+                100);
         }
-
         function getTempStoreHtml() {
-            var content = "<ul class='temp-prop-list'>";
-            for(let key of tempStore.keys()){
-                let tempProp = tempStore.get(key);
-                var itemProp = '';
-                if(tempProp.status === 0){
-                    itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
-                }else{
-                    itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            var zTJz2 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+            for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+                let tempProp = tempStore["\x67\x65\x74"](key);
+                var $CIOVaNPP3 = '';
+                if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                    $CIOVaNPP3 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+                } else {
+                    $CIOVaNPP3 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
                 }
-                content += itemProp;
+                zTJz2 += $CIOVaNPP3;
             }
-            content += "</ul>";
-            return content;
+            zTJz2 += "\x3c\x2f\x75\x6c\x3e";
+            return zTJz2;
         }
-
-
-        function openShade(){
-            $("#shade").show();
-            $("body").css("overflow","hidden");
+        function openShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
         }
-        function closeShade(){
-            $("#shade").hide();
-            $("body").css("overflow","auto");
+        function closeShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
         }
-
-        function openTempSave(title,content) {
-            if(title) $("#temp-save-hint").text(title);
-            $("#temp-save-content").html(content);
-            $("#temp-save-dialog").show();
+        function openTempSave(sB4, l5) {
+            if (sB4) $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](sB4);
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](l5);
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
             openShade();
         }
-
         function closeTempSave() {
-            $("#temp-save-dialog").hide();
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
             closeShade();
         }
-
-        function decompose(index) {
-            let tempProp = tempStore.get(index);
-            if(tempProp.status === 1) return alert("不能重复分解");
-            let num = destroyMap.get(tempProp.name);
+        function decompose(NsHYujCIN6) {
+            let tempProp = tempStore["\x67\x65\x74"](NsHYujCIN6);
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+            let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
             keyNum += num;
-            $(".key-num").text(keyNum);
-            tempProp.status = 1;
-            var content = getTempStoreHtml();
-            $("#temp-save-content").html(content);
+            $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+            tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+            var hgRboBu7 = getTempStoreHtml();
+            $("\x23\x74\x65\x6d\x70\x2d\x73\x61\x76\x65\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](hgRboBu7);
         }
-
-        function openPrize10Dialog(prize10List) {
-            $("#prize10-list").html(prize10List);
-            $("#prize10-dialog").show();
+        function openPrize10Dialog(obYMHtQBm8) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](obYMHtQBm8);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
             openShade();
         }
-
         function closePrize10Dialog() {
-            $("#prize10-dialog").hide();
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
             closeShade();
         }
-
-        function openPrize1Dialog(prize) {
-            $("#prize1-list").html(prize);
-            $("#prize1-dialog").show();
+        function openPrize1Dialog(zK9) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](zK9);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
             openShade();
         }
-
         function closePrize1Dialog() {
-            $("#prize1-dialog").hide();
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
             closeShade();
         }
-
         function closeDialog() {
-            $("#dialog").hide();
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
             closeShade();
         }
-
-        function openDialog(title,content) {
-            if(title) $("#dialog-title").text(title);
-            $("#dialog-content").html(content);
-            $("#dialog").show();
+        function openDialog(YAnzrb10, sjXj11) {
+            if (YAnzrb10) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](YAnzrb10);
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](sjXj11);
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
             openShade();
         }
-
-        function openLoad(){
+        function openLoad() {
             openShade();
-            $("#loading").show();
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
         }
         function closeLoad() {
-            $("#loading").hide();
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
             closeShade();
         }
     </script>
