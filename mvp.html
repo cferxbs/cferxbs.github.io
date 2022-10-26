@@ -765,7 +765,7 @@
             [1001,2000, '积分x20'],
             [2001,6000, '积分x10'],
             [6001,9000, '积分x5'],
-            [9001,1000, '积分x1'],
+            [9001,10000, '积分x1'],
         ];
 
         var prizeSet = new Set();
@@ -863,8 +863,8 @@
                 let prizeMap = new Map();
                 for(let i=0;i<num;i++){
                     let prod = Math.ceil(Math.random()*10000);
-                    let prize = '';
                     for (let j = 0; j < probability.length; j++) {
+                        let prize = '';
                         let a = probability[j][0];
                         let b = probability[j][1];
                         if (prod >= a && prod <= b) {
@@ -878,15 +878,12 @@
                                 tempStore.set(index++,tempProp);
                             }
                             if(prize === '随机MVP名片喷图'){
-                                console.log("随机MVP名片喷图");
                                 prod = Math.ceil(Math.random()*10000);
-                                console.log("prod："+prod);
                                 for (let z = 0; z < card_probability.length; z++) {
                                     let a1 = card_probability[z][0];
                                     let b1 = card_probability[z][1];
                                     if (prod >= a1 && prod <= b1) {
                                         prize = card_probability[z][2];
-                                        console.log("prize："+prize)
                                         if(destroyMap.has(prize)){
                                             let tempProp = {
                                                 name: prize,
@@ -900,7 +897,6 @@
                             }
                             let prizeCount = prizeMap.get(prize);
                             if(!prizeCount) prizeCount = 0;
-                            prizeMap.set(prize,++prizeCount);
                             if(prize === '语音包四选-自选券'){
                                 voiceCount++;
                                 $(".voice-count").text(voiceCount);
@@ -916,6 +912,8 @@
                                 $(".score-count").text(scoreCount);
                                 $(".score-residue").text(scoreResidue);
                             }
+                            console.log(prize);
+                            prizeMap.set(prize,++prizeCount);
                         }
                     }
                 }
@@ -923,6 +921,7 @@
                 $(".key-num").text(keyNum);
                 closeLoad();
                 let prizeText = '';
+                console.log(prizeMap);
                 for (let prize of prizeSet.keys()) {
                     let prizeCount = prizeMap.get(prize);
                     if(prizeCount){
