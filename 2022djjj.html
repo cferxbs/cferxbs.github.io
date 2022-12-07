@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <TITLE>2022电竞基金-模拟器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #activity{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+        #activity > div{
+            width: 50%;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+        }
+        #activity > div > a{
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            width: 100%;
+            height: 40px;
+            display: inline-block;
+        }
+        #activity > div:nth-child(1){
+            background: #1e9fff;
+        }
+        #activity > div:nth-child(2){
+            background: #ffb800;
+        }
+        body{
+            background: url("static/img/2022djjj/bg-b.jpg") repeat;
+            /*background-size: 100% 100%;*/
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+            background: url("static/img/2022djjj/bg-b.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        .header{
+            font-size: 0;
+            min-width: 320px;
+            max-width: 960px;
+            position: relative;
+        }
+        .more-hint > p{
+            margin: 5px 0;
+        }
+        .draw{
+            background: url("static/img/2022djjj/bg-b.jpg") no-repeat;
+            background-size: 100% 100%;
+            padding-bottom: 30px;
+        }
+        .lottery-title-img{
+            height: 50px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            padding: 20px;
+            margin: 0 auto;
+            color: #ffb800;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key-num{
+            color: #ffb800;
+            margin-right: 20px;
+        }
+        .score-count{
+            color: #ffffff;
+            margin-right: 10px;
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 150px;
+            height: 50px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .key-add-cf{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add-cf > div{
+            width: 150px;
+            height: 30px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery > div{
+            width: 150px;
+            height: 55px;
+            margin: 0 3px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .exchange-title{
+            height: 40px;
+            line-height: 40px;
+            color: rgb(12,218,206);
+            font-size: 35px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+        .score{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgb(12,218,206);
+            font-size: 16px;
+            margin: 10px;
+        }
+        .score-residue,.mvp-box-count,.voice-count{
+            color: #ffb800;
+        }
+        .exchange-row{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            font-size: 0;
+            text-align: center;
+        }
+        .exchange-col{
+            width: 33.3333%;
+            box-sizing: border-box;
+            padding: 5px 3px;
+            display: inline-block;
+        }
+        .exchange-btn{
+            width: 100%;
+            margin-top: 5px;
+            position: relative;
+        }
+        .exchange-score{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -8px 0 0 -32px;
+            color: rgb(104,101,101);
+            font-size: 12px;
+            text-align: center;
+        }
+        @media screen and (min-width: 768px) {
+            .exchange-score{
+                margin: -11px 0 0 -46px;
+                font-size: 16px;
+            }
+        }
+
+        .luck-temp > div{
+            width: 50%;
+            display: inline-block;
+        }
+        .temp-store{
+            width: 100%;
+            margin-top: 40px;
+            position: relative;
+        }
+        .temp-store > div{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .ts-view-img{
+            position: absolute;
+            bottom: 20px;
+            left: calc(50% - 50px);
+            right: calc(50% - 50px);
+            width: 105px;
+            height: 30px;
+            cursor: pointer
+        }
+        @media screen and (min-width: 768px){
+            .ts-view-img{
+                width: 200px;
+                height: 60px;
+            }
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 960px;
+            margin:auto;
+            box-sizing: border-box;
+            padding: 50px;
+            font-size: 0;
+        }
+        .probability > img {
+            vertical-align: top;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        #temp-save-dialog{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("static/img/2022djjj/bg-b.jpg") repeat;
+            z-index: 9999;
+        }
+        @media screen and (max-width: 768px){
+            #temp-save-dialog{
+                top:30%;
+                left: 30px;
+                right: 30px;
+                width: auto;
+                margin:0;
+            }
+            #temp-save-content{
+                height: 500px;
+            }
+        }
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #temp-save-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffffff;
+        }
+        #temp-save-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #temp-save-close{
+            width: 40px;
+            height: 40px;
+            color: #ffffff;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #temp-save-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("static/img/mvp/bg2.png") repeat;
+            color: #ffffff;
+            overflow-y: auto;
+        }
+        .temp-prop-list{
+            margin: 10px;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("static/img/nzdcflh/prize-list.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("static/img/nzdcflh/prize-list.png") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 25px 0 10px;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            color: #ffffff;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin: 10px 0 20px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            background: url("static/img/close.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            /*min-height: 140px;*/
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-content{
+            min-height: 70px;
+            padding: 10px 10px 40px 10px;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("static/img/load.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+        .select-voice{
+
+        }
+
+        .voice-title{
+            height: 40px;
+            line-height: 40px;
+            color: rgb(12,218,206);
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin: 60px 0 10px;
+        }
+        .voice-row{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            font-size: 0;
+            text-align: center;
+        }
+        .voice-col{
+            width: 25%;
+            box-sizing: border-box;
+            padding: 5px 3px;
+            display: inline-block;
+        }
+        .mvp-box{
+
+        }
+        .mvp-title{
+            height: 40px;
+            line-height: 40px;
+            color: rgb(12,218,206);
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin: 40px 0 10px;
+        }
+        .mvp-img-box{
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .box-open{
+            width: 100px;
+            height: 35px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -50px;
+        }
+        @media screen and (min-width: 768px){
+            .box-open{
+                width: 200px;
+                height: 70px;
+                bottom: 20px;
+                margin-left: -100px;
+            }
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+<div id="intro"></div>
+<div id="activity">
+    <div>
+        <a href="https://act.daoju.qq.com/act/a20221111cfs2022/" target="_blank">电脑活动地址</a>
+    </div>
+    <div>
+        <a href="https://app.daoju.qq.com/act/a20221111cfs2022/index.html" target="_blank">手机活动地址</a>
+    </div>
+</div>
+<div class="body-box">
+    <div class="header">
+        <img src="static/img/2022djjj/head-bg.jpg" width="100%" height="100%">
+    </div>
+    <div class="draw">
+        <div class="key">
+            当前剩余钥匙：<span class="key-num"></span>
+        </div>
+        <div class="key-add">
+            <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                <img src="static/img/2022djjj/key-1.png" width="100%" height="100%">
+            </div>
+            <div class="key-add-11" onclick="addKey(11)" title="增加11个钥匙">
+                <img src="static/img/2022djjj/key-11.png" width="100%" height="100%">
+            </div>
+        </div>
+        <div class="pond">
+            <img src="static/img/2022djjj/award.png" width="100%" height="100%">
+        </div>
+        <div class="lottery">
+            <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                <img src="static/img/2022djjj/lottery-1.png" width="100%" height="100%">
+            </div>
+            <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                <img src="static/img/2022djjj/lottery-10.png" width="100%" height="100%">
+            </div>
+        </div>
+    </div>
+    <div class="temp-store">
+        <img src="static/img/2022djjj/temp-store.png" width="100%">
+        <div class="ts-view-img" onclick="viewTempStore()">
+            <img src="static/img/mvp/storage-box-view.png" width="100%" height="100%">
+        </div>
+    </div>
+
+<!--    <div class="select-voice">-->
+<!--        <div class="voice-title">语音包四选一自选卷</div>-->
+<!--        <p style="color: #ffffff;text-align: center;font-size: 12px;margin: 10px ">消耗"自选券"，即可兑换以下任意的道具，可重复获得 剩余数量：[<span class="voice-count"></span>]</p>-->
+<!--        <div class="voice-row">-->
+<!--            <div class="voice-col">-->
+<!--                <img src="static/img/mvp/70.png" width="100%">-->
+<!--                <div class="exchange-btn" onclick="exchangeVoice(1)">-->
+<!--                    <img class="exchange-img-1" src="static/img/mvp/voice-exchange.png" width="100%">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="voice-col">-->
+<!--                <img src="static/img/mvp/bs.png" width="100%">-->
+<!--                <div class="exchange-btn" onclick="exchangeVoice(2)">-->
+<!--                    <img class="exchange-img-1" src="static/img/mvp/voice-exchange.png" width="100%">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="voice-col">-->
+<!--                <img src="static/img/mvp/jj.png" width="100%">-->
+<!--                <div class="exchange-btn" onclick="exchangeVoice(3)">-->
+<!--                    <img class="exchange-img-1" src="static/img/mvp/voice-exchange.png" width="100%">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="voice-col">-->
+<!--                <img src="static/img/mvp/nj.png" width="100%">-->
+<!--                <div class="exchange-btn" onclick="exchangeVoice(4)">-->
+<!--                    <img class="exchange-img-1" src="static/img/mvp/voice-exchange.png" width="100%">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="mvp-box">-->
+<!--        <div class="mvp-title">MVP宝箱</div>-->
+<!--        <p style="color: #ffffff;text-align: center;font-size: 12px;margin: 10px ">消耗“MVP宝箱”，即可抽取其中的道具奖励，可重复获得 剩余数量：[<span class="mvp-box-count"></span>]</p>-->
+<!--        <div class="mvp-img-box">-->
+<!--            <img src="static/img/mvp/mvp-img.png" width="100%">-->
+<!--            <div class="box-open" onclick="openMvpBox()">-->
+<!--                <img src="static/img/mvp/box-open.png" width="100%">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="exchange">-->
+<!--        <div class="exchange-title">积分兑换</div>-->
+<!--        <div class="score">-->
+<!--            累计获得积分：<span class="score-count"></span>-->
+<!--        </div>-->
+<!--        <p style="color: #ffffff;text-align: center;font-size: 12px;margin: 10px">消耗一定的积分可进行道具兑换，道具可以重复兑换。 剩余积分：[<span class="score-residue"></span>]</p>-->
+<!--        <div class="exchange-table">-->
+<!--            <div class="exchange-row">-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh1.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(1)">-->
+<!--                        <img class="exchange-img-1" src="static/img/mvp/exchange-1500.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh2.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(2)">-->
+<!--                        <img class="exchange-img-2" src="static/img/mvp/exchange-1500.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh3.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(3)">-->
+<!--                        <img class="exchange-img-3" src="static/img/mvp/exchange-600.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="exchange-row">-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh4.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(4)">-->
+<!--                        <img class="exchange-img-4" src="static/img/mvp/exchange-1000.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh5.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(5)">-->
+<!--                        <img class="exchange-img-5" src="static/img/mvp/exchange-1000.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh6.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(6)">-->
+<!--                        <img class="exchange-img-6" src="static/img/mvp/exchange-750.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="exchange-row">-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh7.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(7)">-->
+<!--                        <img class="exchange-img-7" src="static/img/mvp/exchange-50.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh8.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(8)">-->
+<!--                        <img class="exchange-img-8" src="static/img/mvp/exchange-50.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh9.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(9)">-->
+<!--                        <img class="exchange-img-9" src="static/img/mvp/exchange-20.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="exchange-row">-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh10.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(10)">-->
+<!--                        <img class="exchange-img-10" src="static/img/mvp/exchange-900.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh10.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(11)">-->
+<!--                        <img class="exchange-img-11" src="static/img/mvp/exchange-900.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh10.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(12)">-->
+<!--                        <img class="exchange-img-12" src="static/img/mvp/exchange-900.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="exchange-row">-->
+<!--                <div class="exchange-col">-->
+<!--                    <img src="static/img/mvp/dh10.png" width="100%">-->
+<!--                    <div class="exchange-btn" onclick="exchange(13)">-->
+<!--                        <img class="exchange-img-13" src="static/img/mvp/exchange-900.png" width="100%">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div class="probability">
+        <img src="static/img/2022djjj/probability.png" width="100%">
+    </div>
+    <div class="disclaimer">
+        <p style="font-size: 25px">声明：</p>
+        <p>本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+        <p>联系邮箱：cferxbs@qq.com</p>
+    </div>
+</div>
+<div id="shade"></div>
+<div id="dialog">
+    <h3 id="dialog-title"></h3>
+    <div id="dialog-content"></div>
+    <div id="dialog-btn" onclick="closeDialog()">确认</div>
+</div>
+<div id="prize10-dialog">
+    <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize10-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="prize1-dialog">
+    <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+    <div class="prize-title">中奖信息</div>
+    <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+    <ul id="prize1-list"></ul>
+    <div class="warm-prompt">
+        温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。奖励道具显示没有延迟，不存在不展示的情况，请以当前页面为准，感谢您的理解与支持。
+    </div>
+</div>
+<div id="temp-save-dialog">
+    <div style="width: 100%;height: 40px">
+        <div id="temp-save-header">
+            <div id="temp-save-hint">提示</div>
+            <div id="temp-save-close" onclick="closeTempSave()">&#10006;</div>
+        </div>
+        <div id="temp-save-content">
+        </div>
+    </div>
+</div>
+<div id="loading"></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+
+    var keyNum = 110;
+    var scoreCount = 0;
+    var scoreResidue = 0;
+    var tempStore = new Map;
+    var index = 0;
+    var luck = 0;
+    var voiceCount = 0;
+    var mvpBoxCount = 0;
+
+    $(function (){
+        // alert("声明：\n " +
+        //     "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+        //     "联系邮箱：cferxbs@qq.com");
+        $(".key-num").text(keyNum);
+        $(".score-count").text(scoreCount);
+        $(".score-residue").text(scoreResidue);
+        $(".luck-v").text(luck);
+        $(".voice-count").text(voiceCount);
+        $(".mvp-box-count").text(mvpBoxCount);
+        $("#intro").load("cferxbs.html");
+    });
+
+    const probability = [
+        [0,10,'幻神-CFS2022(皮肤,不可交易)'],
+        [10,25, '火麒麟-巅峰荣耀(皮肤,不可交易)'],
+        [25,50, '黑骑士-CFS2021(皮肤,不可交易)'],
+        [50,75, '毁灭-CFS2020(皮肤,不可交易)'],
+        [75,105, 'M4A1-雷神-CFS2019(皮肤,不可交易)'],
+        [105,135, '毁灭-CFS2018(皮肤,不可交易)'],
+        [135,165, '火麒麟-CFS2018(皮肤,不可交易)'],
+        [165,205, '屠龙-荣耀之锋(皮肤,不可交易)'],
+        [205,290, '修罗-CFS2018(皮肤,不可交易)'],
+        [290,990, '王者之石x1'],
+        [990,1000, '积分x100'],
+        [1000,1100, '积分x10'],
+        [1100,2100, '积分x5'],
+        [2100,10000, '积分x1'],
+    ];
+
+    var prizeSet = new Set();
+    prizeSet.add("幻神-CFS2022(皮肤,不可交易)");
+    prizeSet.add("火麒麟-巅峰荣耀(皮肤,不可交易)");
+    prizeSet.add("黑骑士-CFS2021(皮肤,不可交易)");
+    prizeSet.add("毁灭-CFS2020(皮肤,不可交易)");
+    prizeSet.add("M4A1-雷神-CFS2019(皮肤,不可交易)");
+    prizeSet.add("毁灭-CFS2018(皮肤,不可交易)");
+    prizeSet.add("火麒麟-CFS2018(皮肤,不可交易)");
+    prizeSet.add("屠龙-荣耀之锋(皮肤,不可交易)");
+    prizeSet.add("修罗-CFS2018(皮肤,不可交易)");
+    prizeSet.add("王者之石x1");
+    prizeSet.add("积分x100");
+    prizeSet.add("积分x10");
+    prizeSet.add("积分x5");
+    prizeSet.add("积分x1");
+
+
+    const card_probability = [
+        [1,3340, 'AG宠儿-十二周年纪念名片'],
+        [3341,6670, '2021最强狙击手-BEAN名片'],
+        [6671,10000, '2021最强狙击手-BEAN喷图'],
+    ];
+
+
+    var destroyMap = new Map();
+    destroyMap.set("幻神-CFS2022(皮肤,不可交易)",18);
+    destroyMap.set("火麒麟-巅峰荣耀(皮肤,不可交易)",16);
+    destroyMap.set("黑骑士-CFS2021(皮肤,不可交易)",14);
+    destroyMap.set("毁灭-CFS2020(皮肤,不可交易)",14);
+    destroyMap.set("M4A1-雷神-CFS2019(皮肤,不可交易)",12);
+    destroyMap.set("毁灭-CFS2018(皮肤,不可交易)",12);
+    destroyMap.set("火麒麟-CFS2018(皮肤,不可交易)",12);
+    destroyMap.set("屠龙-荣耀之锋(皮肤,不可交易)",8);
+    destroyMap.set("修罗-CFS2018(皮肤,不可交易)",4);
+
+    var exchangeMap = new Map();
+    exchangeMap.set(1,['幻神-CFS2022(皮肤,不可交易)',360]);
+    exchangeMap.set(2,['火麒麟-巅峰荣耀(皮肤,不可交易)',280]);
+    exchangeMap.set(3,['黑骑士-CFS2021(皮肤,不可交易)',150]);
+    exchangeMap.set(4,['毁灭-CFS2020(皮肤,不可交易)',150]);
+    exchangeMap.set(5,['M4A1-雷神-CFS2019(皮肤,不可交易)',150]);
+    exchangeMap.set(5,['毁灭-CFS2018(皮肤,不可交易)',110]);
+    exchangeMap.set(6,['火麒麟-CFS2018(皮肤,不可交易)',110]);
+    exchangeMap.set(7,['屠龙-荣耀之锋(皮肤,不可交易)',110]);
+    exchangeMap.set(8,['修罗-CFS2018(皮肤,不可交易)',70]);
+
+    var scoreMap = new Map();
+    scoreMap.set('积分x1',1);
+    scoreMap.set('积分x5',5);
+    scoreMap.set('积分x10',10);
+    scoreMap.set('积分x100',100);
+
+    function addKey(num) {
+        openLoad();
+        setTimeout(function (){
+            keyNum = $(".key-num").text();
+            keyNum = Number(keyNum) + Number(num);
+            $(".key-num").text(keyNum);
+            let content = "<p style='text-align: center;margin-top: 20px'>恭喜你获得 "+num+" 把钥匙</p>";
+            closeLoad();
+            openDialog("系统消息",content);
+        },200);
+    }
+
+    function draw(num) {
+        if(keyNum < num) return alert("钥匙不足");
+        openLoad();
+        let delayTime = 100;
+        if(keyNum > 1) delayTime = 300;
+        setTimeout(function (){
+            let prizeMap = new Map();
+            for(let i=0;i<num;i++){
+                let prod = Math.ceil(Math.random()*10000);
+                for (let j = 0; j < probability.length; j++) {
+                    let prize = '';
+                    let a = probability[j][0];
+                    let b = probability[j][1];
+                    if (prod > a && prod <= b) {
+                        prize = probability[j][2];
+                        if(destroyMap.has(prize)){
+                            let tempProp = {
+                                name: prize,
+                                status: 0,
+                                keyNum: destroyMap.get(prize)
+                            };
+                            tempStore.set(index++,tempProp);
+                        }
+                        let prizeCount = prizeMap.get(prize);
+                        if(!prizeCount) prizeCount = 0;
+                        if(prize.indexOf('积分')>=0){
+                            let score = scoreMap.get(prize);
+                            scoreCount =  Number(scoreCount) + score;
+                            scoreResidue = Number(scoreResidue) + score;
+                            $(".score-count").text(scoreCount);
+                            $(".score-residue").text(scoreResidue);
+                        }
+                        console.log(prize);
+                        prizeMap.set(prize,++prizeCount);
+                    }
+                }
+            }
+            keyNum = Number(keyNum) - Number(num);
+            $(".key-num").text(keyNum);
+            closeLoad();
+            let prizeText = '';
+            console.log(prizeMap);
+            for (let prize of prizeSet.keys()) {
+                let prizeCount = prizeMap.get(prize);
+                if(prizeCount){
+                    prize = prize+"x"+prizeCount+"<br>";
+                    prizeText += prize;
+                }
+            }
+            openDialog("中奖信息",prizeText);
+        }, delayTime);
+    }
+
+
+    function exchange(key) {
+        let item = exchangeMap.get(key);
+        if(!item){
+            return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>兑换信息错误</p>");
+        }
+        let propName = item[0];
+        let needScore = item[1];
+        if(scoreResidue < needScore){
+            return openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>积分不足</p>");
+        }
+        openLoad();
+        setTimeout(function () {
+            closeLoad();
+            scoreResidue -= needScore;
+            if(destroyMap.has(propName)){
+                var tempProp = {
+                    name: propName,
+                    status: 0,
+                    keyNum: destroyMap.get(propName)
+                };
+                tempStore.set(index++,tempProp);
+            }
+            $(".score-residue").text(scoreResidue);
+            openDialog('系统消息',"<p style='text-align: center;margin-top: 20px'>恭喜你获得了 "+propName+"</p>");
+        },300);
+    }
+
+
+
+    function viewTempStore() {
+        setTimeout(function (){
+            var content = getTempStoreHtml();
+            openTempSave('暂存箱',content);
+        },100);
+    }
+
+    function getTempStoreHtml() {
+        var content = "<ul class='temp-prop-list'>";
+        for(let key of tempStore.keys()){
+            let tempProp = tempStore.get(key);
+            var itemProp = '';
+            if(tempProp.status === 0){
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><a href="javascript:void (0);" class="resolve"  onclick="decompose('+key+')">分解</a><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }else{
+                itemProp = '<li><span class="temp-prop-name">'+tempProp.name+'</span><span class="resolve">已分解</span><span class="resolve-key-num">'+tempProp.keyNum+'</span></li>';
+            }
+            content += itemProp;
+        }
+        content += "</ul>";
+        return content;
+    }
+
+
+    function openShade(){
+        $("#shade").show();
+        $("body").css("overflow","hidden");
+    }
+    function closeShade(){
+        $("#shade").hide();
+        $("body").css("overflow","auto");
+    }
+
+    function openTempSave(title,content) {
+        if(title) $("#temp-save-hint").text(title);
+        $("#temp-save-content").html(content);
+        $("#temp-save-dialog").show();
+        openShade();
+    }
+
+    function closeTempSave() {
+        $("#temp-save-dialog").hide();
+        closeShade();
+    }
+
+    function decompose(index) {
+        let tempProp = tempStore.get(index);
+        if(tempProp.status === 1) return alert("不能重复分解");
+        let num = destroyMap.get(tempProp.name);
+        keyNum += num;
+        $(".key-num").text(keyNum);
+        tempProp.status = 1;
+        var content = getTempStoreHtml();
+        $("#temp-save-content").html(content);
+    }
+
+    function openPrize10Dialog(prize10List) {
+        $("#prize10-list").html(prize10List);
+        $("#prize10-dialog").show();
+        openShade();
+    }
+
+    function closePrize10Dialog() {
+        $("#prize10-dialog").hide();
+        closeShade();
+    }
+
+    function openPrize1Dialog(prize) {
+        $("#prize1-list").html(prize);
+        $("#prize1-dialog").show();
+        openShade();
+    }
+
+    function closePrize1Dialog() {
+        $("#prize1-dialog").hide();
+        closeShade();
+    }
+
+    function closeDialog() {
+        $("#dialog").hide();
+        closeShade();
+    }
+
+    function openDialog(title,content) {
+        if(title) $("#dialog-title").text(title);
+        $("#dialog-content").html(content);
+        $("#dialog").show();
+        openShade();
+    }
+
+    function openLoad(){
+        openShade();
+        $("#loading").show();
+    }
+    function closeLoad() {
+        $("#loading").hide();
+        closeShade();
+    }
+</script>
+</body>
+</html>
