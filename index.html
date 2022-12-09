@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CF活动抽奖模拟器大全</title>
     <meta name="keywords" content="CF活动抽奖模拟器,抽奖模拟器,模拟抽奖">
     <meta name="description" content="CF活动抽奖模拟器,抽奖模拟器,模拟抽奖">
@@ -14,23 +14,22 @@
             font-size: 0;
         }
         body{
-            min-width: 320px;
             max-width: 768px;
             margin: 0 auto;
-            background: rgba(153,153,153,0.4);
+            background: url("static/img/index/bg.png");
         }
         .photo{
             width: 100px;
             height: 100px;
             margin: 20px auto 10px;
-            border: 4px solid #f2f2f2;
+            border: 3px solid orange;
             border-radius: 50%;
         }
         .photo > img {
             border-radius: 50%;
         }
         .nickname{
-            color: #ffffff;
+            color: orange;
             font-size: 25px;
             text-align: center;
             margin: 0 auto;
@@ -74,104 +73,132 @@
             border-radius: 5px;
         }
         .draw-list{
-            margin: 10px 5px;
+            margin: 15px 10px 10px;
         }
         .draw-item{
             width: 50%;
             display: inline-block;
+        }
+        .draw-item > a{
+            display: inline-block;
             box-sizing: border-box;
+            width: calc(100% - 10px);
             padding: 5px;
+            margin: 5px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 5px;
+            font-size: 16px;
+            color: #1e9fff;
+            text-decoration:none
         }
         .draw-item > a > img{
             border-radius: 5px;
         }
         #footer{
-            height: 50px;
+
         }
         .footer-hint{
-            font-size: 15px;
+            box-sizing: border-box;
+            padding: 10px;
             text-align: center;
-            color: yellow;
-            height: 35px;
-            line-height: 35px;
-            background-color: #333333;
+            font-size: 14px;
         }
     </style>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
 </head>
 <body>
-    <div id="header">
-        <div class="photo">
-            <img src="static/img/index/photo.png" width="100%" height="100%">
+<div id="header">
+    <div class="photo">
+        <img src="static/img/index/photo.png" width="100%" height="100%">
+    </div>
+    <div class="nickname">玩家小帮手</div>
+    <div class="social">
+        <div class="tiktok">
+            <img src="static/img/index/dy.png" height="100%">
         </div>
-        <div class="nickname">玩家小帮手</div>
-        <div class="social">
-            <div class="tiktok">
-                <img src="static/img/index/dy.png" height="100%">
-            </div>
-            <div class="wechat">
-                <img src="static/img/index/wx.png" height="100%">
-            </div>
+        <div class="wechat">
+            <img src="static/img/index/wx.png" height="100%">
         </div>
     </div>
-    <div id="body">
-        <div class="hint">
-            关注微信公众号：<span style="font-size: 15px;color: #ff5722;font-weight: bold">玩家小帮手</span> <br>
-            回复 "<span style="font-size: 15px;color: #ff5722;font-weight: bold"> 抽奖模拟器 </span>" 即可获取全部抽奖模拟器网址<br>
-            如需其它活动抽奖模拟器，请到抖音留言~
+</div>
+<div id="body">
+    <div class="hint">
+        抖音关注：<span style="font-size: 15px;color: #ff5722;font-weight: bold">玩家小帮手</span> 第一时间获取新活动模拟器~
+        <hr style="margin: 5px">
+        微信公众号：<span style="font-size: 15px;color: #ff5722;font-weight: bold">玩家小帮手</span> 回复 "<span style="font-size: 15px;color: #ff5722;font-weight: bold"> 抽奖模拟器 </span>" 获取抽奖模拟器网址<br>
+        <hr style="margin: 5px">
+        <span style="color: #ffffff;font-size: 15px;">提示：模拟器存放在国外开源论坛，国内访问有网络防火墙拦截，部分网络打不开/加载慢是正常现象，切换网络多试/耐心等待进度条加载。</span>
+    </div>
+    <div class="draw-list">
+        <div class="draw-item">
+            <a href="/2022djjj.html" target="_blank">
+                2022电竞基金
+            </a>
         </div>
-        <div class="draw-list">
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/nzdcflh.html" target="_blank" title="年中大促福利汇模拟抽奖">
-                    <img src="static/img/index/nzdcflh.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/df.html" target="_blank" title="毒蜂模拟抽奖">
-                    <img src="static/img/index/df.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/csay.html" target="_blank" title="传说暗裔序列号版模拟抽奖">
-                    <img src="static/img/index/csay.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/jjrg.html" target="_blank" title="竞技荣光模拟抽奖">
-                    <img src="static/img/index/jjrg.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/xjwzxy.html" target="_blank" title="夏季王者许愿模拟抽奖">
-                    <img src="static/img/index/xjwzxy.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/wzdb.html" target="_blank" title="王者夺宝模拟抽奖">
-                    <img src="static/img/index/wzdb.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/wzlh.html" target="_blank" title="王者轮回模拟抽奖">
-                    <img src="static/img/index/wzlh.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/gtcbt.html" target="_blank" title="国图藏宝图模拟抽奖">
-                    <img src="static/img/index/gtcbt.png" width="100%" height="100%">
-                </a>
-            </div>
-            <div class="draw-item">
-                <a href="https://cferxbs.github.io/csmy.html" target="_blank" title="传说梦魇模拟抽奖">
-                    <img src="static/img/index/csmy.png" width="100%" height="100%">
-                </a>
-            </div>
+        <div class="draw-item">
+            <a href="/mvp.html" target="_blank">
+                MVP大卖场
+            </a>
         </div>
+        <div class="draw-item">
+            <a href="/gfsjl.html" target="_blank">
+                工坊赏金令
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="/nzdcflh.html" target="_blank">
+                年中大促福利汇
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/df.html" target="_blank">
+                毒蜂溯源
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/csay.html" target="_blank">
+                传说暗裔序列号
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/jjrg.html" target="_blank">
+                竞技荣光
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/xjwzxy.html" target="_blank">
+                夏季王者许愿
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/wzdb.html" target="_blank">
+                王者夺宝
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/wzlh.html" target="_blank">
+                王者轮回
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/gtcbt.html" target="_blank">
+                国图藏宝图
+            </a>
+        </div>
+        <div class="draw-item">
+            <a href="https://cferxbs.github.io/csmy.html" target="_blank">
+                传说梦魇
+            </a>
+        </div>
+    </div>
 
+</div>
+<div id="footer">
+    <div class="footer-hint">
+        本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～
+        <br>联系邮箱：cferxbs@qq.com
     </div>
-    <div id="footer">
-        <div class="footer-hint">如需其它活动抽奖模拟器，请到抖音留言~</div>
-    </div>
+</div>
 </body>
+<script>
+</script>
 </html>
