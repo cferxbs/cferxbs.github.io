@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>超越降临 横扫试炼 - 娱乐器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+        .body-box{
+
+        }
+        #activity{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 0 auto;
+            font-size: 0;
+        }
+        #activity > div{
+            width: 50%;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+        }
+        #activity > div > a{
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            width: 100%;
+            height: 40px;
+            display: inline-block;
+        }
+        #activity > div:nth-child(1){
+            background: #1e9fff;
+        }
+        #activity > div:nth-child(2){
+            background: #ffb800;
+        }
+        .body-box{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+            padding: 0 0 50px;
+            background: url("static/img/cyjl/bg.jpg") no-repeat;
+            background-size: cover;
+        }
+        .header{
+            min-width: 320px;
+            max-width: 960px;
+            width: auto;
+            margin: auto;
+        }
+        #menu{
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #ffffff;
+        }
+        #menu > div{
+            font-size: 16px;
+            color: #ffffff;
+            text-align: center;
+            display: inline-block;
+            margin-right: 10px;
+            background-color: #5FB878;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .key{
+            min-width: 320px;
+            max-width: 560px;
+            margin: auto;
+            padding: 30px 0 20px;
+            line-height: 30px;
+            color: #ffffff;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .key > span{
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .key-num{
+            margin-right: 20px;
+        }
+        .score-count{
+        }
+        .record{
+        }
+        .key-add{
+            width: 100%;
+            text-align: center;
+        }
+        .key-add > div{
+            width: 130px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0;
+            cursor: pointer;
+        }
+        .pond{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .lottery{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .lottery > div{
+            width: 130px;
+            /*margin: 0 10px;*/
+            display: inline-block;
+            cursor: pointer;
+        }
+        .temp-store{
+            text-align: center;
+            box-sizing: border-box;
+            min-width: 320px;
+            max-width: 500px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            background-size: 100% 100%;
+        }
+        .temp-store > div{
+            margin: 10px auto;
+        }
+        .ts-title{
+            text-align: center;
+            color: #ffffff;
+            font-size: 28px;
+            line-height: 1.1;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        .ts-img{
+            width: 200px;
+            height: 200px;
+            background: url("static/img/cyjl/zc_box.png") no-repeat;
+            background-size: cover;
+
+        }
+        .ts-view-img{
+            width: 150px;
+            height: 40px;
+            margin: 20px auto 0;
+            cursor: pointer;
+            background-color: rgb(230,195,132);
+            border-radius: 3px;
+            color: rgb(22,91,78);
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        .probability{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .disclaimer{
+            min-width: 320px;
+            max-width: 960px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        #dialog-data{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -250px 0 0 -250px;
+            display: none;
+            width: 500px;
+            background: url("static/img/cyjl/bg.jpg") repeat;
+            background-size: 100% 100%;
+            z-index: 9999;
+        }
+
+        #shade{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            opacity: 0.3;
+            z-index: 9998;
+            display: none;
+        }
+        #dialog-data-header{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #ffffff;
+        }
+        #dialog-data-hint{
+            float: left;
+            font-size: 16px;
+            margin-left: 10px;
+            line-height: 40px;
+            color: #ffffff;
+        }
+        #dialog-data-close{
+            width: 40px;
+            height: 40px;
+            color: #ffffff;
+            float: right;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #dialog-data-content{
+            width: 100%;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            background: url("static/img/cyjl/bg.jpg") repeat;
+            background-size: 100% 100%;
+            color: #ffffff;
+            overflow-y: auto;
+        }
+        @media screen and (max-width: 768px){
+            #dialog-data{
+                top:calc(50% - 250px);
+                left: 5px;
+                right: 5px;
+                width: auto;
+                margin:0;
+            }
+            #dialog-data-content{
+                height: 500px;
+            }
+        }
+        .temp-prop-list{
+            margin: 10px 0;
+            list-style:none;
+        }
+        .temp-prop-list > li{
+            clear: both;
+            border-bottom: 1px solid;
+            height: 40px;
+            line-height: 40px;
+        }
+        .temp-prop-list > li > span{
+            margin: 5px 0;
+        }
+        .temp-prop-list > li > a{
+            margin: 5px 0;
+        }
+        .temp-prop-name{
+            float: left;
+            font-size: 16px;
+        }
+        .resolve{
+            float: right;
+            width: 85px;
+            text-align: right;
+            font-size: 16px;
+        }
+        .resolve-key-num{
+            float: right;
+            width: 30px;
+            text-align: right;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .draw-num{
+            font-size: 16px;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+        .data-list{
+            margin: 10px 0;
+            list-style:none;
+        }
+        .data-list > li{
+            clear: both;
+            border-bottom: 1px solid;
+            height: 40px;
+            line-height: 40px;
+            color: rgb(233,201,140);
+        }
+        .data-list > li > span{
+            margin: 5px 0;
+        }
+        .data-name{
+            float: left;
+            font-size: 16px;
+        }
+        .data-num{
+            float: right;
+            min-width: 30px;
+            text-align: right;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        #prize10-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            margin-left: -160px;
+            background: url("static/img/cyjl/bg.jpg") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+
+        #prize1-dialog{
+            width: 320px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -122px;
+            margin-left: -160px;
+            background: url("static/img/cyjl/bg.jpg") no-repeat;
+            background-size: 100% 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            display: none;
+            z-index: 9999;
+        }
+        .prize-title{
+            text-align: center;
+            font-size: 24px;
+            color: #ffffff;
+            margin: 20px 0 0;
+        }
+        .prize-hint{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px 5px 5px;
+        }
+        #prize10-list{
+            width: 100%;
+            height: 270px;
+            list-style: none;
+            margin-top: 8px;
+        }
+        #prize1-list{
+            width: 100%;
+            height: 27px;
+            list-style: none;
+            margin: 20px 0;
+        }
+        .prize-item{
+            width: 100%;
+            height: 27px;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            color: rgb(233,201,140);
+        }
+        .warm-prompt{
+            font-size: 12px;
+            color: #ffffff;
+            width: 100%;
+            margin: 10px 0 35px;
+            box-sizing: border-box;
+            padding: 0 5px;
+            text-align: center;
+        }
+        .prize-dialog-close{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: -15px;
+            right: -20px;
+            background: url("static/img/close.png") no-repeat;
+            background-size: cover;
+        }
+
+        #dialog{
+            width: 280px;
+            height: 140px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -140px;
+            background: white;
+            border-radius: 3px;
+            z-index: 9999;
+            display: none;
+        }
+        #dialog-title{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        #dialog-btn{
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            background: #2196F3;
+            box-sizing: border-box;
+            padding: 0px 5px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 3px;
+            border-top: solid 1px #eae8e8;
+            position: absolute;
+            bottom: 2px;
+            left: 2px;
+            right: 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #loading{
+            width: 16px;
+            height: 16px;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+            background: url("static/img/load.gif") no-repeat 100%;
+            background-size: cover;
+            z-index: 9998;
+            display: none;
+        }
+    </style>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id: "JoSOCHPCXJ5VeUJR",ck: "JoSOCHPCXJ5VeUJR"})</script>
+</head>
+<body>
+    <div id="intro"></div>
+    <div id="activity">
+        <div>
+            <a href="https://act.daoju.qq.com/act/a20221227cyjl/index.html" target="_blank">电脑活动地址</a>
+        </div>
+        <div>
+            <a href="https://app.daoju.qq.com/act/a20221227cyjlm/indexm.html" target="_blank">手机活动地址</a>
+        </div>
+    </div>
+    <div class="header">
+        <img src="static/img/cyjl/banner.jpg" width="100%" height="100%">
+    </div>
+    <div class="body-box">
+        <div id="menu">
+            <div id="model" onclick="switchModel()">标准模式</div>
+            <div id="clear" onclick="clearData()">清空数据</div>
+            <div id="statistic" onclick="viewStatistic()">中奖统计</div>
+        </div>
+        <div class="draw">
+            <div class="key">
+                当前剩余钥匙：<span class="key-num"> </span>
+                累计积分：<span class="score-count"> </span>
+            </div>
+            <div class="key-add">
+                <div class="key-add-1" onclick="addKey(1)" title="增加1个钥匙">
+                    <img src="static/img/cyjl/key-1.png" width="100%" height="100%">
+                </div>
+                <div class="key-add-11" onclick="addKey(11)" title="增加11个钥匙">
+                    <img src="static/img/cyjl/key-11.png" width="100%" height="100%">
+                </div>
+            </div>
+            <div class="pond">
+                <img src="static/img/cyjl/lottery.png" width="100%">
+            </div>
+            <div class="lottery">
+                <div class="lottery-1" onclick="draw(1)" title="进行一次抽奖">
+                    <img src="static/img/cyjl/lottery-1.png" width="100%">
+                </div>
+                <div class="lottery-10" onclick="draw(10)" title="进行一次十连抽">
+                    <img src="static/img/cyjl/lottery-10.png" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="temp-store">
+            <h3 class="ts-title">暂存箱</h3>
+            <p style="width: 80%;margin: auto; text-align: center;color: #ffffff;font-size: 14px;">抽奖获得的可分解道具存放在 【暂存箱】中，可用来分解成钥匙</p>
+            <div class="ts-img"></div>
+            <div class="ts-view">
+                <div class="ts-view-img" onclick="viewTempStore()">
+                    <img src="static/img/cyjl/storage-box-view.png" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="probability">
+        </div>
+        <div class="disclaimer">
+            <p style="font-size: 25px">声明：</p>
+            <p style="font-size: 16px">本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～</p>
+            <p style="font-size: 16px">联系邮箱：cferxbs@88.com</p>
+        </div>
+    </div>
+    <div id="shade"></div>
+    <div id="dialog">
+        <h3 id="dialog-title"></h3>
+        <div id="dialog-content"></div>
+        <div id="dialog-btn" onclick="closeDialog()">确认</div>
+    </div>
+    <div id="prize10-dialog">
+        <div class="prize-dialog-close" onclick="closePrize10Dialog()"></div>
+        <h2 class="prize-title">中奖信息</h2>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize10-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。中奖概率不代表官方概率，抽中的道具也不会发往仓库。
+        </div>
+    </div>
+    <div id="prize1-dialog">
+        <div class="prize-dialog-close" onclick="closePrize1Dialog()"></div>
+        <h2 class="prize-title">中奖信息</h2>
+        <div class="prize-hint">抽奖过程中请勿刷新页面，否则会丢失记录并重置抽奖数据。</div>
+        <ul id="prize1-list"></ul>
+        <div class="warm-prompt">
+            温馨提示:1.此页面为模拟抽奖，虚拟道具奖品不会发到您的游戏仓库。中奖概率不代表官方概率，抽中的道具也不会发往仓库。
+        </div>
+    </div>
+    <div id="dialog-data">
+        <div style="width: 100%;height: 40px">
+            <div id="dialog-data-header">
+                <div id="dialog-data-hint">提示</div>
+                <div id="dialog-data-close" onclick="closeTempSave()">&#10006;</div>
+            </div>
+            <div id="dialog-data-content">
+            </div>
+        </div>
+    </div>
+    <div id="loading"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var keyNum = 110;
+        var scoreCount = 0;
+        var tempStore = new Map;
+        var index = 0;
+        var model = 0;
+        var drawNum = 0;
+        var statisticMap = new Map();
+
+
+        $(function (){
+            alert("声明：\n " +
+                "本页面仅做为模拟娱乐，无任何盈利和消费，中奖概率不代表官方概率，抽中的道具也不会发往仓库。如有侵权联系即删～\n" +
+                "联系邮箱：cferxbs@88.com");
+            $(".key-num").text(keyNum);
+            $(".score-count").text(scoreCount);
+            $("#intro").load("cferxbs.html");
+        });
+
+        const probability = [
+            [1,15,'荒漠琉璃'],
+            [16,30, '月兔特工'],
+            [31,70, 'M4A1-黑骑士'],
+            [71,120, '试炼破坏者Ⅲ'],
+            [121,180, '征服者 超越5'],
+            [181,240, '乱世 超越5'],
+            [241,320, '黄金迷你深渊冰龙'],
+            [321,400, '黄金迷你裂空之翼'],
+            [401,480, '黄金虚空之锤'],
+            [481,560, '黄金芭蕉扇'],
+            [561,710, '艾比眼镜'],
+            [711,730, '积分X100'],
+            [731,1000, '积分X50'],
+            [1001,3000, '积分X20'],
+            [3001,7000, '积分X10'],
+            [7001,10000, '积分X5'],
+        ];
+
+
+        statisticMap.set('荒漠琉璃',0);
+        statisticMap.set('月兔特工',0);
+        statisticMap.set('M4A1-黑骑士',0);
+        statisticMap.set('试炼破坏者Ⅲ',0);
+        statisticMap.set('征服者 超越5',0);
+        statisticMap.set('乱世 超越5',0);
+        statisticMap.set('黄金迷你深渊冰龙',0);
+        statisticMap.set('黄金迷你裂空之翼',0);
+        statisticMap.set('黄金虚空之锤',0);
+        statisticMap.set('黄金芭蕉扇',0);
+        statisticMap.set('积分X100',0);
+        statisticMap.set('积分X50',0);
+        statisticMap.set('积分X20',0);
+        statisticMap.set('积分X10',0);
+        statisticMap.set('积分X5',0);
+
+        var destroyMap = new Map();
+        destroyMap.set('荒漠琉璃',10);
+        destroyMap.set('月兔特工',10);
+        destroyMap.set('M4A1-黑骑士',5);
+        destroyMap.set('试炼破坏者Ⅲ',4);
+        destroyMap.set('征服者 超越5',3);
+        destroyMap.set('乱世 超越5',3);
+        destroyMap.set('黄金迷你深渊冰龙',2);
+        destroyMap.set('黄金迷你裂空之翼',2);
+        destroyMap.set('黄金虚空之锤',2);
+        destroyMap.set('黄金芭蕉扇',2);
+        destroyMap.set('艾比眼镜',1);
+
+        var scoreMap = new Map();
+        scoreMap.set('积分X5',5);
+        scoreMap.set('积分X10',10);
+        scoreMap.set('积分X20',20);
+        scoreMap.set('积分X50',50);
+        scoreMap.set('积分X100',100);
+
+
+        function addKey(RgU1) {
+            if (model === 1) {
+                keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](RgU1);
+                $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+            } else {
+                openLoad();
+                setTimeout(function() {
+                        keyNum = $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"]();
+                        keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) + window["\x4e\x75\x6d\x62\x65\x72"](RgU1);
+                        $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                        let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a \x31\x36\x70\x78\x27\x3e\u606d\u559c\u4f60\u83b7\u5f97 " + RgU1 + " \u628a\u94a5\u5319\x3c\x2f\x70\x3e";
+                        closeLoad();
+                        openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                    },
+                    200);
+            }
+        }
+        function draw(lW$IV2) {
+            if (keyNum < lW$IV2) return window["\x61\x6c\x65\x72\x74"]("\u94a5\u5319\u4e0d\u8db3");
+            openLoad();
+            let delayTime = (model === 1 ? 0 : 200);
+            console["\x6c\x6f\x67"](delayTime);
+            setTimeout(function() {
+                    let prizeList = $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74");
+                    if (lW$IV2 === 1) {
+                        $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+                        prizeList = $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74");
+                    } else {
+                        $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+                        prizeList = $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74");
+                    }
+                    prizeList["\x68\x74\x6d\x6c"]("");
+                    openShade();
+                    for (let i = 0; i < lW$IV2; i++) {
+                        setTimeout(function() {
+                                var MQSnVW_3 = window["\x4d\x61\x74\x68"]["\x63\x65\x69\x6c"](window["\x4d\x61\x74\x68"]["\x72\x61\x6e\x64\x6f\x6d"]() * 10000);
+                                var Rg4 = '';
+                                for (j = 0; j < probability["\x6c\x65\x6e\x67\x74\x68"]; j++) {
+                                    var daosnE_mP5 = probability[j][0];
+                                    var jhNHy6 = probability[j][1];
+                                    if (MQSnVW_3 >= daosnE_mP5 && MQSnVW_3 <= jhNHy6) {
+                                        Rg4 = probability[j][2];
+                                        if (destroyMap["\x68\x61\x73"](Rg4)) {
+                                            var $hFoFOqDK7 = {
+                                                name: Rg4,
+                                                status: 0,
+                                                keyNum: destroyMap["\x67\x65\x74"](Rg4)
+                                            };
+                                            tempStore["\x73\x65\x74"](index++, $hFoFOqDK7);
+                                        } else if (scoreMap["\x68\x61\x73"](Rg4)) {
+                                            scoreCount += scoreMap["\x67\x65\x74"](Rg4);
+                                        }
+                                        var m$HoUUY8 = statisticMap["\x67\x65\x74"](Rg4);
+                                        m$HoUUY8++;
+                                        statisticMap["\x73\x65\x74"](Rg4, m$HoUUY8);
+                                    }
+                                }
+                                prizeList["\x61\x70\x70\x65\x6e\x64"]("\x3c\x6c\x69 \x63\x6c\x61\x73\x73\x3d\x27\x70\x72\x69\x7a\x65\x2d\x69\x74\x65\x6d\x27\x3e" + Rg4 + "\x3c\x2f\x6c\x69\x3e");
+                            },
+                            i * (model === 1 ? 0 : 600));
+                    }
+                    keyNum = window["\x4e\x75\x6d\x62\x65\x72"](keyNum) - window["\x4e\x75\x6d\x62\x65\x72"](lW$IV2);
+                    drawNum = window["\x4e\x75\x6d\x62\x65\x72"](drawNum) + window["\x4e\x75\x6d\x62\x65\x72"](lW$IV2);
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    closeLoad();
+                },
+                delayTime);
+        }
+        function switchModel() {
+            if (model === 0) {
+                openLoad();
+                setTimeout(function() {
+                        model = 1;
+                        $("\x23\x6d\x6f\x64\x65\x6c")["\x74\x65\x78\x74"]("\u6025\u901f\u6a21\u5f0f");
+                        let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a \x31\x36\x70\x78\x27\x3e\u5df2\u5173\u95ed\u52a0\u8f7d\u7279\u6548\x3c\x2f\x70\x3e";
+                        closeLoad();
+                        openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                    },
+                    200);
+            } else {
+                openLoad();
+                setTimeout(function() {
+                        model = 0;
+                        $("\x23\x6d\x6f\x64\x65\x6c")["\x74\x65\x78\x74"]("\u6807\u51c6\u6a21\u5f0f");
+                        let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a \x31\x36\x70\x78\x27\x3e\u5df2\u5f00\u542f\u52a0\u8f7d\u7279\u6548\x3c\x2f\x70\x3e";
+                        closeLoad();
+                        openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                    },
+                    200);
+            }
+        }
+        function clearData() {
+            openLoad();
+            setTimeout(function() {
+                    keyNum = 110;
+                    scoreCount = 0;
+                    tempStore = new Map;
+                    index = 0;
+                    drawNum = 0;
+                    for (let data of statisticMap["\x6b\x65\x79\x73"]()) {
+                        statisticMap["\x73\x65\x74"](data, 0);
+                    }
+                    $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+                    $("\x2e\x73\x63\x6f\x72\x65\x2d\x63\x6f\x75\x6e\x74")["\x74\x65\x78\x74"](scoreCount);
+                    let content = "\x3c\x70 \x73\x74\x79\x6c\x65\x3d\x27\x74\x65\x78\x74\x2d\x61\x6c\x69\x67\x6e\x3a \x63\x65\x6e\x74\x65\x72\x3b\x6d\x61\x72\x67\x69\x6e\x2d\x74\x6f\x70\x3a \x32\x30\x70\x78\x3b\x66\x6f\x6e\x74\x2d\x73\x69\x7a\x65\x3a \x31\x36\x70\x78\x27\x3e\u62bd\u5956\u8bb0\u5f55\u5df2\u6e05\u7a7a\x3c\x2f\x70\x3e";
+                    closeLoad();
+                    openDialog("\u7cfb\u7edf\u6d88\u606f", content);
+                },
+                200);
+        }
+        function getStatisticHtml() {
+            var s9 = "\x3c\x64\x69\x76 \x63\x6c\x61\x73\x73\x3d\x27\x64\x72\x61\x77\x2d\x6e\x75\x6d\x27\x3e\u60a8\u5df2\u62bd " + drawNum + " \u6b21\x3c\x2f\x64\x69\x76\x3e" + "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x64\x61\x74\x61\x2d\x6c\x69\x73\x74\x27\x3e";
+            for (let data of statisticMap["\x6b\x65\x79\x73"]()) {
+                let dataNum = statisticMap["\x67\x65\x74"](data);
+                var Zcs10 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x64\x61\x74\x61\x2d\x6e\x61\x6d\x65\x22\x3e' + data + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x64\x61\x74\x61\x2d\x6e\x75\x6d\x22\x3e' + dataNum + ' \u4e2a\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+                s9 += Zcs10;
+            }
+            s9 += "\x3c\x2f\x75\x6c\x3e";
+            return s9;
+        }
+        function viewStatistic() {
+            setTimeout(function() {
+                    var KAHA11 = getStatisticHtml();
+                    openDialogData('\u4e2d\u5956\u4fe1\u606f', KAHA11);
+                },
+                100);
+        }
+        function viewTempStore() {
+            setTimeout(function() {
+                    var gDfvlPwv12 = getTempStoreHtml();
+                    openDialogData('\u6682\u5b58\u7bb1', gDfvlPwv12);
+                },
+                100);
+        }
+        function getTempStoreHtml() {
+            var AqrJP13 = "\x3c\x75\x6c \x63\x6c\x61\x73\x73\x3d\x27\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6c\x69\x73\x74\x27\x3e";
+            for (let key of tempStore["\x6b\x65\x79\x73"]()) {
+                let tempProp = tempStore["\x67\x65\x74"](key);
+                var avQmckJb14 = '';
+                if (tempProp["\x73\x74\x61\x74\x75\x73"] === 0) {
+                    avQmckJb14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x61 \x68\x72\x65\x66\x3d\x22\x6a\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3a\x76\x6f\x69\x64 \x28\x30\x29\x3b\x22 \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22  \x6f\x6e\x63\x6c\x69\x63\x6b\x3d\x22\x64\x65\x63\x6f\x6d\x70\x6f\x73\x65\x28' + key + '\x29\x22\x3e\u5206\u89e3\x3c\x2f\x61\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+                } else {
+                    avQmckJb14 = '\x3c\x6c\x69\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x74\x65\x6d\x70\x2d\x70\x72\x6f\x70\x2d\x6e\x61\x6d\x65\x22\x3e' + tempProp["\x6e\x61\x6d\x65"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x22\x3e\u5df2\u5206\u89e3\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x73\x70\x61\x6e \x63\x6c\x61\x73\x73\x3d\x22\x72\x65\x73\x6f\x6c\x76\x65\x2d\x6b\x65\x79\x2d\x6e\x75\x6d\x22\x3e' + tempProp["\x6b\x65\x79\x4e\x75\x6d"] + '\x3c\x2f\x73\x70\x61\x6e\x3e\x3c\x2f\x6c\x69\x3e';
+                }
+                AqrJP13 += avQmckJb14;
+            }
+            AqrJP13 += "\x3c\x2f\x75\x6c\x3e";
+            return AqrJP13;
+        }
+        function openShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x73\x68\x6f\x77"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x68\x69\x64\x64\x65\x6e");
+        }
+        function closeShade() {
+            $("\x23\x73\x68\x61\x64\x65")["\x68\x69\x64\x65"]();
+            $("\x62\x6f\x64\x79")["\x63\x73\x73"]("\x6f\x76\x65\x72\x66\x6c\x6f\x77", "\x61\x75\x74\x6f");
+        }
+        function openDialogData(Asifz15, qeTwfULhd16) {
+            if (Asifz15) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x64\x61\x74\x61\x2d\x68\x69\x6e\x74")["\x74\x65\x78\x74"](Asifz15);
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x64\x61\x74\x61\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](qeTwfULhd16);
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x64\x61\x74\x61")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function closeTempSave() {
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x64\x61\x74\x61")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function decompose(fLiZS17) {
+            let tempProp = tempStore["\x67\x65\x74"](fLiZS17);
+            if (tempProp["\x73\x74\x61\x74\x75\x73"] === 1) return window["\x61\x6c\x65\x72\x74"]("\u4e0d\u80fd\u91cd\u590d\u5206\u89e3");
+            let num = destroyMap["\x67\x65\x74"](tempProp["\x6e\x61\x6d\x65"]);
+            keyNum += num;
+            $("\x2e\x6b\x65\x79\x2d\x6e\x75\x6d")["\x74\x65\x78\x74"](keyNum);
+            tempProp["\x73\x74\x61\x74\x75\x73"] = 1;
+            var g18 = getTempStoreHtml();
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x64\x61\x74\x61\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](g18);
+        }
+        function openPrize10Dialog(OAZWs19) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](OAZWs19);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade();
+        }
+        function closePrize10Dialog() {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x30\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade();
+        }
+        function openPrize1Dialog(HLbjCLaA20) {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x6c\x69\x73\x74")["\x68\x74\x6d\x6c"](HLbjCLaA20);
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function closePrize1Dialog() {
+            $("\x23\x70\x72\x69\x7a\x65\x31\x2d\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function closeDialog() {
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x68\x69\x64\x65"]();
+            closeShade()
+        }
+        function openDialog(dkyslBrd21, UM22) {
+            if (dkyslBrd21) $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x74\x69\x74\x6c\x65")["\x74\x65\x78\x74"](dkyslBrd21);
+            $("\x23\x64\x69\x61\x6c\x6f\x67\x2d\x63\x6f\x6e\x74\x65\x6e\x74")["\x68\x74\x6d\x6c"](UM22);
+            $("\x23\x64\x69\x61\x6c\x6f\x67")["\x73\x68\x6f\x77"]();
+            openShade()
+        }
+        function openLoad() {
+            openShade();
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x73\x68\x6f\x77"]();
+        }
+        function closeLoad() {
+            $("\x23\x6c\x6f\x61\x64\x69\x6e\x67")["\x68\x69\x64\x65"]();
+            closeShade();
+        }
+    </script>
+</body>
+</html>
